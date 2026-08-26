@@ -5,12 +5,16 @@
   Built by Advon Media — https://advonmedia.com
 
   SKELETON ROLL
-    Hero .............. stacked editorial
-    Nav ............... centered logo, split navigation
+    Hero .............. stacked editorial, leaf used as a single decorative watermark
+    Nav ............... horizontal lockup (mark + wordmark), split navigation, scroll-compacting
     Services .......... numbered editorial list (01–05)
     Social proof ...... floating credential chips (no reviews yet — nothing fabricated)
     Contact ........... full-width band
     FAQ ............... two-column list directly before contact
+
+  LOGO POLICY — the mark appears exactly three times, never twice in one viewport:
+    1. nav lockup (small)   2. hero background watermark (decorative, aria-hidden)
+    3. footer mark (small)
 
   INDEXING STATE: PREVIEW (GitHub Pages)
     - <meta name="robots" content="noindex,nofollow"> is active
@@ -33,7 +37,7 @@
 <meta name="description" content="Συμβουλευτική ψυχικής υγείας για ενήλικες και εφήβους, στη Βούλα και online. Σοφία Γουβιώτου, Σύμβουλος Ψυχικής Υγείας. Κλείσε την πρώτη σου συνάντηση.">
 <meta name="keywords" content="σύμβουλος ψυχικής υγείας Βούλα, συμβουλευτική Βούλα, συμβουλευτική ενηλίκων, συμβουλευτική εφήβων και γονέων, συμβουλευτική πένθους, χρόνια νοσήματα, διαδικτυακή συμβουλευτική, Σοφία Γουβιώτου">
 <meta name="author" content="Σοφία Γουβιώτου">
-<meta name="theme-color" content="#EEE5D4">
+<meta name="theme-color" content="#F4ECDD">
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Being Present — Σοφία Γουβιώτου">
@@ -57,17 +61,17 @@
 <style>
 /* ============================ tokens ============================ */
 :root{
-  --paper:#F4ECDD;          /* page */
-  --paper-2:#EBE0CC;        /* surface / cards */
-  --paper-3:#E2D5BC;        /* deeper surface */
-  --ink:#22392B;            /* deep green — body text */
-  --ink-2:#3E5847;          /* secondary text */
-  --ink-3:#6B7F71;          /* muted */
-  --green:#2C4D3A;          /* brand green */
-  --green-deep:#1B2E23;     /* footer / dark band */
-  --terra:#9A4423;          /* κεραμιδί — primary accent */
-  --terra-2:#B75C34;        /* hover */
-  --terra-soft:#E5CDBE;
+  --paper:#F4ECDD;
+  --paper-2:#EDE2CE;
+  --paper-3:#E4D7BE;
+  --ink:#22392B;
+  --ink-2:#3E5847;
+  --ink-3:#6B7F71;
+  --green:#2C4D3A;
+  --green-deep:#16261C;
+  --terra:#9A4423;
+  --terra-2:#B75C34;
+  --terra-soft:#E7D0C0;
   --line:rgba(34,57,43,.16);
   --line-2:rgba(34,57,43,.09);
 
@@ -76,19 +80,27 @@
 
   --ease:cubic-bezier(.22,1,.36,1);
   --ease-soft:cubic-bezier(.4,0,.2,1);
+  --ease-back:cubic-bezier(.34,1.4,.5,1);
+
   --pad:clamp(1.15rem,5vw,5rem);
   --maxw:1180px;
-  --r:18px;
+  --r:20px;
+
+  /* layered, brand-tinted shadows */
+  --sh-1:0 1px 2px rgba(22,38,28,.05), 0 4px 10px -4px rgba(22,38,28,.09);
+  --sh-2:0 2px 4px rgba(22,38,28,.05), 0 14px 28px -12px rgba(22,38,28,.16), 0 40px 64px -44px rgba(22,38,28,.34);
+  --sh-3:0 3px 6px rgba(22,38,28,.06), 0 22px 44px -16px rgba(22,38,28,.22), 0 60px 90px -52px rgba(22,38,28,.45);
+  --sh-terra:0 18px 34px -18px rgba(154,68,35,.62);
 }
 
 *,*::before,*::after{box-sizing:border-box}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+html{-webkit-text-size-adjust:100%}
+html:not(.js-anim){scroll-behavior:smooth}
 body{
   margin:0;background:var(--paper);color:var(--ink);
   font-family:var(--sans);font-weight:300;font-size:clamp(1rem,.97rem + .18vw,1.06rem);
-  line-height:1.72;letter-spacing:.002em;-webkit-font-smoothing:antialiased;overflow-x:hidden;
+  line-height:1.72;-webkit-font-smoothing:antialiased;overflow-x:hidden;
 }
-/* subtle paper grain */
 body::before{
   content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.5;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.055'/%3E%3C/svg%3E");
@@ -96,340 +108,473 @@ body::before{
 main,header,footer{position:relative;z-index:1}
 img{max-width:100%;height:auto;display:block}
 a{color:inherit}
-h1,h2,h3,h4{font-family:var(--serif);font-weight:400;line-height:1.16;margin:0;letter-spacing:-.005em}
-h1{font-size:clamp(2.3rem,1.5rem + 3.6vw,4.1rem)}
-h2{font-size:clamp(1.85rem,1.3rem + 2.2vw,2.9rem)}
-h3{font-size:clamp(1.25rem,1.05rem + .8vw,1.62rem)}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:400;line-height:1.14;margin:0;letter-spacing:-.006em}
+h1{font-size:clamp(2.35rem,1.4rem + 4vw,4.4rem)}
+h2{font-size:clamp(1.9rem,1.3rem + 2.3vw,3rem)}
+h3{font-size:clamp(1.25rem,1.05rem + .8vw,1.65rem)}
 p{margin:0 0 1.05em}
-:focus-visible{outline:2px solid var(--terra);outline-offset:3px;border-radius:4px}
+:focus-visible{outline:2px solid var(--terra);outline-offset:3px;border-radius:5px}
+section[id],main [id]{scroll-margin-top:96px}
 
 .wrap{width:100%;max-width:var(--maxw);margin:0 auto;padding-inline:var(--pad)}
-.sec{padding-block:clamp(3.6rem,7vw,7rem)}
-.eyebrow{
-  display:inline-block;font-family:var(--sans);font-size:.68rem;font-weight:500;
-  letter-spacing:.24em;text-transform:uppercase;color:var(--terra);margin-bottom:1.1rem;
-}
-.lead{font-size:clamp(1.06rem,1rem + .4vw,1.2rem);color:var(--ink-2);max-width:62ch}
-.muted{color:var(--ink-3)}
-.rule{height:1px;background:var(--line-2);border:0;margin:0}
+.sec{padding-block:clamp(3.8rem,7.5vw,7.5rem);position:relative}
+.lead{font-size:clamp(1.06rem,1rem + .4vw,1.22rem);color:var(--ink-2);max-width:62ch}
 
 /* language visibility */
 html[lang="el"] .i-en,html[lang="en"] .i-el{display:none !important}
 
+/* eyebrow with a rule that draws itself in */
+.eyebrow{
+  display:inline-flex;align-items:center;gap:.7rem;font-family:var(--sans);font-size:.68rem;font-weight:500;
+  letter-spacing:.24em;text-transform:uppercase;color:var(--terra);margin-bottom:1.15rem;
+}
+.eyebrow::before{
+  content:"";display:block;width:0;height:1px;background:var(--terra);opacity:.55;
+  transition:width 1.1s var(--ease) .15s;
+}
+.rv.in .eyebrow::before,.eyebrow.in::before{width:34px}
+.dark .eyebrow{color:#DDA582}
+.dark .eyebrow::before{background:#DDA582}
+
+/* ============================ scroll progress ============================ */
+.progress{
+  position:fixed;top:0;left:0;height:2px;width:100%;transform:scaleX(0);transform-origin:0 50%;
+  background:linear-gradient(90deg,var(--terra),var(--terra-2));z-index:90;pointer-events:none;
+}
+
 /* ============================ reveal (fail-safe) ============================ */
-html.jsrv .rv{opacity:0;transform:translateY(22px);transition:opacity .85s var(--ease),transform .85s var(--ease)}
+html.jsrv .rv{opacity:0;transform:translateY(26px);transition:opacity .95s var(--ease),transform .95s var(--ease)}
 html.jsrv .rv.in{opacity:1;transform:none}
-.rv-d1{transition-delay:.08s}.rv-d2{transition-delay:.16s}.rv-d3{transition-delay:.24s}.rv-d4{transition-delay:.32s}
+.rv-d1{transition-delay:.09s}.rv-d2{transition-delay:.18s}.rv-d3{transition-delay:.27s}.rv-d4{transition-delay:.36s}
+html.jsrv .rv-scale{opacity:0;transform:translateY(30px) scale(.965);transition:opacity 1.1s var(--ease),transform 1.1s var(--ease)}
+html.jsrv .rv-scale.in{opacity:1;transform:none}
+
+/* hero word stagger */
+.words span{display:inline-block}
+html.jsrv .words span{opacity:0;transform:translateY(.7em) rotate(1.2deg);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+html.jsrv .words.in span{opacity:1;transform:none}
 
 /* ============================ buttons ============================ */
 .btn{
-  display:inline-flex;align-items:center;gap:.6rem;font-family:var(--sans);font-size:.9rem;font-weight:500;
-  letter-spacing:.02em;padding:.95rem 1.6rem;border-radius:999px;border:1px solid transparent;
-  text-decoration:none;cursor:pointer;transition:transform .4s var(--ease),background .35s var(--ease-soft),color .35s var(--ease-soft),border-color .35s var(--ease-soft),box-shadow .4s var(--ease);
+  position:relative;display:inline-flex;align-items:center;gap:.65rem;font-family:var(--sans);font-size:.9rem;font-weight:500;
+  letter-spacing:.02em;padding:1rem 1.7rem;border-radius:999px;border:1px solid transparent;overflow:hidden;
+  text-decoration:none;cursor:pointer;isolation:isolate;
+  transition:transform .45s var(--ease),background .35s var(--ease-soft),color .35s var(--ease-soft),border-color .35s var(--ease-soft),box-shadow .45s var(--ease);
 }
-.btn svg{width:16px;height:16px;flex:none;stroke:currentColor;fill:none;stroke-width:1.7}
-.btn-solid{background:var(--terra);color:#FBF6ED;box-shadow:0 14px 30px -16px rgba(154,68,35,.75)}
-.btn-solid:hover{background:var(--terra-2);transform:translateY(-2px)}
-.btn-ghost{border-color:var(--line);color:var(--ink)}
-.btn-ghost:hover{border-color:var(--green);background:rgba(44,77,58,.06);transform:translateY(-2px)}
+.btn svg{width:16px;height:16px;flex:none;stroke:currentColor;fill:none;stroke-width:1.7;transition:transform .45s var(--ease)}
+.btn:hover svg{transform:translateX(4px)}
+.btn-solid{background:var(--terra);color:#FBF6ED;box-shadow:var(--sh-terra)}
+.btn-solid::after{
+  content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(120deg,transparent 20%,rgba(255,255,255,.22),transparent 80%);
+  transform:translateX(-120%);transition:transform .8s var(--ease);
+}
+.btn-solid:hover{background:var(--terra-2);transform:translateY(-3px);box-shadow:0 24px 44px -20px rgba(154,68,35,.75)}
+.btn-solid:hover::after{transform:translateX(120%)}
+.btn-ghost{border-color:var(--line);color:var(--ink);background:rgba(255,255,255,.28)}
+.btn-ghost:hover{border-color:var(--green);background:rgba(44,77,58,.07);transform:translateY(-3px);box-shadow:var(--sh-1)}
+.dark .btn-ghost{border-color:rgba(244,236,221,.3);color:#F4ECDD;background:transparent}
+.dark .btn-ghost:hover{background:rgba(244,236,221,.1);border-color:rgba(244,236,221,.6)}
 
 /* ============================ header ============================ */
 header.site{
-  position:sticky;top:0;z-index:60;background:rgba(244,236,221,.9);backdrop-filter:blur(14px);
-  border-bottom:1px solid transparent;transition:border-color .4s var(--ease-soft),box-shadow .4s var(--ease-soft);
+  position:sticky;top:0;z-index:60;background:rgba(244,236,221,.82);backdrop-filter:blur(16px) saturate(1.1);
+  border-bottom:1px solid transparent;transition:border-color .45s var(--ease-soft),box-shadow .45s var(--ease-soft),background .45s var(--ease-soft);
 }
-header.site.stuck{border-bottom-color:var(--line-2);box-shadow:0 10px 30px -26px rgba(34,57,43,.6)}
-.bar{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:1rem;padding-block:.85rem}
-.navside{display:flex;align-items:center;gap:clamp(.7rem,1.6vw,1.6rem)}
-.navside.right{justify-content:flex-end}
-.navside a{
-  font-size:.82rem;font-weight:400;letter-spacing:.03em;text-decoration:none;color:var(--ink-2);
-  padding:.35rem 0;position:relative;white-space:nowrap;transition:color .3s var(--ease-soft);
+header.site.stuck{border-bottom-color:var(--line-2);box-shadow:0 12px 34px -30px rgba(22,38,28,.8);background:rgba(244,236,221,.94)}
+.bar{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:1.2rem;padding-block:.85rem;transition:padding .45s var(--ease)}
+header.site.stuck .bar{padding-block:.6rem}
+
+/* single horizontal lockup — the only logo in the header */
+.lockup{display:inline-flex;align-items:center;gap:.6rem;text-decoration:none;line-height:1}
+.lockup img{width:clamp(26px,3.2vw,32px);height:auto;transition:transform .5s var(--ease)}
+.lockup:hover img{transform:rotate(-6deg) scale(1.06)}
+.lockup .wm{display:flex;flex-direction:column;gap:.16rem}
+.lockup .wm b{font-family:var(--sans);font-size:.72rem;font-weight:500;letter-spacing:.3em;text-transform:uppercase;color:var(--green)}
+.lockup .wm i{font-style:normal;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)}
+
+nav.main{display:flex;justify-content:center;align-items:center;gap:clamp(.8rem,1.9vw,1.9rem)}
+nav.main a{
+  font-size:.82rem;letter-spacing:.03em;text-decoration:none;color:var(--ink-2);
+  padding:.4rem 0;position:relative;white-space:nowrap;transition:color .3s var(--ease-soft);
 }
-.navside a::after{content:"";position:absolute;left:0;right:100%;bottom:.05rem;height:1px;background:var(--terra);transition:right .45s var(--ease)}
-.navside a:hover{color:var(--ink)}
-.navside a:hover::after{right:0}
-.brandmark{display:flex;flex-direction:column;align-items:center;gap:.2rem;text-decoration:none;line-height:1}
-.brandmark img{width:clamp(30px,4.4vw,40px);height:auto}
-.brandmark .bn{font-family:var(--sans);font-size:.6rem;font-weight:500;letter-spacing:.32em;text-transform:uppercase;color:var(--green)}
-.lang{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;margin-left:.4rem}
+nav.main a::after{content:"";position:absolute;left:0;right:100%;bottom:.05rem;height:1px;background:var(--terra);transition:right .5s var(--ease)}
+nav.main a:hover{color:var(--ink)}
+nav.main a:hover::after,nav.main a.active::after{right:0}
+nav.main a.active{color:var(--terra)}
+
+.hright{display:flex;align-items:center;gap:.7rem}
+.lang{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;background:rgba(255,255,255,.4)}
 .lang button{
   font-family:var(--sans);font-size:.66rem;font-weight:500;letter-spacing:.12em;
-  padding:.38rem .62rem;background:transparent;border:0;color:var(--ink-3);cursor:pointer;transition:background .3s,color .3s;
+  padding:.4rem .66rem;background:transparent;border:0;color:var(--ink-3);cursor:pointer;transition:background .35s,color .35s;
 }
 .lang button[aria-pressed="true"]{background:var(--green);color:#F4ECDD}
-.burger{display:none;width:44px;height:44px;border:1px solid var(--line);border-radius:999px;background:transparent;cursor:pointer;position:relative}
-.burger i{position:absolute;left:13px;width:18px;height:1.4px;background:var(--ink);transition:transform .4s var(--ease),opacity .3s}
+.hcta{display:inline-flex}
+.burger{display:none;width:44px;height:44px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.4);cursor:pointer;position:relative}
+.burger i{position:absolute;left:13px;width:18px;height:1.4px;background:var(--ink);transition:transform .45s var(--ease),opacity .3s}
 .burger i:nth-child(1){top:17px}.burger i:nth-child(2){top:22px}.burger i:nth-child(3){top:27px}
 
 .mob{position:fixed;inset:0;z-index:70;background:var(--paper);display:none;flex-direction:column;padding:1.1rem var(--pad) 2.5rem}
 .mob.open{display:flex}
 .mob-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:2.2rem}
 .mob-close{width:46px;height:46px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--ink);font-size:1.4rem;line-height:1;cursor:pointer;display:grid;place-items:center}
-.mob nav{display:flex;flex-direction:column;gap:.2rem}
+.mob nav{display:flex;flex-direction:column;gap:.1rem}
 .mob nav a{
-  font-family:var(--serif);font-size:1.65rem;text-decoration:none;color:var(--ink);
-  padding:.55rem 0;border-bottom:1px solid var(--line-2);display:flex;align-items:baseline;gap:.9rem;
+  font-family:var(--serif);font-size:1.7rem;text-decoration:none;color:var(--ink);
+  padding:.6rem 0;border-bottom:1px solid var(--line-2);display:flex;align-items:baseline;gap:.9rem;
+  opacity:0;transform:translateX(-14px);
 }
+.mob.open nav a{animation:mobIn .55s var(--ease) forwards}
 .mob nav a .n{font-family:var(--sans);font-size:.62rem;letter-spacing:.2em;color:var(--terra)}
-.mob-foot{margin-top:auto;padding-top:2rem;font-size:.86rem;color:var(--ink-3)}
+@keyframes mobIn{to{opacity:1;transform:none}}
+.mob-foot{margin-top:auto;padding-top:2rem;font-size:.88rem;color:var(--ink-3);display:grid;gap:.35rem}
 .mob-foot a{color:var(--ink);text-decoration:none;font-weight:500}
 
-/* ============================ hero — stacked editorial ============================ */
-.hero{padding-block:clamp(3rem,7vw,6.4rem) clamp(2.4rem,5vw,4.4rem);text-align:center;position:relative;overflow:hidden}
-.hero::after{
-  content:"";position:absolute;left:50%;top:-14%;width:min(1000px,120vw);aspect-ratio:1;transform:translateX(-50%);
-  background:radial-gradient(circle,rgba(229,205,190,.6),transparent 62%);pointer-events:none;z-index:-1;
+/* ============================ hero ============================ */
+.hero{position:relative;text-align:center;padding-block:clamp(3.4rem,8vw,7rem) clamp(2.6rem,5vw,4.6rem);overflow:hidden}
+.hero-bloom{
+  position:absolute;left:50%;top:-24%;width:min(1100px,135vw);aspect-ratio:1;transform:translateX(-50%);
+  background:radial-gradient(circle,rgba(231,208,192,.75),rgba(231,208,192,.18) 45%,transparent 66%);
+  pointer-events:none;z-index:0;animation:bloom 14s var(--ease-soft) infinite alternate;
 }
-.hero .mark{width:clamp(76px,11vw,116px);margin:0 auto clamp(1.4rem,3vw,2.2rem)}
-.hero h1{max-width:16ch;margin:0 auto .9rem}
+@keyframes bloom{from{transform:translateX(-50%) scale(1)}to{transform:translateX(-50%) scale(1.09)}}
+/* the leaf appears here ONLY as a large decorative watermark, never as a second logo */
+.hero-leaf{
+  position:absolute;left:50%;top:clamp(-190px,-13vw,-70px);width:min(620px,92vw);transform:translateX(-50%);
+  opacity:.055;pointer-events:none;z-index:0;filter:saturate(.55);
+  -webkit-mask-image:radial-gradient(ellipse at 50% 42%,#000 42%,transparent 78%);
+          mask-image:radial-gradient(ellipse at 50% 42%,#000 42%,transparent 78%);
+}
+.hero .wrap{position:relative;z-index:1}
+.hero h1{max-width:15ch;margin:0 auto .95rem}
 .hero h1 em{font-style:italic;color:var(--terra)}
-.hero .lead{margin:0 auto 2rem;text-align:center}
-.hero-cta{display:flex;flex-wrap:wrap;gap:.8rem;justify-content:center}
+.hero .lead{margin:0 auto 2.1rem}
+.hero-cta{display:flex;flex-wrap:wrap;gap:.85rem;justify-content:center}
 .hero-meta{
-  display:flex;flex-wrap:wrap;gap:.6rem 1.5rem;justify-content:center;margin-top:2.4rem;
-  font-size:.78rem;letter-spacing:.06em;color:var(--ink-3);
+  display:flex;flex-wrap:wrap;gap:.7rem 1.6rem;justify-content:center;margin-top:2.6rem;
+  font-size:.78rem;letter-spacing:.05em;color:var(--ink-3);
 }
 .hero-meta span{display:inline-flex;align-items:center;gap:.5rem}
 .hero-meta svg{width:14px;height:14px;stroke:var(--terra);fill:none;stroke-width:1.6}
+.scrollcue{display:flex;flex-direction:column;align-items:center;gap:.5rem;margin-top:clamp(2rem,4vw,3.2rem);color:var(--ink-3);font-size:.62rem;letter-spacing:.24em;text-transform:uppercase}
+.scrollcue .ln{width:1px;height:44px;background:linear-gradient(180deg,var(--terra),transparent);animation:cue 2.4s var(--ease-soft) infinite}
+@keyframes cue{0%{transform:scaleY(.25);transform-origin:0 0;opacity:0}45%{transform:scaleY(1);opacity:1}46%{transform-origin:0 100%}100%{transform:scaleY(0);opacity:0}}
 
-/* ============================ present / philosophy prose ============================ */
-.prose-band{background:var(--paper-2);border-block:1px solid var(--line-2)}
-.two{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(2rem,5vw,4.5rem);align-items:start}
-.two .side h2{position:sticky;top:120px}
+/* ============================ bands & dividers ============================ */
+.band{background:var(--paper-2);border-block:1px solid var(--line-2)}
+.two{display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);gap:clamp(2rem,5vw,4.6rem);align-items:start}
+.two .side h2{position:sticky;top:118px}
 .pull{
-  font-family:var(--serif);font-size:clamp(1.4rem,1.1rem + 1.3vw,2rem);font-style:italic;line-height:1.4;
-  color:var(--green);border-left:2px solid var(--terra);padding-left:clamp(1rem,2.4vw,1.8rem);margin:2rem 0;max-width:34ch;
+  position:relative;font-family:var(--serif);font-size:clamp(1.42rem,1.1rem + 1.35vw,2.05rem);font-style:italic;line-height:1.4;
+  color:var(--green);padding-left:clamp(1.1rem,2.6vw,2rem);margin:2.1rem 0;max-width:34ch;
 }
+.pull::before{content:"";position:absolute;left:0;top:.25em;bottom:.25em;width:2px;background:linear-gradient(180deg,var(--terra),rgba(154,68,35,.15))}
 
-/* ============================ help chips ============================ */
-.chips{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:1.8rem}
+/* ============================ portrait figures ============================ */
+.figure{position:relative;margin:0}
+.figure .frame{
+  position:relative;border-radius:var(--r);overflow:hidden;background:var(--paper-3);
+  box-shadow:var(--sh-3);transition:box-shadow .6s var(--ease),transform .6s var(--ease);
+}
+.figure .frame img{width:100%;height:auto;transition:transform 1.4s var(--ease),filter .6s var(--ease)}
+.figure:hover .frame{transform:translateY(-6px)}
+.figure:hover .frame img{transform:scale(1.045)}
+.figure .frame::after{
+  content:"";position:absolute;inset:0;pointer-events:none;border-radius:inherit;
+  box-shadow:inset 0 0 0 1px rgba(244,236,221,.35), inset 0 -70px 90px -60px rgba(22,38,28,.55);
+}
+/* offset outline that shifts on hover */
+.figure .fwrap{position:relative;display:block}
+.figure .echo{
+  position:absolute;inset:0;border-radius:var(--r);border:1px solid var(--terra);opacity:.42;
+  transform:translate(14px,14px);transition:transform .7s var(--ease),opacity .7s var(--ease);pointer-events:none;z-index:-1;
+}
+.figure:hover .echo{transform:translate(20px,20px);opacity:.6}
+.figure figcaption{
+  margin-top:.95rem;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);
+  display:flex;align-items:center;gap:.6rem;
+}
+.figure figcaption::before{content:"";width:22px;height:1px;background:var(--terra);flex:none}
+.figure.zoomable .frame{cursor:zoom-in}
+.zoomhint{
+  position:absolute;right:14px;bottom:14px;width:42px;height:42px;border-radius:999px;z-index:2;
+  background:rgba(244,236,221,.9);border:1px solid var(--line);display:grid;place-items:center;
+  opacity:0;transform:scale(.85);transition:opacity .45s var(--ease),transform .45s var(--ease-back);
+}
+.figure:hover .zoomhint{opacity:1;transform:scale(1)}
+.zoomhint svg{width:16px;height:16px;stroke:var(--terra);fill:none;stroke-width:1.8}
+
+/* intro (section 2) — portrait + text */
+.intro-grid{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(2.2rem,5.5vw,5rem);align-items:center}
+
+/* ============================ chips ============================ */
+.chips{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:1.9rem}
 .chip{
-  font-size:.84rem;padding:.55rem 1.05rem;border-radius:999px;background:var(--paper);
-  border:1px solid var(--line);color:var(--ink-2);transition:transform .4s var(--ease),border-color .3s,color .3s;
+  font-size:.84rem;padding:.58rem 1.1rem;border-radius:999px;background:rgba(255,255,255,.55);
+  border:1px solid var(--line);color:var(--ink-2);box-shadow:var(--sh-1);
+  transition:transform .45s var(--ease-back),border-color .35s,color .35s,box-shadow .45s var(--ease),background .35s;
 }
-.chip:hover{transform:translateY(-3px);border-color:var(--terra);color:var(--terra)}
-.prose-band .chip{background:var(--paper)}
+.chip:hover{transform:translateY(-4px);border-color:var(--terra);color:var(--terra);background:#fff;box-shadow:var(--sh-2)}
 
-/* ============================ services — numbered editorial list ============================ */
-.svc{border-top:1px solid var(--line-2);margin-top:clamp(2rem,4vw,3.2rem)}
+/* ============================ services ============================ */
+.svc{border-top:1px solid var(--line-2);margin-top:clamp(2.2rem,4vw,3.4rem)}
 .svc-item{
-  display:grid;grid-template-columns:auto minmax(0,1fr);gap:clamp(1.1rem,3vw,3rem);
-  padding-block:clamp(1.8rem,3.4vw,2.8rem);border-bottom:1px solid var(--line-2);
+  position:relative;display:grid;grid-template-columns:auto minmax(0,1fr);gap:clamp(1.1rem,3vw,3.2rem);
+  padding:clamp(1.8rem,3.4vw,2.9rem) clamp(0px,1.6vw,1.4rem);border-bottom:1px solid var(--line-2);
+  border-radius:16px;transition:background .55s var(--ease),transform .55s var(--ease),box-shadow .55s var(--ease);
 }
-.svc-n{font-family:var(--serif);font-size:clamp(1.6rem,1.2rem + 1.4vw,2.4rem);color:var(--terra);line-height:1;opacity:.85}
-.svc-item h3{margin-bottom:.7rem}
+.svc-item::before{
+  content:"";position:absolute;left:0;right:0;bottom:-1px;height:1px;background:linear-gradient(90deg,var(--terra),transparent);
+  transform:scaleX(0);transform-origin:0 50%;transition:transform .8s var(--ease);
+}
+.svc-item:hover{background:rgba(255,255,255,.5);transform:translateY(-3px);box-shadow:var(--sh-2)}
+.svc-item:hover::before{transform:scaleX(1)}
+.svc-n{font-family:var(--serif);font-size:clamp(1.7rem,1.2rem + 1.5vw,2.6rem);color:var(--terra);line-height:1;opacity:.55;transition:opacity .5s var(--ease),transform .5s var(--ease)}
+.svc-item:hover .svc-n{opacity:1;transform:translateY(-2px)}
+.svc-item h3{margin-bottom:.75rem}
 .svc-item p{color:var(--ink-2);max-width:64ch;margin-bottom:0}
 .svc-tag{
-  display:inline-block;margin-top:.9rem;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;
-  color:var(--ink-3);border:1px solid var(--line);border-radius:999px;padding:.3rem .75rem;
+  display:inline-block;margin-top:1rem;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--ink-3);border:1px solid var(--line);border-radius:999px;padding:.32rem .8rem;
 }
 .note{
-  margin-top:clamp(2rem,4vw,3rem);background:var(--terra-soft);border:1px solid rgba(154,68,35,.22);
-  border-radius:var(--r);padding:clamp(1.2rem,2.6vw,1.8rem);display:flex;gap:1rem;align-items:flex-start;
+  margin-top:clamp(2.2rem,4vw,3.2rem);background:linear-gradient(135deg,var(--terra-soft),rgba(231,208,192,.55));
+  border:1px solid rgba(154,68,35,.2);border-radius:var(--r);padding:clamp(1.25rem,2.6vw,1.9rem);
+  display:flex;gap:1.1rem;align-items:flex-start;box-shadow:var(--sh-1);
 }
 .note svg{width:22px;height:22px;flex:none;stroke:var(--terra);fill:none;stroke-width:1.5;margin-top:.15rem}
 .note p{margin:0;color:#6E3419;font-size:.95rem}
 
-/* ============================ about ============================ */
-.about-grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(2rem,5vw,4.4rem);align-items:start}
-.photo{
-  border-radius:var(--r);overflow:hidden;background:var(--paper-3);position:relative;
-  box-shadow:0 30px 60px -40px rgba(27,46,35,.7);
+/* ============================ dark philosophy band ============================ */
+.dark{position:relative;background:var(--green-deep);color:#E9E0CE;overflow:hidden}
+.dark::before{
+  content:"";position:absolute;left:50%;top:-30%;width:min(1000px,120vw);aspect-ratio:1;transform:translateX(-50%);
+  background:radial-gradient(circle,rgba(154,68,35,.3),transparent 62%);pointer-events:none;
 }
-.photo img{width:100%;height:auto;transition:transform 1.2s var(--ease)}
-.photo:hover img{transform:scale(1.03)}
-.photo.zoomable{cursor:zoom-in}
-.photo figcaption{
-  padding:.85rem 1.1rem;font-size:.76rem;letter-spacing:.08em;color:var(--ink-3);
-  background:var(--paper-2);border-top:1px solid var(--line-2);
+.dark::after{
+  content:"";position:absolute;inset:0;pointer-events:none;opacity:.35;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.06'/%3E%3C/svg%3E");
 }
+.dark .wrap{position:relative;z-index:1}
+.dark h2,.dark h3{color:#F4ECDD}
+.dark p{color:rgba(233,224,206,.82)}
+.quote-big{
+  position:relative;font-family:var(--serif);font-style:italic;font-size:clamp(1.55rem,1.1rem + 2vw,2.6rem);
+  line-height:1.34;max-width:24ch;color:#F4ECDD;margin:0;padding-top:1.6rem;
+}
+.quote-big::before{
+  content:"\201C";position:absolute;left:-.12em;top:-.34em;font-size:5.5em;line-height:1;color:rgba(221,165,130,.24);
+  font-family:var(--serif);pointer-events:none;
+}
+.principles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(1.4rem,3vw,2.8rem);margin-top:clamp(2.6rem,4.5vw,4rem)}
+.principle{position:relative;border-top:1px solid rgba(244,236,221,.18);padding-top:1.4rem;transition:transform .55s var(--ease)}
+.principle::after{content:"";position:absolute;left:0;top:-1px;width:0;height:1px;background:#DDA582;transition:width .9s var(--ease)}
+.principle.in::after{width:46px}
+.principle:hover{transform:translateY(-5px)}
+.principle .pn{font-family:var(--sans);font-size:.66rem;letter-spacing:.2em;color:#DDA582;display:block;margin-bottom:.75rem}
+.principle h3{font-size:1.32rem;margin-bottom:.6rem}
+.principle p{font-size:.94rem;margin:0}
 
-/* credentials */
-.creds{margin-top:2.2rem;border-top:1px solid var(--line-2);padding-top:1.6rem}
-.creds h3{font-size:1.1rem;font-family:var(--sans);font-weight:500;letter-spacing:.02em;margin-bottom:1rem}
-details.cv{border-top:1px solid var(--line-2);margin-top:1.6rem}
+/* ============================ about ============================ */
+.about-grid{display:grid;grid-template-columns:minmax(0,1.18fr) minmax(0,.82fr);gap:clamp(2.2rem,5.5vw,5rem);align-items:start}
+.creds{margin-top:2.4rem;border-top:1px solid var(--line-2);padding-top:1.7rem}
+.creds h3{font-size:1.05rem;font-family:var(--sans);font-weight:500;letter-spacing:.02em;margin-bottom:1rem}
+details.cv{border-top:1px solid var(--line-2);margin-top:1.8rem}
 details.cv > summary{
   list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:1rem;
-  padding:1.05rem 0;font-family:var(--sans);font-size:.92rem;font-weight:500;color:var(--ink);
+  padding:1.1rem 0;font-family:var(--sans);font-size:.92rem;font-weight:500;color:var(--ink);
+  transition:color .35s;
 }
+details.cv > summary:hover{color:var(--terra)}
 details.cv > summary::-webkit-details-marker{display:none}
 details.cv > summary .pm{
-  width:30px;height:30px;border-radius:999px;border:1px solid var(--line);flex:none;
-  display:grid;place-items:center;transition:transform .4s var(--ease),background .3s,border-color .3s;
+  width:32px;height:32px;border-radius:999px;border:1px solid var(--line);flex:none;
+  display:grid;place-items:center;transition:transform .5s var(--ease-back),background .35s,border-color .35s;
 }
-details.cv > summary .pm svg{width:13px;height:13px;stroke:var(--ink);fill:none;stroke-width:1.8}
-details.cv[open] > summary .pm{transform:rotate(45deg);background:var(--green);border-color:var(--green)}
+details.cv > summary .pm svg{width:13px;height:13px;stroke:var(--ink);fill:none;stroke-width:1.8;transition:stroke .35s}
+details.cv[open] > summary .pm{transform:rotate(135deg);background:var(--green);border-color:var(--green)}
 details.cv[open] > summary .pm svg{stroke:var(--paper)}
-.cv-body{padding-bottom:1.6rem;font-size:.94rem;color:var(--ink-2)}
-.cv-body h4{font-family:var(--sans);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--terra);margin:1.5rem 0 .6rem}
+.cv-body{padding-bottom:1.7rem;font-size:.94rem;color:var(--ink-2);animation:fadeUp .55s var(--ease)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.cv-body h4{font-family:var(--sans);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--terra);margin:1.6rem 0 .65rem}
 .cv-body h4:first-child{margin-top:0}
 .cv-body ul{margin:0;padding-left:1.05rem}
-.cv-body li{margin-bottom:.5rem}
+.cv-body li{margin-bottom:.55rem}
 .cv-body li b{font-weight:500;color:var(--ink)}
 
-/* ============================ philosophy band ============================ */
-.dark{background:var(--green-deep);color:#E9E0CE}
-.dark h2,.dark h3{color:#F4ECDD}
-.dark .eyebrow{color:#D89B78}
-.dark p{color:rgba(233,224,206,.82)}
-.dark .rule{background:rgba(244,236,221,.14)}
-.principles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(1.4rem,3vw,2.6rem);margin-top:clamp(2.2rem,4vw,3.4rem)}
-.principle{border-top:1px solid rgba(244,236,221,.18);padding-top:1.3rem}
-.principle .pn{font-family:var(--sans);font-size:.66rem;letter-spacing:.2em;color:#D89B78;display:block;margin-bottom:.7rem}
-.principle h3{font-size:1.3rem;margin-bottom:.55rem}
-.principle p{font-size:.94rem;margin:0}
-.quote-big{
-  font-family:var(--serif);font-style:italic;font-size:clamp(1.5rem,1.1rem + 1.9vw,2.5rem);
-  line-height:1.36;max-width:24ch;color:#F4ECDD;margin:0;
-}
+/* ============================ office ============================ */
+.office{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(2rem,5vw,4.4rem);align-items:center}
 
-/* ============================ office strip ============================ */
-.office{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:clamp(1.6rem,4vw,3.4rem);align-items:center}
-
-/* ============================ FAQ — two columns ============================ */
-.faq-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 clamp(2rem,4vw,3.6rem);margin-top:clamp(2rem,4vw,3rem)}
+/* ============================ FAQ ============================ */
+.faq-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 clamp(2rem,4vw,3.8rem);margin-top:clamp(2.2rem,4vw,3.2rem)}
 details.q{border-bottom:1px solid var(--line-2)}
 details.q summary{
   list-style:none;cursor:pointer;display:flex;gap:1rem;align-items:flex-start;justify-content:space-between;
-  padding:1.15rem 0;font-size:.98rem;font-weight:400;color:var(--ink);
+  padding:1.2rem 0;font-size:.98rem;color:var(--ink);transition:color .35s;
 }
+details.q summary:hover{color:var(--terra)}
 details.q summary::-webkit-details-marker{display:none}
-details.q summary .ic{width:26px;height:26px;flex:none;border-radius:999px;border:1px solid var(--line);display:grid;place-items:center;margin-top:.1rem;transition:transform .4s var(--ease),background .3s,border-color .3s}
-details.q summary .ic svg{width:11px;height:11px;stroke:var(--ink);fill:none;stroke-width:2}
-details.q[open] summary .ic{transform:rotate(45deg);background:var(--terra);border-color:var(--terra)}
+details.q summary .ic{width:27px;height:27px;flex:none;border-radius:999px;border:1px solid var(--line);display:grid;place-items:center;margin-top:.1rem;transition:transform .5s var(--ease-back),background .35s,border-color .35s}
+details.q summary .ic svg{width:11px;height:11px;stroke:var(--ink);fill:none;stroke-width:2;transition:stroke .35s}
+details.q[open] summary .ic{transform:rotate(135deg);background:var(--terra);border-color:var(--terra)}
 details.q[open] summary .ic svg{stroke:#FBF6ED}
-details.q .a{padding-bottom:1.2rem;font-size:.93rem;color:var(--ink-2);max-width:56ch}
+details.q .a{padding-bottom:1.25rem;font-size:.93rem;color:var(--ink-2);max-width:56ch;animation:fadeUp .5s var(--ease)}
 details.q .a p:last-child{margin-bottom:0}
 
-/* ============================ contact — full-width band ============================ */
-.contact-band{background:var(--paper-2);border-block:1px solid var(--line-2)}
-.contact-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(2rem,5vw,4.4rem);align-items:start}
+/* ============================ contact ============================ */
+.contact-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(2rem,5vw,4.6rem);align-items:start}
 .cinfo p{color:var(--ink-2)}
-.cinfo .final{font-family:var(--serif);font-style:italic;font-size:1.25rem;color:var(--green)}
-.cdl{display:grid;gap:1rem;margin-top:2rem;border-top:1px solid var(--line-2);padding-top:1.8rem}
-.cdl .row{display:flex;gap:.9rem;align-items:flex-start}
+.cinfo .final{font-family:var(--serif);font-style:italic;font-size:1.3rem;color:var(--green)}
+.cdl{display:grid;gap:1.05rem;margin-top:2.1rem;border-top:1px solid var(--line-2);padding-top:1.9rem}
+.cdl .row{display:flex;gap:.95rem;align-items:flex-start}
 .cdl svg{width:18px;height:18px;flex:none;stroke:var(--terra);fill:none;stroke-width:1.6;margin-top:.25rem}
 .cdl .k{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3);display:block;margin-bottom:.15rem}
-.cdl a{color:var(--ink);text-decoration:none;font-weight:500;border-bottom:1px solid var(--line)}
+.cdl a{color:var(--ink);text-decoration:none;font-weight:500;border-bottom:1px solid var(--line);transition:color .3s,border-color .3s}
 .cdl a:hover{color:var(--terra);border-color:var(--terra)}
 
-form.cform{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:clamp(1.3rem,3vw,2.2rem)}
-.field{margin-bottom:1.1rem}
+form.cform{background:rgba(255,255,255,.5);border:1px solid var(--line);border-radius:var(--r);padding:clamp(1.4rem,3vw,2.4rem);box-shadow:var(--sh-2)}
+.field{margin-bottom:1.15rem}
 .field label,.legend{display:block;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin-bottom:.45rem}
 .field input,.field textarea{
   width:100%;font-family:var(--sans);font-size:.98rem;font-weight:300;color:var(--ink);
-  background:var(--paper-2);border:1px solid var(--line);border-radius:12px;padding:.8rem .95rem;
-  transition:border-color .3s,background .3s;
+  background:var(--paper);border:1px solid var(--line);border-radius:13px;padding:.85rem 1rem;
+  transition:border-color .35s,background .35s,box-shadow .35s;
 }
-.field textarea{min-height:120px;resize:vertical}
-.field input:focus,.field textarea:focus{outline:none;border-color:var(--terra);background:var(--paper)}
-.frow{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem}
-fieldset.mode{border:0;padding:0;margin:0 0 1.1rem}
+.field textarea{min-height:124px;resize:vertical}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--terra);background:#fff;box-shadow:0 0 0 4px rgba(154,68,35,.1)}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:1.15rem}
+fieldset.mode{border:0;padding:0;margin:0 0 1.15rem}
 .radios{display:flex;gap:.6rem;flex-wrap:wrap}
 .radios label{
   display:inline-flex;align-items:center;gap:.5rem;font-size:.9rem;letter-spacing:0;text-transform:none;color:var(--ink-2);
-  border:1px solid var(--line);border-radius:999px;padding:.55rem 1rem;cursor:pointer;margin:0;transition:border-color .3s,background .3s,color .3s;
+  border:1px solid var(--line);border-radius:999px;padding:.58rem 1.05rem;cursor:pointer;margin:0;background:var(--paper);
+  transition:border-color .35s,background .35s,color .35s,transform .35s var(--ease);
 }
+.radios label:hover{transform:translateY(-2px)}
 .radios input{accent-color:var(--terra);margin:0}
 .radios label:has(input:checked){border-color:var(--terra);background:var(--terra-soft);color:#6E3419}
-.consent{display:flex;gap:.7rem;align-items:flex-start;font-size:.84rem;color:var(--ink-2);margin-bottom:1.2rem;cursor:pointer}
+.consent{display:flex;gap:.7rem;align-items:flex-start;font-size:.84rem;color:var(--ink-2);margin-bottom:1.3rem;cursor:pointer}
 .consent input{accent-color:var(--terra);margin-top:.25rem;flex:none}
 .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
-.fnote{font-size:.78rem;color:var(--ink-3);margin:.9rem 0 0}
-.fmsg{display:none;margin-top:1rem;font-size:.9rem;padding:.85rem 1rem;border-radius:12px}
+.fnote{font-size:.78rem;color:var(--ink-3);margin:.95rem 0 0}
+.fmsg{display:none;margin-top:1rem;font-size:.9rem;padding:.9rem 1.05rem;border-radius:13px;animation:fadeUp .45s var(--ease)}
 .fmsg.ok{display:block;background:rgba(44,77,58,.1);color:var(--green);border:1px solid rgba(44,77,58,.25)}
 .fmsg.err{display:block;background:rgba(154,68,35,.1);color:var(--terra);border:1px solid rgba(154,68,35,.28)}
-.privacy{font-size:.78rem;color:var(--ink-3);margin-top:1.4rem;max-width:60ch}
-
-/* crisis note */
+.privacy{font-size:.78rem;color:var(--ink-3);margin-top:1.5rem;max-width:60ch}
 .crisis{
-  margin-top:clamp(2.2rem,4vw,3rem);border:1px dashed var(--line);border-radius:var(--r);
-  padding:clamp(1.1rem,2.4vw,1.6rem);font-size:.86rem;color:var(--ink-2);background:var(--paper);
+  margin-top:clamp(2.4rem,4vw,3.2rem);border:1px dashed var(--line);border-radius:var(--r);
+  padding:clamp(1.15rem,2.4vw,1.7rem);font-size:.86rem;color:var(--ink-2);background:rgba(255,255,255,.4);
 }
 .crisis strong{font-weight:500;color:var(--ink)}
 .crisis a{color:var(--terra);font-weight:500}
 
 /* ============================ footer ============================ */
-footer.site{background:var(--green-deep);color:rgba(233,224,206,.75);padding-block:clamp(2.8rem,5vw,4.4rem) 1.8rem;font-size:.88rem}
-.fgrid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr) minmax(0,.9fr);gap:clamp(1.8rem,4vw,3.4rem)}
-footer.site img.flogo{width:52px;margin-bottom:1rem}
-footer.site .fname{font-family:var(--serif);font-size:1.35rem;color:#F4ECDD;margin-bottom:.2rem}
-footer.site .frole{font-size:.75rem;letter-spacing:.18em;text-transform:uppercase;color:#D89B78;margin-bottom:1rem}
-footer.site h4{font-family:var(--sans);font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(244,236,221,.55);margin:0 0 .9rem;font-weight:500}
-footer.site a{color:rgba(233,224,206,.85);text-decoration:none}
+footer.site{position:relative;background:var(--green-deep);color:rgba(233,224,206,.75);padding-block:clamp(3rem,5vw,4.6rem) 1.8rem;font-size:.88rem;overflow:hidden}
+footer.site::before{
+  content:"";position:absolute;left:-6%;bottom:-40%;width:min(680px,90vw);aspect-ratio:1;
+  background:radial-gradient(circle,rgba(154,68,35,.24),transparent 62%);pointer-events:none;
+}
+footer.site .wrap{position:relative;z-index:1}
+.fgrid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr) minmax(0,.95fr);gap:clamp(1.9rem,4vw,3.6rem)}
+footer.site img.flogo{width:50px;margin-bottom:1rem}
+footer.site .fname{font-family:var(--serif);font-size:1.4rem;color:#F4ECDD;margin-bottom:.2rem}
+footer.site .frole{font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;color:#DDA582;margin-bottom:1rem}
+footer.site h4{font-family:var(--sans);font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(244,236,221,.55);margin:0 0 .95rem;font-weight:500}
+footer.site a{color:rgba(233,224,206,.85);text-decoration:none;transition:color .3s}
 footer.site a:hover{color:#F4ECDD}
 footer.site ul{list-style:none;margin:0;padding:0;display:grid;gap:.5rem}
 footer.site address{font-style:normal;display:grid;gap:.5rem}
 .fbar{
-  margin-top:clamp(2.2rem,4vw,3.2rem);padding-top:1.4rem;border-top:1px solid rgba(244,236,221,.14);
+  margin-top:clamp(2.4rem,4vw,3.4rem);padding-top:1.4rem;border-top:1px solid rgba(244,236,221,.14);
   display:flex;flex-wrap:wrap;gap:.6rem 1.4rem;justify-content:space-between;font-size:.78rem;color:rgba(233,224,206,.6);
 }
-.fbar a{color:rgba(233,224,206,.85)}
 
 /* ============================ lightbox ============================ */
-.lb{position:fixed;inset:0;z-index:120;display:none;place-items:center;background:rgba(27,46,35,.94);padding:clamp(1rem,4vw,3rem)}
-.lb.open{display:grid}
-.lb img{max-width:min(1200px,94vw);max-height:86vh;width:auto;border-radius:10px;box-shadow:0 40px 90px rgba(0,0,0,.5)}
-.lb-close{position:absolute;top:clamp(.8rem,2vw,1.6rem);right:clamp(.8rem,2vw,1.6rem);width:48px;height:48px;border-radius:999px;border:1px solid rgba(244,236,221,.35);background:rgba(244,236,221,.1);color:#F4ECDD;font-size:1.5rem;line-height:1;cursor:pointer;display:grid;place-items:center}
+.lb{position:fixed;inset:0;z-index:120;display:none;place-items:center;background:rgba(22,38,28,.95);padding:clamp(1rem,4vw,3rem);opacity:0;transition:opacity .35s var(--ease-soft)}
+.lb.open{display:grid;opacity:1}
+.lb img{max-width:min(1200px,94vw);max-height:86vh;width:auto;border-radius:12px;box-shadow:0 50px 100px rgba(0,0,0,.55);transform:scale(.96);transition:transform .45s var(--ease)}
+.lb.open img{transform:scale(1)}
+.lb-close{position:absolute;top:clamp(.8rem,2vw,1.6rem);right:clamp(.8rem,2vw,1.6rem);width:48px;height:48px;border-radius:999px;border:1px solid rgba(244,236,221,.35);background:rgba(244,236,221,.1);color:#F4ECDD;font-size:1.5rem;line-height:1;cursor:pointer;display:grid;place-items:center;transition:background .3s}
 .lb-close:hover{background:rgba(244,236,221,.22)}
 
 /* ============================ responsive ============================ */
-@media(max-width:1000px){
-  .navside{display:none}
+@media(max-width:1080px){
+  nav.main{display:none}
   .bar{grid-template-columns:auto 1fr auto}
-  .bar .brandmark{justify-self:start;flex-direction:row;gap:.6rem;align-items:center}
-  .bar .navside.right{display:flex;justify-content:flex-end;grid-column:3}
-  .bar .navside.right a{display:none}
+  .hcta{display:none}
   .burger{display:block}
 }
-@media(max-width:880px){
-  .two,.about-grid,.contact-grid,.office{grid-template-columns:1fr}
+@media(max-width:900px){
+  .two,.about-grid,.contact-grid,.office,.intro-grid{grid-template-columns:1fr}
   .two .side h2{position:static}
   .principles{grid-template-columns:1fr}
   .faq-grid{grid-template-columns:1fr}
   .fgrid{grid-template-columns:1fr;gap:2.2rem}
-  .office .photo{order:-1}
+  .office .figure,.about-grid .figure{order:-1;max-width:460px}
+  .intro-grid .figure{max-width:420px;margin-inline:auto}
+  .figure{margin-right:12px}
+  .figure .echo{transform:translate(10px,10px)}
+  .figure:hover .echo{transform:translate(10px,10px)}
+  .figure figcaption{align-items:flex-start}
+  .figure figcaption::before{margin-top:.6rem}
+}
+@media(max-width:640px){
+  .hero .eyebrow{display:block}
+  .hero .eyebrow::before{display:none}
+  .hero-meta{flex-direction:column;align-items:center;gap:.85rem}
+  .hero-meta span{align-items:flex-start;text-align:left;max-width:34ch}
+  .hero-meta svg{margin-top:.34rem}
 }
 @media(max-width:560px){
   .frow{grid-template-columns:1fr}
-  .svc-item{grid-template-columns:1fr;gap:.4rem}
-  .svc-n{font-size:1.4rem}
+  .svc-item{grid-template-columns:1fr;gap:.45rem;padding-inline:0}
+  .svc-n{font-size:1.45rem}
   .hero-cta .btn{width:100%;justify-content:center}
+  .lockup .wm i{display:none}
 }
 @media(prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation-duration:.001ms !important;transition-duration:.001ms !important;scroll-behavior:auto !important}
-  html.jsrv .rv{opacity:1;transform:none}
+  *,*::before,*::after{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important;scroll-behavior:auto !important}
+  html.jsrv .rv,html.jsrv .rv-scale{opacity:1;transform:none}
+  html.jsrv .words span{opacity:1;transform:none}
+  .progress{display:none}
 }
-@media print{header.site,.mob,.burger,.lb,form.cform{display:none !important}}
+@media print{header.site,.mob,.burger,.lb,form.cform,.progress,.scrollcue{display:none !important}}
 </style>
-<script>document.documentElement.className+=' jsrv';</script>
+<script>document.documentElement.className+=' jsrv js-anim';</script>
 </head>
 
 <body>
 
+<div class="progress" id="progress" aria-hidden="true"></div>
+
 <!-- ============================ HEADER ============================ -->
 <header class="site" id="top">
   <div class="wrap bar">
-    <nav class="navside left" aria-label="Κύρια πλοήγηση">
+    <a class="lockup" href="#top" aria-label="Being Present — Σοφία Γουβιώτου, αρχική">
+      <img src="assets/being-present-logo.webp" alt="" width="430" height="601" fetchpriority="high" decoding="async">
+      <span class="wm">
+        <b>Being Present</b>
+        <i><span class="i-el">Σοφία Γουβιώτου</span><span class="i-en">Sofia Gouviotou</span></i>
+      </span>
+    </a>
+
+    <nav class="main" aria-label="Κύρια πλοήγηση">
       <a href="#present" data-el="Being Present" data-en="Being Present">Being Present</a>
       <a href="#help" data-el="Πώς βοηθώ" data-en="How I help">Πώς βοηθώ</a>
       <a href="#services" data-el="Υπηρεσίες" data-en="Services">Υπηρεσίες</a>
-    </nav>
-
-    <a class="brandmark" href="#top" aria-label="Being Present — Σοφία Γουβιώτου, αρχική">
-      <img src="assets/being-present-logo.webp" alt="" width="430" height="601" fetchpriority="high" decoding="async">
-      <span class="bn">Being Present</span>
-    </a>
-
-    <div class="navside right">
       <a href="#philosophy" data-el="Φιλοσοφία" data-en="Philosophy">Φιλοσοφία</a>
       <a href="#about" data-el="Για μένα" data-en="About me">Για μένα</a>
-      <a href="#contact" data-el="Επικοινωνία" data-en="Contact">Επικοινωνία</a>
+      <a href="#faq" data-el="Ερωτήσεις" data-en="FAQ">Ερωτήσεις</a>
+    </nav>
+
+    <div class="hright">
       <span class="lang" role="group" aria-label="Γλώσσα / Language">
         <button type="button" data-lang="el" aria-pressed="true">ΕΛ</button>
         <button type="button" data-lang="en" aria-pressed="false">EN</button>
       </span>
+      <a class="btn btn-solid hcta" href="#contact" style="padding:.72rem 1.25rem;font-size:.82rem">
+        <span class="i-el">Ραντεβού</span><span class="i-en">Book</span>
+      </a>
       <button class="burger" id="burger" aria-label="Μενού" aria-expanded="false" aria-controls="mobnav">
         <i></i><i></i><i></i>
       </button>
@@ -439,7 +584,7 @@ footer.site address{font-style:normal;display:grid;gap:.5rem}
 
 <div class="mob" id="mobnav" role="dialog" aria-modal="true" aria-label="Μενού πλοήγησης">
   <div class="mob-top">
-    <span class="bn" style="font-family:var(--sans);font-size:.62rem;letter-spacing:.32em;text-transform:uppercase;color:var(--green)">Being Present</span>
+    <span style="font-family:var(--sans);font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:var(--green)">Being Present</span>
     <button class="mob-close" id="mobClose" aria-label="Κλείσιμο μενού">&times;</button>
   </div>
   <nav aria-label="Πλοήγηση κινητού">
@@ -452,59 +597,78 @@ footer.site address{font-style:normal;display:grid;gap:.5rem}
     <a href="#contact"><span class="n">07</span><span class="i-el">Επικοινωνία</span><span class="i-en">Contact</span></a>
   </nav>
   <div class="mob-foot">
-    <span class="i-el">Τηλέφωνο</span><span class="i-en">Telephone</span>: <a href="tel:+306945040465">694 504 0465</a><br>
+    <a href="tel:+306945040465">694 504 0465</a>
     <a href="mailto:sogouv@gmail.com">sogouv@gmail.com</a>
+    <span><span class="i-el">Δευτέρα – Παρασκευή, κατόπιν ραντεβού</span><span class="i-en">Monday – Friday, by appointment</span></span>
   </div>
 </div>
 
 <main>
 
-<!-- ============================ HERO ============================ -->
-<section class="hero wrap" aria-labelledby="h1">
-  <img class="mark" src="assets/being-present-logo.webp" alt="" width="430" height="601" fetchpriority="high" decoding="async">
-  <span class="eyebrow">Σοφία Γουβιώτου · Σύμβουλος Ψυχικής Υγείας</span>
-  <h1 id="h1">
-    <span class="i-el">Καλώς ήρθες. Συμβουλευτική ψυχικής υγείας στη <em>Βούλα</em>.</span>
-    <span class="i-en">Welcome. Mental health counselling in <em>Voula</em>, Athens.</span>
-  </h1>
-  <p class="lead">
-    <span class="i-el">Ένας ήσυχος χώρος για να ακούσεις τον εαυτό σου χωρίς βιασύνη — και να καταλάβεις καλύτερα αυτό που σε απασχολεί. Δια ζώσης στη Βούλα ή online, όπου κι αν βρίσκεσαι.</span>
-    <span class="i-en">A quiet space to listen to yourself without hurry — and to make better sense of what is weighing on you. In person in Voula, or online wherever you are.</span>
-  </p>
-  <div class="hero-cta">
-    <a class="btn btn-solid" href="#contact">
-      <span class="i-el">Κλείσε μια πρώτη συνάντηση</span><span class="i-en">Book a first meeting</span>
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </a>
-    <a class="btn btn-ghost" href="#help">
-      <span class="i-el">Δες πώς μπορώ να βοηθήσω</span><span class="i-en">See how I can help</span>
-    </a>
-  </div>
-  <div class="hero-meta">
-    <span>
-      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2" stroke-linecap="round"/></svg>
-      <span class="i-el">Δευτέρα – Παρασκευή, κατόπιν ραντεβού</span><span class="i-en">Monday – Friday, by appointment</span>
-    </span>
-    <span>
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg>
-      <span class="i-el">Βούλα, Αττική</span><span class="i-en">Voula, Athens</span>
-    </span>
-    <span>
-      <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3 9h18" /></svg>
-      <span class="i-el">Συνεδρίες και online, για Ελληνίδες &amp; Έλληνες του εξωτερικού</span><span class="i-en">Online sessions, including for Greeks living abroad</span>
-    </span>
+<!-- ============================ 01 · HERO ============================ -->
+<section class="hero" aria-labelledby="h1">
+  <div class="hero-bloom" aria-hidden="true"></div>
+  <img class="hero-leaf" src="assets/being-present-logo.webp" alt="" aria-hidden="true" width="430" height="601" fetchpriority="high" decoding="async">
+  <div class="wrap">
+    <span class="eyebrow rvx"><span class="i-el">Σύμβουλος Ψυχικής Υγείας · Βούλα &amp; online</span><span class="i-en">Mental Health Counsellor · Voula &amp; online</span></span>
+    <h1 id="h1" class="words">
+      <span class="i-el">Καλώς ήρθες. Συμβουλευτική ψυχικής υγείας στη <em>Βούλα</em>.</span>
+      <span class="i-en">Welcome. Mental health counselling in <em>Voula</em>, Athens.</span>
+    </h1>
+    <p class="lead rv rv-d2">
+      <span class="i-el">Ένας ήσυχος χώρος για να ακούσεις τον εαυτό σου χωρίς βιασύνη — και να καταλάβεις καλύτερα αυτό που σε απασχολεί. Δια ζώσης στη Βούλα ή online, όπου κι αν βρίσκεσαι.</span>
+      <span class="i-en">A quiet space to listen to yourself without hurry — and to make better sense of what is weighing on you. In person in Voula, or online wherever you are.</span>
+    </p>
+    <div class="hero-cta rv rv-d3">
+      <a class="btn btn-solid" href="#contact">
+        <span class="i-el">Κλείσε μια πρώτη συνάντηση</span><span class="i-en">Book a first meeting</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a class="btn btn-ghost" href="#help">
+        <span class="i-el">Δες πώς μπορώ να βοηθήσω</span><span class="i-en">See how I can help</span>
+      </a>
+    </div>
+    <div class="hero-meta rv rv-d4">
+      <span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2" stroke-linecap="round"/></svg>
+        <span class="i-el">Δευτέρα – Παρασκευή, κατόπιν ραντεβού</span><span class="i-en">Monday – Friday, by appointment</span>
+      </span>
+      <span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg>
+        <span class="i-el">Βούλα, Αττική</span><span class="i-en">Voula, Athens</span>
+      </span>
+      <span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3 9h18"/></svg>
+        <span class="i-el">Συνεδρίες και online, για Ελληνίδες &amp; Έλληνες του εξωτερικού</span><span class="i-en">Online sessions, including for Greeks living abroad</span>
+      </span>
+    </div>
+    <div class="scrollcue rv rv-d4" aria-hidden="true">
+      <span class="i-el">Συνέχισε</span><span class="i-en">Scroll</span>
+      <span class="ln"></span>
+    </div>
   </div>
 </section>
 
-<!-- ============================ BEING PRESENT ============================ -->
-<section class="sec prose-band" id="present" aria-labelledby="h-present">
-  <div class="wrap two">
-    <div class="side rv">
+<!-- ============================ 02 · BEING PRESENT + PORTRAIT ============================ -->
+<section class="sec band" id="present" aria-labelledby="h-present">
+  <div class="wrap intro-grid">
+    <figure class="figure zoomable rv-scale" data-full="assets/sofia-gouviotou-symvoulos-psychikis-ygeias.webp" data-par="0.05">
+      <div class="fwrap">
+      <span class="echo" aria-hidden="true"></span>
+      <div class="frame">
+        <img src="assets/sofia-gouviotou-symvoulos-psychikis-ygeias.webp"
+             alt="Η Σοφία Γουβιώτου, Σύμβουλος Ψυχικής Υγείας, στον χώρο συμβουλευτικής της στη Βούλα"
+             width="900" height="1213" loading="lazy" decoding="async">
+        <span class="zoomhint" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M16 16l4.5 4.5M11 8v6M8 11h6" stroke-linecap="round"/></svg></span>
+      </div>
+      </div>
+      <figcaption><span class="i-el">Σοφία Γουβιώτου, Σύμβουλος Ψυχικής Υγείας</span><span class="i-en">Sofia Gouviotou, Mental Health Counsellor</span></figcaption>
+    </figure>
+
+    <div class="rv rv-d1">
       <span class="eyebrow"><span class="i-el">Η αφετηρία</span><span class="i-en">The starting point</span></span>
       <h2 id="h-present"><span class="i-el">Τι σημαίνει «Being Present»</span><span class="i-en">What “Being Present” means</span></h2>
-    </div>
-    <div class="rv rv-d1">
-      <p>
+      <p style="margin-top:1.1rem">
         <span class="i-el">Being Present σημαίνει να είσαι εδώ. Όχι στο χθες που σε βαραίνει, ούτε στο αύριο που σε αγχώνει — αλλά σε αυτό που ζεις τώρα, με τον εαυτό σου παρόντα και όχι σε απόσταση.</span>
         <span class="i-en">Being present means being here. Not in a yesterday that weighs on you, nor in a tomorrow that worries you — but in what you are living now, with yourself present rather than at a distance.</span>
       </p>
@@ -524,7 +688,7 @@ footer.site address{font-style:normal;display:grid;gap:.5rem}
   </div>
 </section>
 
-<!-- ============================ HOW I CAN HELP ============================ -->
+<!-- ============================ 03 · HOW I CAN HELP ============================ -->
 <section class="sec" id="help" aria-labelledby="h-help">
   <div class="wrap two">
     <div class="side rv">
@@ -556,13 +720,13 @@ footer.site address{font-style:normal;display:grid;gap:.5rem}
   </div>
 </section>
 
-<!-- ============================ SERVICES ============================ -->
-<section class="sec prose-band" id="services" aria-labelledby="h-svc">
+<!-- ============================ 04 · SERVICES ============================ -->
+<section class="sec band" id="services" aria-labelledby="h-svc">
   <div class="wrap">
     <div class="rv" style="max-width:60ch">
       <span class="eyebrow"><span class="i-el">Υπηρεσίες</span><span class="i-en">Services</span></span>
       <h2 id="h-svc"><span class="i-el">Συμβουλευτική ενηλίκων και εφήβων, στη Βούλα και online</span><span class="i-en">Counselling for adults and teenagers, in Voula and online</span></h2>
-      <p class="lead" style="margin-top:1rem">
+      <p class="lead" style="margin-top:1.1rem">
         <span class="i-el">Κάθε συνεργασία ξεκινά με μια πρώτη συνάντηση γνωριμίας, όπου συζητάμε το αίτημά σου και αποφασίζουμε μαζί πώς θα συνεχίσουμε.</span>
         <span class="i-en">Every collaboration starts with a first meeting, where we discuss what brings you here and decide together how to continue.</span>
       </p>
@@ -640,7 +804,7 @@ footer.site address{font-style:normal;display:grid;gap:.5rem}
   </div>
 </section>
 
-<!-- ============================ PHILOSOPHY ============================ -->
+<!-- ============================ 05 · PHILOSOPHY ============================ -->
 <section class="sec dark" id="philosophy" aria-labelledby="h-phil">
   <div class="wrap">
     <div class="two">
@@ -650,8 +814,8 @@ footer.site address{font-style:normal;display:grid;gap:.5rem}
       </div>
       <div class="rv rv-d1">
         <p class="quote-big">
-          <span class="i-el">«Δεν είσαι πρόβλημα προς επίλυση. Είσαι άνθρωπος προς συνάντηση.»</span>
-          <span class="i-en">“You are not a problem to be solved. You are a person to be met.”</span>
+          <span class="i-el">Δεν είσαι πρόβλημα προς επίλυση. Είσαι άνθρωπος προς συνάντηση.</span>
+          <span class="i-en">You are not a problem to be solved. You are a person to be met.</span>
         </p>
       </div>
     </div>
@@ -685,20 +849,13 @@ footer.site address{font-style:normal;display:grid;gap:.5rem}
   </div>
 </section>
 
-<!-- ============================ ABOUT ============================ -->
+<!-- ============================ 06 · ABOUT + SECOND PORTRAIT ============================ -->
 <section class="sec" id="about" aria-labelledby="h-about">
   <div class="wrap about-grid">
-    <figure class="photo zoomable rv" data-full="assets/sofia-gouviotou-symvoulos-psychikis-ygeias.webp" style="margin:0">
-      <img src="assets/sofia-gouviotou-symvoulos-psychikis-ygeias.webp"
-           alt="Η Σοφία Γουβιώτου, Σύμβουλος Ψυχικής Υγείας, στο γραφείο συμβουλευτικής της στη Βούλα"
-           width="900" height="1213" loading="lazy" decoding="async">
-      <figcaption><span class="i-el">Σοφία Γουβιώτου, Σύμβουλος Ψυχικής Υγείας</span><span class="i-en">Sofia Gouviotou, Mental Health Counsellor</span></figcaption>
-    </figure>
-
-    <div class="rv rv-d1">
+    <div class="rv">
       <span class="eyebrow"><span class="i-el">Σχετικά με μένα</span><span class="i-en">About me</span></span>
       <h2 id="h-about"><span class="i-el">Λίγα λόγια για μένα</span><span class="i-en">A few words about me</span></h2>
-      <p style="margin-top:1rem">
+      <p style="margin-top:1.1rem">
         <span class="i-el">Με λένε Σοφία Γουβιώτου και είμαι Σύμβουλος Ψυχικής Υγείας. Παρέχω ατομικές συνεδρίες συμβουλευτικής σε ενήλικες και εφήβους, στη Βούλα και διαδικτυακά, ενώ συμμετέχω σε διεπιστημονική ομάδα και σε τακτική κλινική εποπτεία.</span>
         <span class="i-en">My name is Sofia Gouviotou and I am a Mental Health Counsellor. I offer individual counselling sessions to adults and teenagers, in Voula and online, and I take part in an interdisciplinary team and in regular clinical supervision.</span>
       </p>
@@ -712,7 +869,7 @@ footer.site address{font-style:normal;display:grid;gap:.5rem}
       </p>
       <p>
         <span class="i-el">Αυτό που κρατάω από όλη τη διαδρομή είναι απλό: οι άνθρωποι δεν χρειάζονται κάποιον να τους πει τι να κάνουν. Χρειάζονται κάποιον που θα μείνει εκεί όσο το βρίσκουν μόνοι τους.</span>
-          <span class="i-en">What I keep from the whole journey is simple: people do not need someone to tell them what to do. They need someone who will stay there while they work it out for themselves.</span>
+        <span class="i-en">What I keep from the whole journey is simple: people do not need someone to tell them what to do. They need someone who will stay there while they work it out for themselves.</span>
       </p>
 
       <div class="creds">
@@ -768,16 +925,29 @@ footer.site address{font-style:normal;display:grid;gap:.5rem}
         </details>
       </div>
     </div>
+
+    <figure class="figure zoomable rv-scale rv-d1" data-full="assets/sofia-gouviotou-portrait.webp" data-par="0.06" style="position:sticky;top:118px">
+      <div class="fwrap">
+      <span class="echo" aria-hidden="true"></span>
+      <div class="frame">
+        <img src="assets/sofia-gouviotou-portrait.webp"
+             alt="Πορτρέτο της Σοφίας Γουβιώτου, Συμβούλου Ψυχικής Υγείας"
+             width="900" height="1124" loading="lazy" decoding="async">
+        <span class="zoomhint" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M16 16l4.5 4.5M11 8v6M8 11h6" stroke-linecap="round"/></svg></span>
+      </div>
+      </div>
+      <figcaption><span class="i-el">«Χρειάζονται κάποιον που θα μείνει εκεί.»</span><span class="i-en">“They need someone who will stay there.”</span></figcaption>
+    </figure>
   </div>
 </section>
 
-<!-- ============================ OFFICE ============================ -->
-<section class="sec prose-band" aria-labelledby="h-office">
+<!-- ============================ 07 · THE SPACE ============================ -->
+<section class="sec band" aria-labelledby="h-office">
   <div class="wrap office">
     <div class="rv">
       <span class="eyebrow"><span class="i-el">Ο χώρος</span><span class="i-en">The space</span></span>
       <h2 id="h-office"><span class="i-el">Ένα δωμάτιο χωρίς βιασύνη</span><span class="i-en">A room without hurry</span></h2>
-      <p style="margin-top:1rem">
+      <p style="margin-top:1.1rem">
         <span class="i-el">Οι συνεδρίες γίνονται σε έναν ήσυχο, ζεστό χώρο στη Βούλα — χωρίς αίθουσα αναμονής γεμάτη κόσμο και χωρίς την αίσθηση του ιατρείου. Θα σου δώσω την ακριβή διεύθυνση και οδηγίες πρόσβασης όταν κλείσουμε το πρώτο ραντεβού.</span>
         <span class="i-en">Sessions take place in a quiet, warm room in Voula — no crowded waiting room, and none of the feeling of a clinic. I will give you the exact address and directions once we arrange your first appointment.</span>
       </p>
@@ -785,19 +955,26 @@ footer.site address{font-style:normal;display:grid;gap:.5rem}
         <span class="i-el">Αν προτιμάς online, το πλαίσιο είναι ακριβώς το ίδιο: σταθερή μέρα και ώρα, ίδια διάρκεια, ίδια εμπιστευτικότητα.</span>
         <span class="i-en">If you prefer online, the framework is exactly the same: a fixed day and time, the same duration, the same confidentiality.</span>
       </p>
-      <a class="btn btn-ghost" href="#contact" style="margin-top:.6rem">
+      <a class="btn btn-ghost" href="#contact" style="margin-top:.7rem">
         <span class="i-el">Κλείσε ραντεβού</span><span class="i-en">Arrange an appointment</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
     </div>
-    <figure class="photo zoomable rv rv-d1" data-full="assets/grafeio-symvouleftikis-voula.webp" style="margin:0">
-      <img src="assets/grafeio-symvouleftikis-voula.webp"
-           alt="Ο χώρος συμβουλευτικής: γραφείο με ξύλινες βιβλιοθήκες, φυτά και ζεστό φωτισμό"
-           width="1400" height="1050" loading="lazy" decoding="async">
+    <figure class="figure zoomable rv-scale rv-d1" data-full="assets/grafeio-symvouleftikis-voula.webp" data-par="0.045">
+      <div class="fwrap">
+      <span class="echo" aria-hidden="true"></span>
+      <div class="frame">
+        <img src="assets/grafeio-symvouleftikis-voula.webp"
+             alt="Ο χώρος συμβουλευτικής: γραφείο με ξύλινες βιβλιοθήκες, φυτά και ζεστό φωτισμό"
+             width="1400" height="1050" loading="lazy" decoding="async">
+        <span class="zoomhint" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M16 16l4.5 4.5M11 8v6M8 11h6" stroke-linecap="round"/></svg></span>
+      </div>
+      </div>
     </figure>
   </div>
 </section>
 
-<!-- ============================ FAQ ============================ -->
+<!-- ============================ 08 · FAQ ============================ -->
 <section class="sec" id="faq" aria-labelledby="h-faq">
   <div class="wrap">
     <div class="rv" style="max-width:56ch">
@@ -900,13 +1077,13 @@ footer.site address{font-style:normal;display:grid;gap:.5rem}
   </div>
 </section>
 
-<!-- ============================ CONTACT ============================ -->
-<section class="sec contact-band" id="contact" aria-labelledby="h-contact">
+<!-- ============================ 09 · CONTACT ============================ -->
+<section class="sec band" id="contact" aria-labelledby="h-contact">
   <div class="wrap contact-grid">
     <div class="cinfo rv">
       <span class="eyebrow"><span class="i-el">Επικοινωνία</span><span class="i-en">Contact</span></span>
       <h2 id="h-contact"><span class="i-el">Κάθε αλλαγή ξεκινά με μια απλή πρόθεση</span><span class="i-en">Every change begins with a simple intention</span></h2>
-      <p style="margin-top:1rem">
+      <p style="margin-top:1.1rem">
         <span class="i-el">Αν αισθάνεσαι ότι χρειάζεσαι υποστήριξη για να κατανοήσεις και να διαχειριστείς καλύτερα αυτό που σε απασχολεί, συμπλήρωσε τα στοιχεία σου και θα επικοινωνήσω μαζί σου για να συζητήσουμε το αίτημά σου και να προγραμματίσουμε μια πρώτη συνάντηση.</span>
         <span class="i-en">If you feel you need support to understand and better handle what is on your mind, leave your details and I will contact you so that we can discuss what you are looking for and arrange a first meeting.</span>
       </p>
@@ -1162,8 +1339,21 @@ footer.site address{font-style:normal;display:grid;gap:.5rem}
   var d=document, root=d.documentElement;
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* ---------- year ---------- */
   var y=d.getElementById('year'); if(y) y.textContent=new Date().getFullYear();
+
+  /* ---------- smooth anchor scroll that respects the sticky header ---------- */
+  d.addEventListener('click', function(e){
+    var a = e.target.closest('a[href^="#"]');
+    if(!a) return;
+    var id = a.getAttribute('href');
+    if(id.length < 2) return;
+    var t = d.querySelector(id);
+    if(!t) return;
+    e.preventDefault();
+    var top = t.getBoundingClientRect().top + window.scrollY - 84;
+    window.scrollTo({top: top, behavior: reduce ? 'auto' : 'smooth'});
+    history.replaceState(null,'',id);
+  });
 
   /* ---------- language ---------- */
   var STORE='bp-lang';
@@ -1171,22 +1361,85 @@ footer.site address{font-style:normal;display:grid;gap:.5rem}
     root.setAttribute('lang', l);
     d.querySelectorAll('[data-el][data-en]').forEach(function(el){ el.textContent = el.getAttribute('data-'+l); });
     d.querySelectorAll('.lang button').forEach(function(b){ b.setAttribute('aria-pressed', String(b.dataset.lang===l)); });
+    splitWords();
     try{ localStorage.setItem(STORE,l); }catch(e){}
   }
   d.querySelectorAll('.lang button').forEach(function(b){
     b.addEventListener('click', function(){ setLang(b.dataset.lang); });
   });
-  var saved=null; try{ saved=localStorage.getItem(STORE); }catch(e){}
-  if(saved==='en') setLang('en');
 
-  /* ---------- sticky header ---------- */
-  var hdr=d.querySelector('header.site');
-  var onScroll=function(){ hdr.classList.toggle('stuck', window.scrollY>10); };
-  onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
+  /* ---------- hero word stagger ---------- */
+  function splitWords(){
+    d.querySelectorAll('.words').forEach(function(h){
+      var vis = h.querySelector(root.getAttribute('lang')==='en' ? '.i-en' : '.i-el');
+      if(!vis || vis.dataset.split) return;
+      var frag = d.createDocumentFragment(), i = 0;
+      Array.prototype.slice.call(vis.childNodes).forEach(function(n){
+        if(n.nodeType === 3){
+          n.textContent.split(/(\s+)/).forEach(function(w){
+            if(!w) return;
+            if(/^\s+$/.test(w)){ frag.appendChild(d.createTextNode(w)); return; }
+            var s = d.createElement('span');
+            s.textContent = w;
+            s.style.transitionDelay = (0.05 + (i++) * 0.045) + 's';
+            frag.appendChild(s);
+          });
+        } else {
+          var c = n.cloneNode(true);
+          if(c.style){ c.style.display='inline-block'; c.style.transitionDelay = (0.05 + (i++) * 0.045) + 's'; }
+          frag.appendChild(c);
+        }
+      });
+      vis.textContent = '';
+      vis.appendChild(frag);
+      vis.dataset.split = '1';
+      h.classList.add('in');
+    });
+  }
+
+  var saved=null; try{ saved=localStorage.getItem(STORE); }catch(e){}
+  if(saved==='en') setLang('en'); else splitWords();
+
+  /* ---------- sticky header + scroll progress ---------- */
+  var hdr=d.querySelector('header.site'), bar=d.getElementById('progress');
+  var ticking=false;
+  function onScroll(){
+    if(ticking) return; ticking=true;
+    requestAnimationFrame(function(){
+      var sy = window.scrollY;
+      hdr.classList.toggle('stuck', sy>10);
+      var max = d.documentElement.scrollHeight - window.innerHeight;
+      if(bar) bar.style.transform = 'scaleX(' + (max>0 ? Math.min(1, sy/max) : 0) + ')';
+      parallax();
+      rvSweep();
+      ticking=false;
+    });
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  window.addEventListener('resize', onScroll, {passive:true});
+
+  /* ---------- gentle image parallax ---------- */
+  var pars = Array.prototype.slice.call(d.querySelectorAll('[data-par]'));
+  function parallax(){
+    if(reduce || window.innerWidth < 900) return;
+    var vh = window.innerHeight;
+    pars.forEach(function(el){
+      var r = el.getBoundingClientRect();
+      if(r.bottom < -200 || r.top > vh + 200) return;
+      var img = el.querySelector('.frame img');
+      if(!img) return;
+      var mid = r.top + r.height/2 - vh/2;
+      img.style.transform = 'translate3d(0,' + (-mid * parseFloat(el.dataset.par)).toFixed(2) + 'px,0) scale(1.06)';
+    });
+  }
 
   /* ---------- mobile nav ---------- */
   var mob=d.getElementById('mobnav'), burger=d.getElementById('burger'), mobClose=d.getElementById('mobClose');
-  function openMob(){ mob.classList.add('open'); burger.setAttribute('aria-expanded','true'); d.body.style.overflow='hidden'; mobClose.focus(); }
+  function openMob(){
+    mob.classList.add('open'); burger.setAttribute('aria-expanded','true'); d.body.style.overflow='hidden';
+    mob.querySelectorAll('nav a').forEach(function(a,i){ a.style.animationDelay = (0.06 + i*0.05) + 's'; });
+    mobClose.focus();
+  }
   function closeMob(){ mob.classList.remove('open'); burger.setAttribute('aria-expanded','false'); d.body.style.overflow=''; }
   burger.addEventListener('click', openMob);
   mobClose.addEventListener('click', closeMob);
@@ -1194,7 +1447,7 @@ footer.site address{font-style:normal;display:grid;gap:.5rem}
   d.addEventListener('keydown', function(e){ if(e.key==='Escape' && mob.classList.contains('open')) closeMob(); });
 
   /* ---------- scroll reveal (IntersectionObserver + fail-safe sweep) ---------- */
-  var rv=d.querySelectorAll('.rv');
+  var rv=d.querySelectorAll('.rv, .rv-scale, .principle, .eyebrow');
   function rvShowAll(){ rv.forEach(function(el){ el.classList.add('in'); }); }
   function rvSweep(){
     var vh = window.innerHeight || root.clientHeight || 0;
@@ -1212,9 +1465,20 @@ footer.site address{font-style:normal;display:grid;gap:.5rem}
     rv.forEach(function(el){ io.observe(el); });
     rvSweep();
     requestAnimationFrame(rvSweep);
-    window.addEventListener('load', rvSweep);
-    window.addEventListener('scroll', rvSweep, {passive:true});
-    window.addEventListener('resize', rvSweep, {passive:true});
+    window.addEventListener('load', function(){ rvSweep(); parallax(); });
+  }
+
+  /* ---------- active nav link ---------- */
+  var navLinks = Array.prototype.slice.call(d.querySelectorAll('nav.main a[href^="#"]'));
+  var secs = navLinks.map(function(a){ return d.querySelector(a.getAttribute('href')); }).filter(Boolean);
+  if('IntersectionObserver' in window && secs.length){
+    var sio = new IntersectionObserver(function(en){
+      en.forEach(function(e){
+        if(!e.isIntersecting) return;
+        navLinks.forEach(function(a){ a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id); });
+      });
+    }, {rootMargin:'-45% 0px -50% 0px'});
+    secs.forEach(function(s){ sio.observe(s); });
   }
 
   /* ---------- lightbox ---------- */
@@ -1294,6 +1558,8 @@ footer.site address{font-style:normal;display:grid;gap:.5rem}
       .catch(function(){ say('err','err'); })
       .finally(function(){ label.textContent=prev; fBtn.disabled=false; });
   });
+
+  onScroll();
 })();
 </script>
 </body>
