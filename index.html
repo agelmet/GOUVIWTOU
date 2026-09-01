@@ -423,10 +423,19 @@ details.q .a p:last-child{margin-bottom:0}
 
 /* ============================ contact ============================ */
 .contact-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(2rem,5vw,4.6rem);align-items:start}
-.cinfo p{color:var(--ink-2)}
-.cinfo .final{font-family:var(--serif);font-style:italic;font-size:1.3rem;color:var(--green)}
-.cdl{display:grid;gap:1.05rem;margin-top:2.1rem;border-top:1px solid var(--line-2);padding-top:1.9rem}
+.contact-head{max-width:70ch;margin-inline:auto;text-align:center}
+.contact-head p{margin-top:1.05rem}
+.contact-cta{display:flex;flex-wrap:wrap;gap:.9rem;justify-content:center;margin-top:2.6rem}
+.contact-note{max-width:56ch;margin:1.6rem auto 0;text-align:center;font-size:.9rem;color:var(--ink-3)}
+.cinfo p,.contact-head p{color:var(--ink-2)}
+.cinfo .final,.contact-head .final{font-family:var(--serif);font-style:italic;font-size:1.3rem;color:var(--green)}
+.cdl{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(1.2rem,2.6vw,2rem);margin-top:clamp(2.4rem,4vw,3.4rem);border-top:1px solid var(--line-2);padding-top:clamp(2rem,3.4vw,2.8rem)}
+.cdl .row{background:rgba(255,255,255,.5);border:1px solid var(--line);border-radius:var(--r);padding:clamp(1.15rem,2vw,1.6rem);transition:transform .4s ease,box-shadow .4s ease,border-color .4s ease}
+.cdl .row:hover{transform:translateY(-4px);box-shadow:var(--sh-2);border-color:var(--terra)}
 .cdl .row{display:flex;gap:.95rem;align-items:flex-start}
+.cdl>.row{flex-direction:column;align-items:center;text-align:center;gap:.7rem}
+.cdl>.row svg{margin-top:0;width:22px;height:22px}
+.cdl>.row .k{margin-bottom:.3rem}
 .cdl svg{width:18px;height:18px;flex:none;stroke:var(--terra);fill:none;stroke-width:1.6;margin-top:.25rem}
 .cdl .k{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3);display:block;margin-bottom:.15rem}
 .cdl a{color:var(--ink);text-decoration:none;font-weight:500;border-bottom:1px solid var(--line);transition:color .3s,border-color .3s}
@@ -506,6 +515,8 @@ footer.site address{font-style:normal;display:grid;gap:.5rem}
 }
 @media(max-width:900px){
   .two,.about-grid,.contact-grid,.office,.intro-grid{grid-template-columns:1fr}
+  .cdl{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .contact-cta .btn{width:100%;justify-content:center}
   .two .side h2{position:static}
   .principles{grid-template-columns:1fr}
   .faq-grid{grid-template-columns:1fr}
@@ -537,6 +548,10 @@ footer.site address{font-style:normal;display:grid;gap:.5rem}
   html.jsrv .rv,html.jsrv .rv-scale{opacity:1;transform:none}
   html.jsrv .words span{opacity:1;transform:none}
   .progress{display:none}
+}
+@media(max-width:560px){
+  .cdl{grid-template-columns:1fr}
+  .cdl a{overflow-wrap:anywhere}
 }
 @media print{header.site,.mob,.burger,.lb,form.cform,.progress,.scrollcue{display:none !important}}
 </style>
@@ -995,8 +1010,8 @@ footer.site address{font-style:normal;display:grid;gap:.5rem}
         <details class="q">
           <summary><span><span class="i-el">Πώς κλείνω την πρώτη μας συνάντηση;</span><span class="i-en">How do I arrange a first meeting?</span></span><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></span></summary>
           <div class="a"><p>
-            <span class="i-el">Συμπλήρωσε τη φόρμα επικοινωνίας, στείλε μου email ή πάρε με τηλέφωνο. Θα επικοινωνήσω μαζί σου για να συζητήσουμε σύντομα το αίτημά σου και να βρούμε μέρα και ώρα. Αν δεν απαντήσω αμέσως, είμαι σε συνεδρία — θα σε πάρω πίσω.</span>
-            <span class="i-en">Fill in the contact form, send me an email or call me. I will get back to you so that we can briefly discuss what you are looking for and find a day and time. If I do not answer straight away I am in session — I will call you back.</span>
+            <span class="i-el">Στείλε μου email ή πάρε με τηλέφωνο. Θα επικοινωνήσω μαζί σου για να συζητήσουμε σύντομα το αίτημά σου και να βρούμε μέρα και ώρα. Αν δεν απαντήσω αμέσως, είμαι σε συνεδρία — θα σε πάρω πίσω.</span>
+            <span class="i-en">Send me an email or call me. I will get back to you so that we can briefly discuss what you are looking for and find a day and time. If I do not answer straight away I am in session — I will call you back.</span>
           </p></div>
         </details>
 
@@ -1079,13 +1094,13 @@ footer.site address{font-style:normal;display:grid;gap:.5rem}
 
 <!-- ============================ 09 · CONTACT ============================ -->
 <section class="sec band" id="contact" aria-labelledby="h-contact">
-  <div class="wrap contact-grid">
-    <div class="cinfo rv">
+  <div class="wrap">
+    <div class="contact-head rv">
       <span class="eyebrow"><span class="i-el">Επικοινωνία</span><span class="i-en">Contact</span></span>
       <h2 id="h-contact"><span class="i-el">Κάθε αλλαγή ξεκινά με μια απλή πρόθεση</span><span class="i-en">Every change begins with a simple intention</span></h2>
-      <p style="margin-top:1.1rem">
-        <span class="i-el">Αν αισθάνεσαι ότι χρειάζεσαι υποστήριξη για να κατανοήσεις και να διαχειριστείς καλύτερα αυτό που σε απασχολεί, συμπλήρωσε τα στοιχεία σου και θα επικοινωνήσω μαζί σου για να συζητήσουμε το αίτημά σου και να προγραμματίσουμε μια πρώτη συνάντηση.</span>
-        <span class="i-en">If you feel you need support to understand and better handle what is on your mind, leave your details and I will contact you so that we can discuss what you are looking for and arrange a first meeting.</span>
+      <p>
+        <span class="i-el">Αν αισθάνεσαι ότι χρειάζεσαι υποστήριξη για να κατανοήσεις και να διαχειριστείς καλύτερα αυτό που σε απασχολεί, γράψε μου ή πάρε με τηλέφωνο. Θα συζητήσουμε το αίτημά σου και θα προγραμματίσουμε μια πρώτη συνάντηση.</span>
+        <span class="i-en">If you feel you need support to understand and better handle what is on your mind, write to me or give me a call. We will talk through what you are looking for and arrange a first meeting.</span>
       </p>
       <p>
         <span class="i-el">Οι συνεδρίες συμβουλευτικής πραγματοποιούνται δια ζώσης ή online, ανάλογα με τις ανάγκες και την προτίμησή σου.</span>
@@ -1095,98 +1110,54 @@ footer.site address{font-style:normal;display:grid;gap:.5rem}
         <span class="i-el">Το πρώτο βήμα μπορεί να είναι απλώς μια συζήτηση.</span>
         <span class="i-en">The first step can simply be a conversation.</span>
       </p>
+    </div>
 
-      <div class="cdl">
-        <div class="row">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 5.5c0 8 6 14 14 14l2-3.2-4-2.2-1.8 1.8a13 13 0 0 1-6.6-6.6L9.9 7.5 7.7 3.5 4.5 5.5Z" stroke-linejoin="round"/></svg>
-          <div>
-            <span class="k"><span class="i-el">Τηλέφωνο</span><span class="i-en">Telephone</span></span>
-            <a href="tel:+306945040465">694 504 0465</a>
-          </div>
+    <div class="cdl rv rv-d1">
+      <div class="row">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 5.5c0 8 6 14 14 14l2-3.2-4-2.2-1.8 1.8a13 13 0 0 1-6.6-6.6L9.9 7.5 7.7 3.5 4.5 5.5Z" stroke-linejoin="round"/></svg>
+        <div>
+          <span class="k"><span class="i-el">Τηλέφωνο</span><span class="i-en">Telephone</span></span>
+          <a href="tel:+306945040465">694 504 0465</a>
         </div>
-        <div class="row">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m3.6 7 8.4 6 8.4-6" stroke-linejoin="round"/></svg>
-          <div>
-            <span class="k">Email</span>
-            <a href="mailto:sogouv@gmail.com">sogouv@gmail.com</a>
-          </div>
+      </div>
+      <div class="row">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m3.6 7 8.4 6 8.4-6" stroke-linejoin="round"/></svg>
+        <div>
+          <span class="k">Email</span>
+          <a href="mailto:sogouv@gmail.com">sogouv@gmail.com</a>
         </div>
-        <div class="row">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2" stroke-linecap="round"/></svg>
-          <div>
-            <span class="k"><span class="i-el">Ωράριο</span><span class="i-en">Hours</span></span>
-            <span class="i-el">Δευτέρα – Παρασκευή, κατόπιν ραντεβού</span><span class="i-en">Monday – Friday, by appointment</span>
-          </div>
+      </div>
+      <div class="row">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2" stroke-linecap="round"/></svg>
+        <div>
+          <span class="k"><span class="i-el">Ωράριο</span><span class="i-en">Hours</span></span>
+          <span class="i-el">Δευτέρα – Παρασκευή, κατόπιν ραντεβού</span><span class="i-en">Monday – Friday, by appointment</span>
         </div>
-        <div class="row">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg>
-          <div>
-            <span class="k"><span class="i-el">Περιοχή</span><span class="i-en">Area</span></span>
-            <span class="i-el">Βούλα, Αττική — και διαδικτυακά</span><span class="i-en">Voula, Athens — and online</span>
-          </div>
+      </div>
+      <div class="row">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg>
+        <div>
+          <span class="k"><span class="i-el">Περιοχή</span><span class="i-en">Area</span></span>
+          <span class="i-el">Βούλα, Αττική — και διαδικτυακά</span><span class="i-en">Voula, Athens — and online</span>
         </div>
       </div>
     </div>
 
-    <div class="rv rv-d1">
-      <form class="cform" id="bpForm" novalidate>
-        <div class="frow">
-          <div class="field">
-            <label for="f-name"><span class="i-el">Ονοματεπώνυμο</span><span class="i-en">Full name</span></label>
-            <input type="text" id="f-name" name="Ονοματεπώνυμο" required autocomplete="name">
-          </div>
-          <div class="field">
-            <label for="f-phone"><span class="i-el">Τηλέφωνο επικοινωνίας</span><span class="i-en">Contact telephone</span></label>
-            <input type="tel" id="f-phone" name="Τηλέφωνο" autocomplete="tel">
-          </div>
-        </div>
-
-        <div class="field">
-          <label for="f-email">Email</label>
-          <input type="email" id="f-email" name="Email" required autocomplete="email">
-        </div>
-
-        <fieldset class="mode">
-          <legend class="legend"><span class="i-el">Τρόπος διεξαγωγής συνεδρίας</span><span class="i-en">Session format</span></legend>
-          <div class="radios">
-            <label><input type="radio" name="Τρόπος συνεδρίας" value="Δια ζώσης" checked><span class="i-el">Δια ζώσης</span><span class="i-en">In person</span></label>
-            <label><input type="radio" name="Τρόπος συνεδρίας" value="Online"><span class="i-el">Online</span><span class="i-en">Online</span></label>
-          </div>
-        </fieldset>
-
-        <div class="field">
-          <label for="f-msg"><span class="i-el">Αν θέλεις, γράψε λίγα λόγια για αυτό που σε απασχολεί</span><span class="i-en">If you wish, write a few words about what is on your mind</span></label>
-          <textarea id="f-msg" name="Μήνυμα"></textarea>
-        </div>
-
-        <p class="hp" aria-hidden="true"><label>Μην συμπληρώσετε αυτό το πεδίο<input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label></p>
-
-        <label class="consent" for="f-consent">
-          <input type="checkbox" id="f-consent" name="Συναίνεση" value="Ναι" required>
-          <span>
-            <span class="i-el">Συναινώ στην επεξεργασία των στοιχείων μου με μοναδικό σκοπό την απάντηση στο αίτημά μου.</span>
-            <span class="i-en">I consent to my details being processed for the sole purpose of replying to my enquiry.</span>
-          </span>
-        </label>
-
-        <button type="submit" class="btn btn-solid" id="fBtn" style="width:100%;justify-content:center">
-          <span class="i-el">Αποστολή μηνύματος</span><span class="i-en">Send message</span>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </button>
-
-        <div class="fmsg" id="fMsg" role="status"></div>
-
-        <p class="fnote">
-          <span class="i-el">Απαντώ συνήθως εντός 1–2 εργάσιμων ημερών.</span>
-          <span class="i-en">I usually reply within 1–2 working days.</span>
-        </p>
-      </form>
-
-      <p class="privacy">
-        <span class="i-el">Τα στοιχεία που υποβάλλονται μέσω της φόρμας χρησιμοποιούνται αποκλειστικά για την επικοινωνία σχετικά με το αίτημά σου και αντιμετωπίζονται με εμπιστευτικότητα, σύμφωνα με την ισχύουσα νομοθεσία και την Πολιτική Απορρήτου.</span>
-        <span class="i-en">The details submitted through this form are used solely to reply to your enquiry and are treated confidentially, in accordance with applicable law and the Privacy Policy.</span>
-      </p>
+    <div class="contact-cta rv rv-d2">
+      <a class="btn btn-solid" href="tel:+306945040465">
+        <span class="i-el">Κάλεσέ με</span><span class="i-en">Call me</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 5.5c0 8 6 14 14 14l2-3.2-4-2.2-1.8 1.8a13 13 0 0 1-6.6-6.6L9.9 7.5 7.7 3.5 4.5 5.5Z" stroke-linejoin="round"/></svg>
+      </a>
+      <a class="btn" href="mailto:sogouv@gmail.com">
+        <span class="i-el">Στείλε μου email</span><span class="i-en">Send me an email</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
     </div>
+
+    <p class="contact-note rv rv-d2">
+      <span class="i-el">Απαντώ συνήθως εντός 1–2 εργάσιμων ημερών. Ό,τι μου γράφεις αντιμετωπίζεται με απόλυτη εμπιστευτικότητα.</span>
+      <span class="i-en">I usually reply within 1–2 working days. Anything you write to me is treated in strict confidence.</span>
+    </p>
   </div>
 </section>
 
@@ -1319,7 +1290,7 @@ footer.site address{font-style:normal;display:grid;gap:.5rem}
       "@id": "#faq",
       "mainEntity": [
         {"@type":"Question","name":"Τι είναι η συμβουλευτική ψυχικής υγείας και σε τι διαφέρει από την ψυχοθεραπεία;","acceptedAnswer":{"@type":"Answer","text":"Η συμβουλευτική εστιάζει στο παρόν και σε συγκεκριμένα αιτήματα: μια δυσκολία, μια απόφαση, μια περίοδο αλλαγής. Είναι συνήθως πιο σύντομη και πιο πρακτική από την ψυχοθεραπεία, που δουλεύει σε μεγαλύτερο βάθος και βάθος χρόνου. Στην πράξη τα όρια δεν είναι απόλυτα — στην πρώτη μας συνάντηση θα δούμε μαζί τι ταιριάζει σε αυτό που ζητάς."}},
-        {"@type":"Question","name":"Πώς κλείνω την πρώτη μας συνάντηση;","acceptedAnswer":{"@type":"Answer","text":"Συμπλήρωσε τη φόρμα επικοινωνίας, στείλε μου email ή πάρε με τηλέφωνο. Θα επικοινωνήσω μαζί σου για να συζητήσουμε σύντομα το αίτημά σου και να βρούμε μέρα και ώρα. Αν δεν απαντήσω αμέσως, είμαι σε συνεδρία — θα σε πάρω πίσω."}},
+        {"@type":"Question","name":"Πώς κλείνω την πρώτη μας συνάντηση;","acceptedAnswer":{"@type":"Answer","text":"Στείλε μου email ή πάρε με τηλέφωνο. Θα επικοινωνήσω μαζί σου για να συζητήσουμε σύντομα το αίτημά σου και να βρούμε μέρα και ώρα. Αν δεν απαντήσω αμέσως, είμαι σε συνεδρία — θα σε πάρω πίσω."}},
         {"@type":"Question","name":"Πόσο διαρκεί μια συνεδρία και κάθε πότε γίνεται;","acceptedAnswer":{"@type":"Answer","text":"Η ατομική συνεδρία διαρκεί περίπου 50 λεπτά και γίνεται συνήθως μία φορά την εβδομάδα, σε σταθερή μέρα και ώρα. Η σταθερότητα βοηθάει: δεν χρειάζεται κάθε φορά να ξαναβρίσκουμε το νήμα."}},
         {"@type":"Question","name":"Πόσο καιρό κρατάει η συμβουλευτική;","acceptedAnswer":{"@type":"Answer","text":"Εξαρτάται εξ ολοκλήρου από εσένα και από το αίτημα. Κάποιοι άνθρωποι χρειάζονται λίγες συνεδρίες γύρω από ένα συγκεκριμένο θέμα, άλλοι μένουν περισσότερο. Επανεξετάζουμε την πορεία μας ανά τακτά διαστήματα και αποφασίζεις εσύ πότε είναι καλή στιγμή να ολοκληρώσουμε."}},
         {"@type":"Question","name":"Πόσο κοστίζει και υπάρχει μειωμένη τιμή;","acceptedAnswer":{"@type":"Answer","text":"Το κόστος της συνεδρίας συζητείται και συμφωνείται από την πρώτη μας επικοινωνία, ώστε να ξέρεις ακριβώς τι ισχύει πριν ξεκινήσουμε. Για φοιτητές, ανέργους και ΑμεΑ ισχύει μειωμένο κόστος, κατόπιν επίδειξης του αντίστοιχου εγγράφου."}},
@@ -1502,62 +1473,6 @@ footer.site address{font-style:normal;display:grid;gap:.5rem}
   lb.addEventListener('click', function(e){ if(e.target===lb) lbHide(); });
   d.addEventListener('keydown', function(e){ if(e.key==='Escape' && lb.classList.contains('open')) lbHide(); });
 
-  /* ---------- contact form ----------
-     Paste the Formspree endpoint below (e.g. 'https://formspree.io/f/xxxxxxx').
-     While it is empty the form falls back to opening a pre-filled email to
-     sogouv@gmail.com, so the site never has a dead form.                     */
-  var FORM_ENDPOINT = '';
-
-  var form=d.getElementById('bpForm'), fMsg=d.getElementById('fMsg'), fBtn=d.getElementById('fBtn');
-  var T={
-    el:{ missing:'Συμπλήρωσε το όνομα, το email σου και τη συναίνεση για να συνεχίσουμε.',
-         email:'Το email δεν φαίνεται σωστό. Έλεγξέ το και δοκίμασε ξανά.',
-         ok:'Ευχαριστώ! Έλαβα το μήνυμά σου και θα επικοινωνήσω μαζί σου σύντομα.',
-         mail:'Άνοιξε το πρόγραμμα email σου με το μήνυμα έτοιμο — πάτησε αποστολή για να μου το στείλεις.',
-         err:'Κάτι πήγε στραβά με την αποστολή. Δοκίμασε ξανά ή γράψε μου απευθείας στο sogouv@gmail.com.',
-         sending:'Αποστολή…' },
-    en:{ missing:'Please add your name, your email and tick the consent box to continue.',
-         email:'That email does not look right. Please check it and try again.',
-         ok:'Thank you! I have received your message and will be in touch soon.',
-         mail:'Your email app has opened with the message ready — press send to deliver it.',
-         err:'Something went wrong. Please try again, or write to me directly at sogouv@gmail.com.',
-         sending:'Sending…' }
-  };
-  function t(k){ return T[root.getAttribute('lang')==='en'?'en':'el'][k]; }
-  function say(kind,k){ fMsg.className='fmsg '+kind; fMsg.textContent=t(k); }
-
-  form.addEventListener('submit', function(e){
-    e.preventDefault();
-    var fd=new FormData(form);
-    if(fd.get('_gotcha')) return;
-    var name=(fd.get('Ονοματεπώνυμο')||'').toString().trim();
-    var email=(fd.get('Email')||'').toString().trim();
-    if(!name || !email || !fd.get('Συναίνεση')){ say('err','missing'); return; }
-    if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)){ say('err','email'); return; }
-
-    if(!FORM_ENDPOINT){
-      var body =
-        'Ονοματεπώνυμο: '+name+'\n'+
-        'Τηλέφωνο: '+((fd.get('Τηλέφωνο')||'').toString())+'\n'+
-        'Email: '+email+'\n'+
-        'Τρόπος συνεδρίας: '+((fd.get('Τρόπος συνεδρίας')||'').toString())+'\n\n'+
-        ((fd.get('Μήνυμα')||'').toString());
-      window.location.href='mailto:sogouv@gmail.com?subject='+
-        encodeURIComponent('Αίτημα από την ιστοσελίδα — '+name)+'&body='+encodeURIComponent(body);
-      say('ok','mail');
-      return;
-    }
-
-    var label=fBtn.querySelector('span'); var prev=label.textContent;
-    label.textContent=t('sending'); fBtn.disabled=true;
-    fetch(FORM_ENDPOINT, {method:'POST', body:fd, headers:{'Accept':'application/json'}})
-      .then(function(r){
-        if(!r.ok) throw new Error('bad');
-        form.reset(); say('ok','ok');
-      })
-      .catch(function(){ say('err','err'); })
-      .finally(function(){ label.textContent=prev; fBtn.disabled=false; });
-  });
 
   onScroll();
 })();
