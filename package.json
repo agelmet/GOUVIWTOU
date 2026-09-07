@@ -1,0 +1,9 @@
+{
+  "name": "being-present",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Being Present — Σοφία Γουβιώτου: site + article publishing functions (Netlify)",
+  "dependencies": {
+    "@netlify/blobs": "^11.0.3"
+  }
+}

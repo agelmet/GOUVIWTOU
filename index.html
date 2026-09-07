@@ -1,50 +1,42 @@
 <!DOCTYPE html>
 <html lang="el">
 <!--
-  Being Present — Σοφία Γουβιώτου, Σύμβουλος Ψυχικής Υγείας (Βούλα, Αττική)
+  Being Present — Σοφία Γουβιώτου, Σύμβουλος Ψυχικής Υγείας
   Built by Advon Media — https://advonmedia.com
 
-  SKELETON ROLL
-    Hero .............. stacked editorial, leaf used as a single decorative watermark
-    Nav ............... horizontal lockup (mark + wordmark), split navigation, scroll-compacting
-    Services .......... numbered editorial list (01–05)
-    Social proof ...... floating credential chips (no reviews yet — nothing fabricated)
-    Contact ........... full-width band
-    FAQ ............... two-column list directly before contact
-
-  LOGO POLICY — the mark appears exactly three times, never twice in one viewport:
-    1. nav lockup (small)   2. hero background watermark (decorative, aria-hidden)
-    3. footer mark (small)
-
-  INDEXING STATE: PREVIEW (GitHub Pages)
-    - <meta name="robots" content="noindex,nofollow"> is active
-    - robots.txt disallows everything
-    - sitemap.xml already lists FINAL-domain URLs
-    - canonical / og:url / og:image intentionally OMITTED until the domain is confirmed
+  Revision of 7 Sept 2026 — every point from the client's change list:
+    1 one single light palette, no dark surfaces anywhere
+    2 no Voula, no map — «δια ζώσης και on line»
+    3 nav «Πώς μπορώ να βοηθήσω», no EL/EN switch, «Ραντεβού» → «Επικοινωνία»
+    4 the leaf reads more strongly behind the headline, pushed right, never over the words
+    5 domain beingpresent.gr
+    6 info@beingpresent.gr
+    7 all previous photos removed — only the two new ones she sent
+    8 «Άρθρα» section she publishes herself from admin.html (see odigos.html)
+  Also removed on request: «Ο χώρος» and «Συχνές ερωτήσεις».
 
   GO LIVE TODO (one commit):
     1. remove the noindex meta below
     2. robots.txt -> Allow + Sitemap line
-    3. add canonical, og:url, og:image, hreflang el/en + x-default on the real domain
-    4. confirm sitemap.xml uses the real domain
+    3. add canonical / og:url / og:image on https://beingpresent.gr
+    4. create the info@beingpresent.gr mailbox first — it is the address on this page
 -->
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
 
-<title>Σύμβουλος Ψυχικής Υγείας Βούλα | Σοφία Γουβιώτου</title>
-<meta name="description" content="Συμβουλευτική ψυχικής υγείας για ενήλικες και εφήβους, στη Βούλα και online. Σοφία Γουβιώτου, Σύμβουλος Ψυχικής Υγείας. Κλείσε την πρώτη σου συνάντηση.">
-<meta name="keywords" content="σύμβουλος ψυχικής υγείας Βούλα, συμβουλευτική Βούλα, συμβουλευτική ενηλίκων, συμβουλευτική εφήβων και γονέων, συμβουλευτική πένθους, χρόνια νοσήματα, διαδικτυακή συμβουλευτική, Σοφία Γουβιώτου">
+<title>Σοφία Γουβιώτου | Σύμβουλος Ψυχικής Υγείας — δια ζώσης &amp; online</title>
+<meta name="description" content="Συμβουλευτική ψυχικής υγείας για ενήλικες και εφήβους, δια ζώσης και online. Σοφία Γουβιώτου, Σύμβουλος Ψυχικής Υγείας. Κλείσε την πρώτη σου συνάντηση.">
+<meta name="keywords" content="σύμβουλος ψυχικής υγείας, συμβουλευτική ενηλίκων, συμβουλευτική εφήβων και γονέων, συμβουλευτική πένθους, χρόνια νοσήματα, διαδικτυακή συμβουλευτική, Σοφία Γουβιώτου, Being Present">
 <meta name="author" content="Σοφία Γουβιώτου">
 <meta name="theme-color" content="#F4ECDD">
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Being Present — Σοφία Γουβιώτου">
 <meta property="og:locale" content="el_GR">
-<meta property="og:locale:alternate" content="en_GB">
-<meta property="og:title" content="Σύμβουλος Ψυχικής Υγείας Βούλα | Σοφία Γουβιώτου">
-<meta property="og:description" content="Συμβουλευτική ψυχικής υγείας για ενήλικες και εφήβους, στη Βούλα και online. Κλείσε την πρώτη σου συνάντηση.">
+<meta property="og:title" content="Σοφία Γουβιώτου | Σύμβουλος Ψυχικής Υγείας">
+<meta property="og:description" content="Συμβουλευτική ψυχικής υγείας για ενήλικες και εφήβους, δια ζώσης και online.">
 <meta name="twitter:card" content="summary_large_image">
 
 <link rel="icon" href="favicon.ico" sizes="any">
@@ -62,37 +54,30 @@
 /* ============================ tokens ============================ */
 :root{
   --paper:#F4ECDD;
-  --paper-2:#EDE2CE;
-  --paper-3:#E4D7BE;
+  --paper-2:#EFE6D5;
+  --paper-3:#E7DCC6;
+  --ecru:#F8F2E6;
   --ink:#22392B;
   --ink-2:#3E5847;
   --ink-3:#6B7F71;
   --green:#2C4D3A;
-  --green-deep:#16261C;
+  --green-deep:#1D3427;
   --terra:#9A4423;
   --terra-2:#B75C34;
-  --terra-soft:#E7D0C0;
+  --terra-soft:#E3CDBD;
   --line:rgba(34,57,43,.16);
   --line-2:rgba(34,57,43,.09);
-
   --serif:"Cormorant Garamond", Georgia, "Times New Roman", serif;
   --sans:"Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
-
   --ease:cubic-bezier(.22,1,.36,1);
-  --ease-soft:cubic-bezier(.4,0,.2,1);
-  --ease-back:cubic-bezier(.34,1.4,.5,1);
-
   --pad:clamp(1.15rem,5vw,5rem);
   --maxw:1180px;
   --r:20px;
-
-  /* layered, brand-tinted shadows */
   --sh-1:0 1px 2px rgba(22,38,28,.05), 0 4px 10px -4px rgba(22,38,28,.09);
-  --sh-2:0 2px 4px rgba(22,38,28,.05), 0 14px 28px -12px rgba(22,38,28,.16), 0 40px 64px -44px rgba(22,38,28,.34);
-  --sh-3:0 3px 6px rgba(22,38,28,.06), 0 22px 44px -16px rgba(22,38,28,.22), 0 60px 90px -52px rgba(22,38,28,.45);
-  --sh-terra:0 18px 34px -18px rgba(154,68,35,.62);
+  --sh-2:0 2px 4px rgba(22,38,28,.05), 0 14px 28px -12px rgba(22,38,28,.16), 0 40px 64px -44px rgba(22,38,28,.30);
+  --sh-3:0 3px 6px rgba(22,38,28,.06), 0 22px 44px -16px rgba(22,38,28,.20), 0 60px 90px -52px rgba(22,38,28,.38);
+  --sh-terra:0 18px 34px -18px rgba(154,68,35,.55);
 }
-
 *,*::before,*::after{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 html:not(.js-anim){scroll-behavior:smooth}
@@ -109,452 +94,307 @@ main,header,footer{position:relative;z-index:1}
 img{max-width:100%;height:auto;display:block}
 a{color:inherit}
 h1,h2,h3,h4{font-family:var(--serif);font-weight:400;line-height:1.14;margin:0;letter-spacing:-.006em}
-h1{font-size:clamp(2.35rem,1.4rem + 4vw,4.4rem)}
+h1{font-size:clamp(2.3rem,1.4rem + 3.7vw,4.1rem)}
 h2{font-size:clamp(1.9rem,1.3rem + 2.3vw,3rem)}
-h3{font-size:clamp(1.25rem,1.05rem + .8vw,1.65rem)}
+h3{font-size:clamp(1.25rem,1.05rem + .8vw,1.62rem)}
 p{margin:0 0 1.05em}
 :focus-visible{outline:2px solid var(--terra);outline-offset:3px;border-radius:5px}
 section[id],main [id]{scroll-margin-top:96px}
-
 .wrap{width:100%;max-width:var(--maxw);margin:0 auto;padding-inline:var(--pad)}
-.sec{padding-block:clamp(3.8rem,7.5vw,7.5rem);position:relative}
+.sec{padding-block:clamp(3.8rem,7.5vw,7.2rem);position:relative}
+.band{background:var(--paper-2)}
+.band-3{background:var(--paper-3)}
 .lead{font-size:clamp(1.06rem,1rem + .4vw,1.22rem);color:var(--ink-2);max-width:62ch}
+.center{text-align:center}
+.center .lead{margin-inline:auto}
 
-/* language visibility */
-html[lang="el"] .i-en,html[lang="en"] .i-el{display:none !important}
-
-/* eyebrow with a rule that draws itself in */
 .eyebrow{
   display:inline-flex;align-items:center;gap:.7rem;font-family:var(--sans);font-size:.68rem;font-weight:500;
   letter-spacing:.24em;text-transform:uppercase;color:var(--terra);margin-bottom:1.15rem;
 }
-.eyebrow::before{
-  content:"";display:block;width:0;height:1px;background:var(--terra);opacity:.55;
-  transition:width 1.1s var(--ease) .15s;
-}
+.eyebrow::before{content:"";display:block;width:0;height:1px;background:var(--terra);opacity:.55;transition:width 1.1s var(--ease) .15s}
 .rv.in .eyebrow::before,.eyebrow.in::before{width:34px}
-.dark .eyebrow{color:#DDA582}
-.dark .eyebrow::before{background:#DDA582}
+.center .eyebrow::before{display:none}
 
 /* ============================ scroll progress ============================ */
-.progress{
-  position:fixed;top:0;left:0;height:2px;width:100%;transform:scaleX(0);transform-origin:0 50%;
-  background:linear-gradient(90deg,var(--terra),var(--terra-2));z-index:90;pointer-events:none;
-}
+.progress{position:fixed;top:0;left:0;height:2px;width:100%;transform:scaleX(0);transform-origin:0 50%;
+  background:linear-gradient(90deg,var(--terra),var(--terra-2));z-index:90;pointer-events:none}
 
 /* ============================ reveal (fail-safe) ============================ */
-html.jsrv .rv{opacity:0;transform:translateY(26px);transition:opacity .95s var(--ease),transform .95s var(--ease)}
+html.jsrv .rv{opacity:0;transform:translateY(24px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
 html.jsrv .rv.in{opacity:1;transform:none}
 .rv-d1{transition-delay:.09s}.rv-d2{transition-delay:.18s}.rv-d3{transition-delay:.27s}.rv-d4{transition-delay:.36s}
-html.jsrv .rv-scale{opacity:0;transform:translateY(30px) scale(.965);transition:opacity 1.1s var(--ease),transform 1.1s var(--ease)}
+html.jsrv .rv-scale{opacity:0;transform:translateY(28px) scale(.97);transition:opacity 1.05s var(--ease),transform 1.05s var(--ease)}
 html.jsrv .rv-scale.in{opacity:1;transform:none}
-
-/* hero word stagger */
 .words span{display:inline-block}
-html.jsrv .words span{opacity:0;transform:translateY(.7em) rotate(1.2deg);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+html.jsrv .words span{opacity:0;transform:translateY(.55em);transition:opacity .8s var(--ease),transform .8s var(--ease)}
 html.jsrv .words.in span{opacity:1;transform:none}
-
-/* ============================ buttons ============================ */
-.btn{
-  position:relative;display:inline-flex;align-items:center;gap:.65rem;font-family:var(--sans);font-size:.9rem;font-weight:500;
-  letter-spacing:.02em;padding:1rem 1.7rem;border-radius:999px;border:1px solid transparent;overflow:hidden;
-  text-decoration:none;cursor:pointer;isolation:isolate;
-  transition:transform .45s var(--ease),background .35s var(--ease-soft),color .35s var(--ease-soft),border-color .35s var(--ease-soft),box-shadow .45s var(--ease);
+@media (prefers-reduced-motion:reduce){
+  html.jsrv .rv,html.jsrv .rv-scale,html.jsrv .words span{opacity:1!important;transform:none!important;transition:none!important}
+  .progress{display:none}
+  html{scroll-behavior:auto}
 }
-.btn svg{width:16px;height:16px;flex:none;stroke:currentColor;fill:none;stroke-width:1.7;transition:transform .45s var(--ease)}
-.btn:hover svg{transform:translateX(4px)}
-.btn-solid{background:var(--terra);color:#FBF6ED;box-shadow:var(--sh-terra)}
-.btn-solid::after{
-  content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(120deg,transparent 20%,rgba(255,255,255,.22),transparent 80%);
-  transform:translateX(-120%);transition:transform .8s var(--ease);
-}
-.btn-solid:hover{background:var(--terra-2);transform:translateY(-3px);box-shadow:0 24px 44px -20px rgba(154,68,35,.75)}
-.btn-solid:hover::after{transform:translateX(120%)}
-.btn-ghost{border-color:var(--line);color:var(--ink);background:rgba(255,255,255,.28)}
-.btn-ghost:hover{border-color:var(--green);background:rgba(44,77,58,.07);transform:translateY(-3px);box-shadow:var(--sh-1)}
-.dark .btn-ghost{border-color:rgba(244,236,221,.3);color:#F4ECDD;background:transparent}
-.dark .btn-ghost:hover{background:rgba(244,236,221,.1);border-color:rgba(244,236,221,.6)}
 
 /* ============================ header ============================ */
-header.site{
-  position:sticky;top:0;z-index:60;background:rgba(244,236,221,.82);backdrop-filter:blur(16px) saturate(1.1);
-  border-bottom:1px solid transparent;transition:border-color .45s var(--ease-soft),box-shadow .45s var(--ease-soft),background .45s var(--ease-soft);
-}
-header.site.stuck{border-bottom-color:var(--line-2);box-shadow:0 12px 34px -30px rgba(22,38,28,.8);background:rgba(244,236,221,.94)}
-.bar{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:1.2rem;padding-block:.85rem;transition:padding .45s var(--ease)}
-header.site.stuck .bar{padding-block:.6rem}
-
-/* single horizontal lockup — the only logo in the header */
-.lockup{display:inline-flex;align-items:center;gap:.6rem;text-decoration:none;line-height:1}
-.lockup img{width:clamp(26px,3.2vw,32px);height:auto;transition:transform .5s var(--ease)}
-.lockup:hover img{transform:rotate(-6deg) scale(1.06)}
-.lockup .wm{display:flex;flex-direction:column;gap:.16rem}
-.lockup .wm b{font-family:var(--sans);font-size:.72rem;font-weight:500;letter-spacing:.3em;text-transform:uppercase;color:var(--green)}
-.lockup .wm i{font-style:normal;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)}
-
-nav.main{display:flex;justify-content:center;align-items:center;gap:clamp(.8rem,1.9vw,1.9rem)}
+header.site{position:sticky;top:0;z-index:80;background:rgba(244,236,221,.82);backdrop-filter:blur(14px) saturate(1.3);
+  -webkit-backdrop-filter:blur(14px) saturate(1.3);border-bottom:1px solid transparent;transition:border-color .3s,background .3s,box-shadow .3s}
+header.site.stuck{border-bottom-color:var(--line-2);box-shadow:0 6px 22px -18px rgba(22,38,28,.55)}
+.bar{display:flex;align-items:center;gap:1rem;min-height:74px;transition:min-height .3s var(--ease)}
+header.site.stuck .bar{min-height:64px}
+.lockup{display:inline-flex;align-items:center;gap:.66rem;text-decoration:none;flex:0 0 auto}
+.lockup img{width:26px;height:auto;transition:width .3s var(--ease)}
+header.site.stuck .lockup img{width:23px}
+.wm{display:flex;flex-direction:column;line-height:1.05}
+.wm b{font-family:var(--serif);font-weight:500;font-size:1.12rem;letter-spacing:.005em}
+.wm i{font-style:normal;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-3);margin-top:.16rem}
+nav.main{display:flex;gap:.15rem;margin-left:auto;align-items:center}
 nav.main a{
-  font-size:.82rem;letter-spacing:.03em;text-decoration:none;color:var(--ink-2);
-  padding:.4rem 0;position:relative;white-space:nowrap;transition:color .3s var(--ease-soft);
+  position:relative;text-decoration:none;font-size:.83rem;font-weight:400;color:var(--ink-2);
+  padding:.55rem .72rem;border-radius:9px;transition:color .22s;
 }
-nav.main a::after{content:"";position:absolute;left:0;right:100%;bottom:.05rem;height:1px;background:var(--terra);transition:right .5s var(--ease)}
+nav.main a::after{content:"";position:absolute;left:.72rem;right:.72rem;bottom:.32rem;height:1px;background:var(--terra);
+  transform:scaleX(0);transform-origin:0 50%;transition:transform .34s var(--ease)}
 nav.main a:hover{color:var(--ink)}
-nav.main a:hover::after,nav.main a.active::after{right:0}
-nav.main a.active{color:var(--terra)}
+nav.main a:hover::after,nav.main a.active::after{transform:scaleX(1)}
+nav.main a.active{color:var(--green)}
+.hright{display:flex;align-items:center;gap:.6rem;margin-left:.6rem}
 
-.hright{display:flex;align-items:center;gap:.7rem}
-.lang{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;background:rgba(255,255,255,.4)}
-.lang button{
-  font-family:var(--sans);font-size:.66rem;font-weight:500;letter-spacing:.12em;
-  padding:.4rem .66rem;background:transparent;border:0;color:var(--ink-3);cursor:pointer;transition:background .35s,color .35s;
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:.6rem;text-decoration:none;
+  font-family:var(--sans);font-size:.9rem;font-weight:500;letter-spacing:.005em;
+  padding:.92rem 1.55rem;border-radius:999px;border:1px solid transparent;cursor:pointer;
+  transition:transform .28s var(--ease),box-shadow .28s var(--ease),background .28s,color .28s,border-color .28s;
 }
-.lang button[aria-pressed="true"]{background:var(--green);color:#F4ECDD}
-.hcta{display:inline-flex}
-.burger{display:none;width:44px;height:44px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.4);cursor:pointer;position:relative}
-.burger i{position:absolute;left:13px;width:18px;height:1.4px;background:var(--ink);transition:transform .45s var(--ease),opacity .3s}
-.burger i:nth-child(1){top:17px}.burger i:nth-child(2){top:22px}.burger i:nth-child(3){top:27px}
+.btn svg{width:1.05em;height:1.05em;fill:none;stroke:currentColor;stroke-width:1.7;flex:0 0 auto;transition:transform .32s var(--ease)}
+.btn-solid{background:var(--terra);color:#FDF7EE;box-shadow:var(--sh-terra)}
+.btn-solid:hover{background:var(--terra-2);transform:translateY(-2px);box-shadow:0 22px 40px -18px rgba(154,68,35,.7)}
+.btn-solid:hover svg{transform:translateX(4px)}
+.btn-ghost{background:transparent;color:var(--green);border-color:var(--line)}
+.btn-ghost:hover{background:rgba(44,77,58,.06);border-color:rgba(44,77,58,.3);transform:translateY(-2px)}
+.hcta{padding:.7rem 1.2rem;font-size:.82rem}
 
-.mob{position:fixed;inset:0;z-index:70;background:var(--paper);display:none;flex-direction:column;padding:1.1rem var(--pad) 2.5rem}
-.mob.open{display:flex}
-.mob-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:2.2rem}
-.mob-close{width:46px;height:46px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--ink);font-size:1.4rem;line-height:1;cursor:pointer;display:grid;place-items:center}
-.mob nav{display:flex;flex-direction:column;gap:.1rem}
-.mob nav a{
-  font-family:var(--serif);font-size:1.7rem;text-decoration:none;color:var(--ink);
-  padding:.6rem 0;border-bottom:1px solid var(--line-2);display:flex;align-items:baseline;gap:.9rem;
-  opacity:0;transform:translateX(-14px);
-}
-.mob.open nav a{animation:mobIn .55s var(--ease) forwards}
-.mob nav a .n{font-family:var(--sans);font-size:.62rem;letter-spacing:.2em;color:var(--terra)}
-@keyframes mobIn{to{opacity:1;transform:none}}
-.mob-foot{margin-top:auto;padding-top:2rem;font-size:.88rem;color:var(--ink-3);display:grid;gap:.35rem}
-.mob-foot a{color:var(--ink);text-decoration:none;font-weight:500}
+.burger{display:none;width:42px;height:42px;border:1px solid var(--line);border-radius:11px;background:transparent;cursor:pointer;
+  flex-direction:column;justify-content:center;align-items:center;gap:4px;padding:0}
+.burger i{display:block;width:16px;height:1.4px;background:var(--ink);transition:transform .3s var(--ease),opacity .2s}
+.burger[aria-expanded="true"] i:nth-child(1){transform:translateY(5.4px) rotate(45deg)}
+.burger[aria-expanded="true"] i:nth-child(2){opacity:0}
+.burger[aria-expanded="true"] i:nth-child(3){transform:translateY(-5.4px) rotate(-45deg)}
+
+.mob{position:fixed;inset:0;z-index:95;background:var(--paper);padding:1.15rem var(--pad) 2rem;
+  display:flex;flex-direction:column;opacity:0;visibility:hidden;transform:translateY(-8px);
+  transition:opacity .3s var(--ease),transform .35s var(--ease),visibility .3s;overflow-y:auto}
+.mob.open{opacity:1;visibility:visible;transform:none}
+.mob-top{display:flex;align-items:center;justify-content:space-between;min-height:52px}
+.mob-close{border:0;background:transparent;font-size:2rem;line-height:1;color:var(--ink);cursor:pointer;padding:.2rem .4rem}
+.mob nav{display:flex;flex-direction:column;margin-top:1.6rem;gap:.1rem}
+.mob nav a{display:flex;align-items:baseline;gap:.9rem;text-decoration:none;font-family:var(--serif);font-size:1.72rem;
+  padding:.62rem 0;border-bottom:1px solid var(--line-2)}
+.mob nav a .n{font-family:var(--sans);font-size:.62rem;letter-spacing:.2em;color:var(--terra);width:1.6rem}
+.mob-foot{margin-top:auto;padding-top:2rem;display:flex;flex-direction:column;gap:.5rem;font-size:.9rem;color:var(--ink-2)}
+.mob-foot a{text-decoration:none;border-bottom:1px solid var(--line)}
 
 /* ============================ hero ============================ */
-.hero{position:relative;text-align:center;padding-block:clamp(3.4rem,8vw,7rem) clamp(2.6rem,5vw,4.6rem);overflow:hidden}
-.hero-bloom{
-  position:absolute;left:50%;top:-24%;width:min(1100px,135vw);aspect-ratio:1;transform:translateX(-50%);
-  background:radial-gradient(circle,rgba(231,208,192,.75),rgba(231,208,192,.18) 45%,transparent 66%);
-  pointer-events:none;z-index:0;animation:bloom 14s var(--ease-soft) infinite alternate;
-}
-@keyframes bloom{from{transform:translateX(-50%) scale(1)}to{transform:translateX(-50%) scale(1.09)}}
-/* the leaf appears here ONLY as a large decorative watermark, never as a second logo */
+.hero{position:relative;padding-block:clamp(3.4rem,8vw,7rem) clamp(3.2rem,7vw,6rem);overflow:hidden}
+.hero-bloom{position:absolute;top:-16%;right:-8%;width:min(58vw,720px);aspect-ratio:1;border-radius:50%;
+  background:radial-gradient(circle at 50% 50%,rgba(154,68,35,.13),rgba(154,68,35,0) 68%);pointer-events:none;z-index:0}
 .hero-leaf{
-  position:absolute;left:50%;top:clamp(-190px,-13vw,-70px);width:min(620px,92vw);transform:translateX(-50%);
-  opacity:.055;pointer-events:none;z-index:0;filter:saturate(.55);
-  -webkit-mask-image:radial-gradient(ellipse at 50% 42%,#000 42%,transparent 78%);
-          mask-image:radial-gradient(ellipse at 50% 42%,#000 42%,transparent 78%);
+  position:absolute;right:clamp(-2rem,-1vw,2rem);top:50%;transform:translateY(-50%);
+  width:clamp(240px,34vw,520px);height:auto;opacity:.5;pointer-events:none;z-index:0;
+  filter:saturate(.9);
 }
 .hero .wrap{position:relative;z-index:1}
-.hero h1{max-width:15ch;margin:0 auto .95rem}
+.hero h1{max-width:15ch}
 .hero h1 em{font-style:italic;color:var(--terra)}
-.hero .lead{margin:0 auto 2.1rem}
-.hero-cta{display:flex;flex-wrap:wrap;gap:.85rem;justify-content:center}
-.hero-meta{
-  display:flex;flex-wrap:wrap;gap:.7rem 1.6rem;justify-content:center;margin-top:2.6rem;
-  font-size:.78rem;letter-spacing:.05em;color:var(--ink-3);
-}
-.hero-meta span{display:inline-flex;align-items:center;gap:.5rem}
-.hero-meta svg{width:14px;height:14px;stroke:var(--terra);fill:none;stroke-width:1.6}
-.scrollcue{display:flex;flex-direction:column;align-items:center;gap:.5rem;margin-top:clamp(2rem,4vw,3.2rem);color:var(--ink-3);font-size:.62rem;letter-spacing:.24em;text-transform:uppercase}
-.scrollcue .ln{width:1px;height:44px;background:linear-gradient(180deg,var(--terra),transparent);animation:cue 2.4s var(--ease-soft) infinite}
-@keyframes cue{0%{transform:scaleY(.25);transform-origin:0 0;opacity:0}45%{transform:scaleY(1);opacity:1}46%{transform-origin:0 100%}100%{transform:scaleY(0);opacity:0}}
+.hero .lead{margin-top:1.35rem;max-width:56ch}
+.hero-cta{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:2.1rem}
+.hero-meta{display:flex;flex-wrap:wrap;gap:.6rem 1.9rem;margin-top:2.4rem;padding-top:1.6rem;border-top:1px solid var(--line-2);
+  font-size:.86rem;color:var(--ink-3);max-width:62ch}
+.hero-meta span{display:inline-flex;align-items:center;gap:.52rem}
+.hero-meta svg{width:1.02em;height:1.02em;fill:none;stroke:var(--terra);stroke-width:1.5;flex:0 0 auto}
+.scrollcue{display:inline-flex;align-items:center;gap:.6rem;margin-top:2.6rem;font-size:.66rem;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--ink-3)}
+.scrollcue .ln{display:block;width:44px;height:1px;background:var(--line);position:relative;overflow:hidden}
+.scrollcue .ln::after{content:"";position:absolute;inset:0;background:var(--terra);transform:translateX(-100%);
+  animation:cue 2.4s var(--ease) infinite}
+@keyframes cue{0%{transform:translateX(-100%)}55%{transform:translateX(0)}100%{transform:translateX(100%)}}
 
-/* ============================ bands & dividers ============================ */
-.band{background:var(--paper-2);border-block:1px solid var(--line-2)}
-.two{display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);gap:clamp(2rem,5vw,4.6rem);align-items:start}
-.two .side h2{position:sticky;top:118px}
-.pull{
-  position:relative;font-family:var(--serif);font-size:clamp(1.42rem,1.1rem + 1.35vw,2.05rem);font-style:italic;line-height:1.4;
-  color:var(--green);padding-left:clamp(1.1rem,2.6vw,2rem);margin:2.1rem 0;max-width:34ch;
+/* ============================ generic pieces ============================ */
+.rule{width:44px;height:1px;background:var(--terra);opacity:.6;margin:0 0 1.5rem}
+.center .rule{margin-inline:auto}
+.big-say{
+  font-family:var(--serif);font-size:clamp(1.5rem,1.1rem + 1.5vw,2.1rem);line-height:1.32;color:var(--green);
+  max-width:34ch;margin:1.9rem 0;
 }
-.pull::before{content:"";position:absolute;left:0;top:.25em;bottom:.25em;width:2px;background:linear-gradient(180deg,var(--terra),rgba(154,68,35,.15))}
+.figure{margin:0;border-radius:var(--r);overflow:hidden;box-shadow:var(--sh-2);background:var(--paper-3)}
+.figure img{width:100%;height:auto}
+.figcap{font-size:.76rem;letter-spacing:.02em;color:var(--ink-3);margin-top:.75rem}
 
-/* ============================ portrait figures ============================ */
-.figure{position:relative;margin:0}
-.figure .frame{
-  position:relative;border-radius:var(--r);overflow:hidden;background:var(--paper-3);
-  box-shadow:var(--sh-3);transition:box-shadow .6s var(--ease),transform .6s var(--ease);
-}
-.figure .frame img{width:100%;height:auto;transition:transform 1.4s var(--ease),filter .6s var(--ease)}
-.figure:hover .frame{transform:translateY(-6px)}
-.figure:hover .frame img{transform:scale(1.045)}
-.figure .frame::after{
-  content:"";position:absolute;inset:0;pointer-events:none;border-radius:inherit;
-  box-shadow:inset 0 0 0 1px rgba(244,236,221,.35), inset 0 -70px 90px -60px rgba(22,38,28,.55);
-}
-/* offset outline that shifts on hover */
-.figure .fwrap{position:relative;display:block}
-.figure .echo{
-  position:absolute;inset:0;border-radius:var(--r);border:1px solid var(--terra);opacity:.42;
-  transform:translate(14px,14px);transition:transform .7s var(--ease),opacity .7s var(--ease);pointer-events:none;z-index:-1;
-}
-.figure:hover .echo{transform:translate(20px,20px);opacity:.6}
-.figure figcaption{
-  margin-top:.95rem;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);
-  display:flex;align-items:center;gap:.6rem;
-}
-.figure figcaption::before{content:"";width:22px;height:1px;background:var(--terra);flex:none}
-.figure.zoomable .frame{cursor:zoom-in}
-.zoomhint{
-  position:absolute;right:14px;bottom:14px;width:42px;height:42px;border-radius:999px;z-index:2;
-  background:rgba(244,236,221,.9);border:1px solid var(--line);display:grid;place-items:center;
-  opacity:0;transform:scale(.85);transition:opacity .45s var(--ease),transform .45s var(--ease-back);
-}
-.figure:hover .zoomhint{opacity:1;transform:scale(1)}
-.zoomhint svg{width:16px;height:16px;stroke:var(--terra);fill:none;stroke-width:1.8}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4.6rem);align-items:center}
 
-/* intro (section 2) — portrait + text */
-.intro-grid{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(2.2rem,5.5vw,5rem);align-items:center}
+/* themes — bordered frame, green letters */
+.themes{
+  margin-top:2.4rem;border:1px solid rgba(44,77,58,.28);background:var(--ecru);border-radius:var(--r);
+  padding:clamp(1.4rem,3vw,2.3rem);box-shadow:var(--sh-1);
+}
+.themes ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:.15rem 2rem}
+.themes li{
+  display:flex;align-items:center;gap:.7rem;padding:.62rem 0;color:var(--green);font-weight:400;font-size:.99rem;
+  border-bottom:1px solid rgba(44,77,58,.1);
+}
+.themes li::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--terra);flex:0 0 auto}
 
-/* ============================ chips ============================ */
-.chips{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:1.9rem}
-.chip{
-  font-size:.84rem;padding:.58rem 1.1rem;border-radius:999px;background:rgba(255,255,255,.55);
-  border:1px solid var(--line);color:var(--ink-2);box-shadow:var(--sh-1);
-  transition:transform .45s var(--ease-back),border-color .35s,color .35s,box-shadow .45s var(--ease),background .35s;
+/* services — outlined cards, ecru fill, deep-green type */
+.svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:clamp(1rem,2.2vw,1.6rem);margin-top:2.6rem}
+.svc{
+  background:var(--ecru);border:1px solid var(--terra-soft);border-radius:var(--r);
+  padding:clamp(1.5rem,2.6vw,2.15rem);color:var(--green-deep);display:flex;flex-direction:column;
+  box-shadow:var(--sh-1);transition:transform .35s var(--ease),box-shadow .35s var(--ease),border-color .35s;
 }
-.chip:hover{transform:translateY(-4px);border-color:var(--terra);color:var(--terra);background:#fff;box-shadow:var(--sh-2)}
+.svc:hover{transform:translateY(-4px);box-shadow:var(--sh-2);border-color:var(--terra)}
+.svc:nth-child(even){border-color:rgba(44,77,58,.3)}
+.svc:nth-child(even):hover{border-color:var(--green)}
+.svc h3{color:var(--green-deep);margin-bottom:.85rem}
+.svc p{color:var(--green-deep);opacity:.88;font-size:.97rem;margin-bottom:.9rem}
+.svc p:last-of-type{margin-bottom:1.3rem}
+.svc .tag{
+  margin-top:auto;align-self:flex-start;font-size:.63rem;letter-spacing:.19em;text-transform:uppercase;font-weight:500;
+  color:var(--terra);border:1px solid var(--terra-soft);border-radius:999px;padding:.42rem .9rem;background:rgba(154,68,35,.045);
+}
+.svc-note{
+  margin-top:1.8rem;font-size:.94rem;color:var(--ink-2);border-left:2px solid var(--terra);padding-left:1.1rem;max-width:62ch;
+}
+.svc-intro{
+  border:1px dashed rgba(44,77,58,.32);border-radius:var(--r);background:rgba(248,242,230,.6);
+  padding:clamp(1.15rem,2.4vw,1.6rem);margin-top:1.9rem;color:var(--green);max-width:70ch;font-size:1.02rem;
+}
+.svc-intro p{margin:0}
 
-/* ============================ services ============================ */
-.svc{border-top:1px solid var(--line-2);margin-top:clamp(2.2rem,4vw,3.4rem)}
-.svc-item{
-  position:relative;display:grid;grid-template-columns:auto minmax(0,1fr);gap:clamp(1.1rem,3vw,3.2rem);
-  padding:clamp(1.8rem,3.4vw,2.9rem) clamp(0px,1.6vw,1.4rem);border-bottom:1px solid var(--line-2);
-  border-radius:16px;transition:background .55s var(--ease),transform .55s var(--ease),box-shadow .55s var(--ease);
+/* philosophy */
+.quote{
+  max-width:26ch;font-family:var(--serif);font-style:italic;font-weight:300;
+  font-size:clamp(1.6rem,1.15rem + 1.9vw,2.6rem);line-height:1.28;color:var(--green);position:relative;
 }
-.svc-item::before{
-  content:"";position:absolute;left:0;right:0;bottom:-1px;height:1px;background:linear-gradient(90deg,var(--terra),transparent);
-  transform:scaleX(0);transform-origin:0 50%;transition:transform .8s var(--ease);
-}
-.svc-item:hover{background:rgba(255,255,255,.5);transform:translateY(-3px);box-shadow:var(--sh-2)}
-.svc-item:hover::before{transform:scaleX(1)}
-.svc-n{font-family:var(--serif);font-size:clamp(1.7rem,1.2rem + 1.5vw,2.6rem);color:var(--terra);line-height:1;opacity:.55;transition:opacity .5s var(--ease),transform .5s var(--ease)}
-.svc-item:hover .svc-n{opacity:1;transform:translateY(-2px)}
-.svc-item h3{margin-bottom:.75rem}
-.svc-item p{color:var(--ink-2);max-width:64ch;margin-bottom:0}
-.svc-tag{
-  display:inline-block;margin-top:1rem;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;
-  color:var(--ink-3);border:1px solid var(--line);border-radius:999px;padding:.32rem .8rem;
-}
-.note{
-  margin-top:clamp(2.2rem,4vw,3.2rem);background:linear-gradient(135deg,var(--terra-soft),rgba(231,208,192,.55));
-  border:1px solid rgba(154,68,35,.2);border-radius:var(--r);padding:clamp(1.25rem,2.6vw,1.9rem);
-  display:flex;gap:1.1rem;align-items:flex-start;box-shadow:var(--sh-1);
-}
-.note svg{width:22px;height:22px;flex:none;stroke:var(--terra);fill:none;stroke-width:1.5;margin-top:.15rem}
-.note p{margin:0;color:#6E3419;font-size:.95rem}
+.quote::before{content:"“";position:absolute;left:-.55em;top:-.18em;font-size:2.6em;line-height:1;color:var(--terra);opacity:.28}
 
-/* ============================ dark philosophy band ============================ */
-.dark{position:relative;background:var(--green-deep);color:#E9E0CE;overflow:hidden}
-.dark::before{
-  content:"";position:absolute;left:50%;top:-30%;width:min(1000px,120vw);aspect-ratio:1;transform:translateX(-50%);
-  background:radial-gradient(circle,rgba(154,68,35,.3),transparent 62%);pointer-events:none;
+/* how I work — numbered, light cards */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:clamp(1rem,2.2vw,1.5rem);margin-top:2.6rem}
+.step{
+  background:var(--ecru);border:1px solid rgba(44,77,58,.22);border-radius:var(--r);
+  padding:clamp(1.4rem,2.5vw,1.95rem);box-shadow:var(--sh-1);transition:transform .35s var(--ease),box-shadow .35s var(--ease);
 }
-.dark::after{
-  content:"";position:absolute;inset:0;pointer-events:none;opacity:.35;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.06'/%3E%3C/svg%3E");
-}
-.dark .wrap{position:relative;z-index:1}
-.dark h2,.dark h3{color:#F4ECDD}
-.dark p{color:rgba(233,224,206,.82)}
-.quote-big{
-  position:relative;font-family:var(--serif);font-style:italic;font-size:clamp(1.55rem,1.1rem + 2vw,2.6rem);
-  line-height:1.34;max-width:24ch;color:#F4ECDD;margin:0;padding-top:1.6rem;
-}
-.quote-big::before{
-  content:"\201C";position:absolute;left:-.12em;top:-.34em;font-size:5.5em;line-height:1;color:rgba(221,165,130,.24);
-  font-family:var(--serif);pointer-events:none;
-}
-.principles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(1.4rem,3vw,2.8rem);margin-top:clamp(2.6rem,4.5vw,4rem)}
-.principle{position:relative;border-top:1px solid rgba(244,236,221,.18);padding-top:1.4rem;transition:transform .55s var(--ease)}
-.principle::after{content:"";position:absolute;left:0;top:-1px;width:0;height:1px;background:#DDA582;transition:width .9s var(--ease)}
-.principle.in::after{width:46px}
-.principle:hover{transform:translateY(-5px)}
-.principle .pn{font-family:var(--sans);font-size:.66rem;letter-spacing:.2em;color:#DDA582;display:block;margin-bottom:.75rem}
-.principle h3{font-size:1.32rem;margin-bottom:.6rem}
-.principle p{font-size:.94rem;margin:0}
+.step:hover{transform:translateY(-4px);box-shadow:var(--sh-2)}
+.step .n{display:block;font-family:var(--sans);font-size:.66rem;letter-spacing:.24em;color:var(--terra);margin-bottom:.7rem}
+.step h3{font-size:1.24rem;color:var(--green-deep);margin-bottom:.6rem}
+.step p{margin:0;font-size:.95rem;color:var(--ink-2)}
 
-/* ============================ about ============================ */
-.about-grid{display:grid;grid-template-columns:minmax(0,1.18fr) minmax(0,.82fr);gap:clamp(2.2rem,5.5vw,5rem);align-items:start}
-.creds{margin-top:2.4rem;border-top:1px solid var(--line-2);padding-top:1.7rem}
-.creds h3{font-size:1.05rem;font-family:var(--sans);font-weight:500;letter-spacing:.02em;margin-bottom:1rem}
-details.cv{border-top:1px solid var(--line-2);margin-top:1.8rem}
-details.cv > summary{
-  list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:1rem;
-  padding:1.1rem 0;font-family:var(--sans);font-size:.92rem;font-weight:500;color:var(--ink);
-  transition:color .35s;
+/* about + CV */
+.about-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(2rem,5vw,4.4rem);align-items:start}
+.cv-toggle{margin-top:1.9rem}
+.cv{
+  margin-top:1.5rem;border:1px solid var(--line);border-radius:var(--r);background:var(--ecru);
+  box-shadow:var(--sh-1);overflow:hidden;
 }
-details.cv > summary:hover{color:var(--terra)}
-details.cv > summary::-webkit-details-marker{display:none}
-details.cv > summary .pm{
-  width:32px;height:32px;border-radius:999px;border:1px solid var(--line);flex:none;
-  display:grid;place-items:center;transition:transform .5s var(--ease-back),background .35s,border-color .35s;
+.cv > summary{
+  list-style:none;cursor:pointer;padding:1.15rem clamp(1.2rem,2.4vw,1.8rem);display:flex;align-items:center;gap:.8rem;
+  font-family:var(--sans);font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;font-weight:500;color:var(--green);
 }
-details.cv > summary .pm svg{width:13px;height:13px;stroke:var(--ink);fill:none;stroke-width:1.8;transition:stroke .35s}
-details.cv[open] > summary .pm{transform:rotate(135deg);background:var(--green);border-color:var(--green)}
-details.cv[open] > summary .pm svg{stroke:var(--paper)}
-.cv-body{padding-bottom:1.7rem;font-size:.94rem;color:var(--ink-2);animation:fadeUp .55s var(--ease)}
-@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
-.cv-body h4{font-family:var(--sans);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--terra);margin:1.6rem 0 .65rem}
-.cv-body h4:first-child{margin-top:0}
-.cv-body ul{margin:0;padding-left:1.05rem}
-.cv-body li{margin-bottom:.55rem}
-.cv-body li b{font-weight:500;color:var(--ink)}
+.cv > summary::-webkit-details-marker{display:none}
+.cv > summary .ch{margin-left:auto;width:1.05em;height:1.05em;fill:none;stroke:var(--terra);stroke-width:1.8;transition:transform .3s var(--ease)}
+.cv[open] > summary .ch{transform:rotate(180deg)}
+.cv-body{padding:0 clamp(1.2rem,2.4vw,1.8rem) clamp(1.4rem,2.6vw,2rem);border-top:1px solid var(--line-2)}
+.cv-body h4{font-family:var(--sans);font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--terra);
+  font-weight:500;margin:1.7rem 0 .8rem}
+.cv-body h4:first-child{margin-top:1.4rem}
+.cv-body p{font-size:.95rem;color:var(--ink-2)}
+.cv-body ul{margin:0;padding-left:1.1rem;font-size:.94rem;color:var(--ink-2)}
+.cv-body li{margin-bottom:.5rem}
 
-/* ============================ office ============================ */
-.office{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(2rem,5vw,4.4rem);align-items:center}
+/* wide watercolour band */
+.scape{padding-block:0}
+.scape img{width:100%;height:clamp(180px,26vw,340px);object-fit:cover;object-position:50% 62%;display:block}
 
-/* ============================ FAQ ============================ */
-.faq-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 clamp(2rem,4vw,3.8rem);margin-top:clamp(2.2rem,4vw,3.2rem)}
-details.q{border-bottom:1px solid var(--line-2)}
-details.q summary{
-  list-style:none;cursor:pointer;display:flex;gap:1rem;align-items:flex-start;justify-content:space-between;
-  padding:1.2rem 0;font-size:.98rem;color:var(--ink);transition:color .35s;
+/* ============================ articles ============================ */
+.art-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:clamp(1rem,2.2vw,1.6rem);margin-top:2.6rem}
+.art{
+  text-align:left;width:100%;font:inherit;color:inherit;cursor:pointer;
+  background:var(--ecru);border:1px solid var(--line);border-radius:var(--r);
+  padding:clamp(1.4rem,2.5vw,1.9rem);box-shadow:var(--sh-1);display:flex;flex-direction:column;
+  transition:transform .35s var(--ease),box-shadow .35s var(--ease),border-color .35s;
 }
-details.q summary:hover{color:var(--terra)}
-details.q summary::-webkit-details-marker{display:none}
-details.q summary .ic{width:27px;height:27px;flex:none;border-radius:999px;border:1px solid var(--line);display:grid;place-items:center;margin-top:.1rem;transition:transform .5s var(--ease-back),background .35s,border-color .35s}
-details.q summary .ic svg{width:11px;height:11px;stroke:var(--ink);fill:none;stroke-width:2;transition:stroke .35s}
-details.q[open] summary .ic{transform:rotate(135deg);background:var(--terra);border-color:var(--terra)}
-details.q[open] summary .ic svg{stroke:#FBF6ED}
-details.q .a{padding-bottom:1.25rem;font-size:.93rem;color:var(--ink-2);max-width:56ch;animation:fadeUp .5s var(--ease)}
-details.q .a p:last-child{margin-bottom:0}
+.art:hover{transform:translateY(-4px);box-shadow:var(--sh-2);border-color:var(--terra-soft)}
+.art .d{font-family:var(--sans);font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--terra);margin-bottom:.75rem}
+.art h3{font-size:1.3rem;color:var(--green-deep);margin-bottom:.6rem}
+.art p{font-size:.94rem;color:var(--ink-2);margin:0 0 1.2rem}
+.art .more{margin-top:auto;display:inline-flex;align-items:center;gap:.45rem;font-size:.82rem;color:var(--terra);font-weight:500}
+.art .more svg{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:1.8;transition:transform .3s var(--ease)}
+.art:hover .more svg{transform:translateX(4px)}
+.art-empty{margin-top:2rem;border:1px dashed var(--line);border-radius:var(--r);padding:2.2rem;text-align:center;color:var(--ink-3)}
+
+.reader{position:fixed;inset:0;z-index:98;display:none;padding:clamp(.8rem,3vw,2.6rem);overflow-y:auto;
+  background:rgba(29,52,39,.34);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.reader.open{display:block}
+.reader-card{
+  max-width:760px;margin:0 auto;background:var(--paper);border-radius:var(--r);box-shadow:var(--sh-3);
+  padding:clamp(1.6rem,4vw,3.4rem);position:relative;
+}
+.reader-close{position:absolute;top:.85rem;right:.85rem;width:40px;height:40px;border-radius:50%;border:1px solid var(--line);
+  background:var(--ecru);color:var(--ink);font-size:1.5rem;line-height:1;cursor:pointer}
+.reader-close:hover{background:var(--paper-3)}
+.reader .d{font-family:var(--sans);font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--terra);margin-bottom:.8rem}
+.reader h2{margin-bottom:1.3rem}
+.reader-body{font-size:1.02rem;color:var(--ink-2)}
+.reader-body h3{margin:1.9rem 0 .7rem;color:var(--green-deep)}
+.reader-body p{margin:0 0 1.05em}
 
 /* ============================ contact ============================ */
-.contact-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(2rem,5vw,4.6rem);align-items:start}
-.contact-head{max-width:70ch;margin-inline:auto;text-align:center}
-.contact-head p{margin-top:1.05rem}
-.contact-cta{display:flex;flex-wrap:wrap;gap:.9rem;justify-content:center;margin-top:2.6rem}
-.contact-note{max-width:56ch;margin:1.6rem auto 0;text-align:center;font-size:.9rem;color:var(--ink-3)}
-.cinfo p,.contact-head p{color:var(--ink-2)}
-.cinfo .final,.contact-head .final{font-family:var(--serif);font-style:italic;font-size:1.3rem;color:var(--green)}
-.cdl{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(1.2rem,2.6vw,2rem);margin-top:clamp(2.4rem,4vw,3.4rem);border-top:1px solid var(--line-2);padding-top:clamp(2rem,3.4vw,2.8rem)}
-.cdl .row{background:rgba(255,255,255,.5);border:1px solid var(--line);border-radius:var(--r);padding:clamp(1.15rem,2vw,1.6rem);transition:transform .4s ease,box-shadow .4s ease,border-color .4s ease}
-.cdl .row:hover{transform:translateY(-4px);box-shadow:var(--sh-2);border-color:var(--terra)}
-.cdl .row{display:flex;gap:.95rem;align-items:flex-start}
-.cdl>.row{flex-direction:column;align-items:center;text-align:center;gap:.7rem}
-.cdl>.row svg{margin-top:0;width:22px;height:22px}
-.cdl>.row .k{margin-bottom:.3rem}
-.cdl svg{width:18px;height:18px;flex:none;stroke:var(--terra);fill:none;stroke-width:1.6;margin-top:.25rem}
-.cdl .k{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3);display:block;margin-bottom:.15rem}
-.cdl a{color:var(--ink);text-decoration:none;font-weight:500;border-bottom:1px solid var(--line);transition:color .3s,border-color .3s}
-.cdl a:hover{color:var(--terra);border-color:var(--terra)}
-
-form.cform{background:rgba(255,255,255,.5);border:1px solid var(--line);border-radius:var(--r);padding:clamp(1.4rem,3vw,2.4rem);box-shadow:var(--sh-2)}
-.field{margin-bottom:1.15rem}
-.field label,.legend{display:block;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin-bottom:.45rem}
-.field input,.field textarea{
-  width:100%;font-family:var(--sans);font-size:.98rem;font-weight:300;color:var(--ink);
-  background:var(--paper);border:1px solid var(--line);border-radius:13px;padding:.85rem 1rem;
-  transition:border-color .35s,background .35s,box-shadow .35s;
+.contact-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(2rem,5vw,4.4rem);align-items:start}
+.ctiles{display:grid;gap:.85rem}
+.ctile{
+  display:flex;align-items:center;gap:1rem;text-decoration:none;background:var(--ecru);border:1px solid var(--line);
+  border-radius:16px;padding:1.15rem 1.35rem;box-shadow:var(--sh-1);
+  transition:transform .3s var(--ease),box-shadow .3s var(--ease),border-color .3s;
 }
-.field textarea{min-height:124px;resize:vertical}
-.field input:focus,.field textarea:focus{outline:none;border-color:var(--terra);background:#fff;box-shadow:0 0 0 4px rgba(154,68,35,.1)}
-.frow{display:grid;grid-template-columns:1fr 1fr;gap:1.15rem}
-fieldset.mode{border:0;padding:0;margin:0 0 1.15rem}
-.radios{display:flex;gap:.6rem;flex-wrap:wrap}
-.radios label{
-  display:inline-flex;align-items:center;gap:.5rem;font-size:.9rem;letter-spacing:0;text-transform:none;color:var(--ink-2);
-  border:1px solid var(--line);border-radius:999px;padding:.58rem 1.05rem;cursor:pointer;margin:0;background:var(--paper);
-  transition:border-color .35s,background .35s,color .35s,transform .35s var(--ease);
+a.ctile:hover{transform:translateY(-3px);box-shadow:var(--sh-2);border-color:var(--terra-soft)}
+.ctile .ic{width:42px;height:42px;border-radius:50%;background:rgba(154,68,35,.09);display:grid;place-items:center;flex:0 0 auto}
+.ctile .ic svg{width:19px;height:19px;fill:none;stroke:var(--terra);stroke-width:1.6}
+.ctile .t{display:flex;flex-direction:column;min-width:0}
+.ctile .t b{font-family:var(--sans);font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-3);font-weight:500}
+.ctile .t span{font-size:1.06rem;color:var(--green-deep);font-weight:400;overflow-wrap:anywhere}
+.contact-cta{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.9rem}
+.sos{
+  margin-top:2.2rem;border:1px solid var(--line);border-left:3px solid var(--terra);border-radius:14px;background:rgba(248,242,230,.75);
+  padding:1.15rem 1.35rem;font-size:.9rem;color:var(--ink-2);max-width:62ch;
 }
-.radios label:hover{transform:translateY(-2px)}
-.radios input{accent-color:var(--terra);margin:0}
-.radios label:has(input:checked){border-color:var(--terra);background:var(--terra-soft);color:#6E3419}
-.consent{display:flex;gap:.7rem;align-items:flex-start;font-size:.84rem;color:var(--ink-2);margin-bottom:1.3rem;cursor:pointer}
-.consent input{accent-color:var(--terra);margin-top:.25rem;flex:none}
-.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
-.fnote{font-size:.78rem;color:var(--ink-3);margin:.95rem 0 0}
-.fmsg{display:none;margin-top:1rem;font-size:.9rem;padding:.9rem 1.05rem;border-radius:13px;animation:fadeUp .45s var(--ease)}
-.fmsg.ok{display:block;background:rgba(44,77,58,.1);color:var(--green);border:1px solid rgba(44,77,58,.25)}
-.fmsg.err{display:block;background:rgba(154,68,35,.1);color:var(--terra);border:1px solid rgba(154,68,35,.28)}
-.privacy{font-size:.78rem;color:var(--ink-3);margin-top:1.5rem;max-width:60ch}
-.crisis{
-  margin-top:clamp(2.4rem,4vw,3.2rem);border:1px dashed var(--line);border-radius:var(--r);
-  padding:clamp(1.15rem,2.4vw,1.7rem);font-size:.86rem;color:var(--ink-2);background:rgba(255,255,255,.4);
-}
-.crisis strong{font-weight:500;color:var(--ink)}
-.crisis a{color:var(--terra);font-weight:500}
+.sos a{color:var(--terra);font-weight:500}
 
 /* ============================ footer ============================ */
-footer.site{position:relative;background:var(--green-deep);color:rgba(233,224,206,.75);padding-block:clamp(3rem,5vw,4.6rem) 1.8rem;font-size:.88rem;overflow:hidden}
-footer.site::before{
-  content:"";position:absolute;left:-6%;bottom:-40%;width:min(680px,90vw);aspect-ratio:1;
-  background:radial-gradient(circle,rgba(154,68,35,.24),transparent 62%);pointer-events:none;
-}
-footer.site .wrap{position:relative;z-index:1}
-.fgrid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr) minmax(0,.95fr);gap:clamp(1.9rem,4vw,3.6rem)}
-footer.site img.flogo{width:50px;margin-bottom:1rem}
-footer.site .fname{font-family:var(--serif);font-size:1.4rem;color:#F4ECDD;margin-bottom:.2rem}
-footer.site .frole{font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;color:#DDA582;margin-bottom:1rem}
-footer.site h4{font-family:var(--sans);font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(244,236,221,.55);margin:0 0 .95rem;font-weight:500}
-footer.site a{color:rgba(233,224,206,.85);text-decoration:none;transition:color .3s}
-footer.site a:hover{color:#F4ECDD}
-footer.site ul{list-style:none;margin:0;padding:0;display:grid;gap:.5rem}
-footer.site address{font-style:normal;display:grid;gap:.5rem}
-.fbar{
-  margin-top:clamp(2.4rem,4vw,3.4rem);padding-top:1.4rem;border-top:1px solid rgba(244,236,221,.14);
-  display:flex;flex-wrap:wrap;gap:.6rem 1.4rem;justify-content:space-between;font-size:.78rem;color:rgba(233,224,206,.6);
-}
-
-/* ============================ lightbox ============================ */
-.lb{position:fixed;inset:0;z-index:120;display:none;place-items:center;background:rgba(22,38,28,.95);padding:clamp(1rem,4vw,3rem);opacity:0;transition:opacity .35s var(--ease-soft)}
-.lb.open{display:grid;opacity:1}
-.lb img{max-width:min(1200px,94vw);max-height:86vh;width:auto;border-radius:12px;box-shadow:0 50px 100px rgba(0,0,0,.55);transform:scale(.96);transition:transform .45s var(--ease)}
-.lb.open img{transform:scale(1)}
-.lb-close{position:absolute;top:clamp(.8rem,2vw,1.6rem);right:clamp(.8rem,2vw,1.6rem);width:48px;height:48px;border-radius:999px;border:1px solid rgba(244,236,221,.35);background:rgba(244,236,221,.1);color:#F4ECDD;font-size:1.5rem;line-height:1;cursor:pointer;display:grid;place-items:center;transition:background .3s}
-.lb-close:hover{background:rgba(244,236,221,.22)}
+footer.site{background:var(--paper-3);padding-block:clamp(2.6rem,5vw,4rem) 1.9rem;border-top:1px solid var(--line-2)}
+.foot-top{display:flex;flex-wrap:wrap;gap:1.6rem 2.4rem;align-items:center;justify-content:space-between}
+.foot-lock{display:inline-flex;align-items:center;gap:.7rem}
+.foot-lock img{width:30px}
+.foot-lock b{font-family:var(--serif);font-weight:500;font-size:1.2rem}
+.foot-nav{display:flex;flex-wrap:wrap;gap:.4rem 1.4rem;font-size:.87rem}
+.foot-nav a{text-decoration:none;color:var(--ink-2)}
+.foot-nav a:hover{color:var(--terra)}
+.foot-bot{margin-top:2rem;padding-top:1.4rem;border-top:1px solid var(--line-2);display:flex;flex-wrap:wrap;
+  gap:.6rem 1.5rem;justify-content:space-between;font-size:.78rem;color:var(--ink-3)}
+.foot-bot a{color:var(--ink-2);text-decoration:none;border-bottom:1px solid var(--line)}
 
 /* ============================ responsive ============================ */
-@media(max-width:1080px){
+@media (max-width:1000px){
   nav.main{display:none}
-  .bar{grid-template-columns:auto 1fr auto}
+  .burger{display:flex}
   .hcta{display:none}
-  .burger{display:block}
+  .grid-2,.about-grid,.contact-grid{grid-template-columns:1fr}
+  .hero-leaf{opacity:.34;width:clamp(220px,52vw,360px);right:-8%}
 }
-@media(max-width:900px){
-  .two,.about-grid,.contact-grid,.office,.intro-grid{grid-template-columns:1fr}
-  .cdl{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .contact-cta .btn{width:100%;justify-content:center}
-  .two .side h2{position:static}
-  .principles{grid-template-columns:1fr}
-  .faq-grid{grid-template-columns:1fr}
-  .fgrid{grid-template-columns:1fr;gap:2.2rem}
-  .office .figure,.about-grid .figure{order:-1;max-width:460px}
-  .intro-grid .figure{max-width:420px;margin-inline:auto}
-  .figure{margin-right:12px}
-  .figure .echo{transform:translate(10px,10px)}
-  .figure:hover .echo{transform:translate(10px,10px)}
-  .figure figcaption{align-items:flex-start}
-  .figure figcaption::before{margin-top:.6rem}
+@media (max-width:640px){
+  .hero h1{max-width:none}
+  .themes ul{grid-template-columns:1fr}
+  .hero-meta{gap:.55rem 1.2rem}
 }
-@media(max-width:640px){
-  .hero .eyebrow{display:block}
-  .hero .eyebrow::before{display:none}
-  .hero-meta{flex-direction:column;align-items:center;gap:.85rem}
-  .hero-meta span{align-items:flex-start;text-align:left;max-width:34ch}
-  .hero-meta svg{margin-top:.34rem}
-}
-@media(max-width:560px){
-  .frow{grid-template-columns:1fr}
-  .svc-item{grid-template-columns:1fr;gap:.45rem;padding-inline:0}
-  .svc-n{font-size:1.45rem}
-  .hero-cta .btn{width:100%;justify-content:center}
-  .lockup .wm i{display:none}
-}
-@media(prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important;scroll-behavior:auto !important}
-  html.jsrv .rv,html.jsrv .rv-scale{opacity:1;transform:none}
-  html.jsrv .words span{opacity:1;transform:none}
-  .progress{display:none}
-}
-@media(max-width:560px){
-  .cdl{grid-template-columns:1fr}
-  .cdl a{overflow-wrap:anywhere}
-}
-@media print{header.site,.mob,.burger,.lb,form.cform,.progress,.scrollcue{display:none !important}}
 </style>
+
 <script>document.documentElement.className+=' jsrv js-anim';</script>
 </head>
 
@@ -567,32 +407,21 @@ footer.site address{font-style:normal;display:grid;gap:.5rem}
   <div class="wrap bar">
     <a class="lockup" href="#top" aria-label="Being Present — Σοφία Γουβιώτου, αρχική">
       <img src="assets/being-present-logo.webp" alt="" width="430" height="601" fetchpriority="high" decoding="async">
-      <span class="wm">
-        <b>Being Present</b>
-        <i><span class="i-el">Σοφία Γουβιώτου</span><span class="i-en">Sofia Gouviotou</span></i>
-      </span>
+      <span class="wm"><b>Being Present</b><i>Σοφία Γουβιώτου</i></span>
     </a>
 
     <nav class="main" aria-label="Κύρια πλοήγηση">
-      <a href="#present" data-el="Being Present" data-en="Being Present">Being Present</a>
-      <a href="#help" data-el="Πώς βοηθώ" data-en="How I help">Πώς βοηθώ</a>
-      <a href="#services" data-el="Υπηρεσίες" data-en="Services">Υπηρεσίες</a>
-      <a href="#philosophy" data-el="Φιλοσοφία" data-en="Philosophy">Φιλοσοφία</a>
-      <a href="#about" data-el="Για μένα" data-en="About me">Για μένα</a>
-      <a href="#faq" data-el="Ερωτήσεις" data-en="FAQ">Ερωτήσεις</a>
+      <a href="#present">Being Present</a>
+      <a href="#help">Πώς μπορώ να βοηθήσω</a>
+      <a href="#services">Υπηρεσίες</a>
+      <a href="#philosophy">Φιλοσοφία</a>
+      <a href="#about">Σχετικά με μένα</a>
+      <a href="#articles">Άρθρα</a>
     </nav>
 
     <div class="hright">
-      <span class="lang" role="group" aria-label="Γλώσσα / Language">
-        <button type="button" data-lang="el" aria-pressed="true">ΕΛ</button>
-        <button type="button" data-lang="en" aria-pressed="false">EN</button>
-      </span>
-      <a class="btn btn-solid hcta" href="#contact" style="padding:.72rem 1.25rem;font-size:.82rem">
-        <span class="i-el">Ραντεβού</span><span class="i-en">Book</span>
-      </a>
-      <button class="burger" id="burger" aria-label="Μενού" aria-expanded="false" aria-controls="mobnav">
-        <i></i><i></i><i></i>
-      </button>
+      <a class="btn btn-solid hcta" href="#contact">Επικοινωνία</a>
+      <button class="burger" id="burger" aria-label="Μενού" aria-expanded="false" aria-controls="mobnav"><i></i><i></i><i></i></button>
     </div>
   </div>
 </header>
@@ -603,18 +432,18 @@ footer.site address{font-style:normal;display:grid;gap:.5rem}
     <button class="mob-close" id="mobClose" aria-label="Κλείσιμο μενού">&times;</button>
   </div>
   <nav aria-label="Πλοήγηση κινητού">
-    <a href="#present"><span class="n">01</span><span class="i-el">Being Present</span><span class="i-en">Being Present</span></a>
-    <a href="#help"><span class="n">02</span><span class="i-el">Πώς μπορώ να βοηθήσω</span><span class="i-en">How I can help</span></a>
-    <a href="#services"><span class="n">03</span><span class="i-el">Υπηρεσίες</span><span class="i-en">Services</span></a>
-    <a href="#philosophy"><span class="n">04</span><span class="i-el">Η φιλοσοφία μου</span><span class="i-en">My philosophy</span></a>
-    <a href="#about"><span class="n">05</span><span class="i-el">Σχετικά με μένα</span><span class="i-en">About me</span></a>
-    <a href="#faq"><span class="n">06</span><span class="i-el">Συχνές ερωτήσεις</span><span class="i-en">FAQ</span></a>
-    <a href="#contact"><span class="n">07</span><span class="i-el">Επικοινωνία</span><span class="i-en">Contact</span></a>
+    <a href="#present"><span class="n">01</span>Being Present</a>
+    <a href="#help"><span class="n">02</span>Πώς μπορώ να βοηθήσω</a>
+    <a href="#services"><span class="n">03</span>Υπηρεσίες</a>
+    <a href="#philosophy"><span class="n">04</span>Η φιλοσοφία μου</a>
+    <a href="#about"><span class="n">05</span>Σχετικά με μένα</a>
+    <a href="#articles"><span class="n">06</span>Άρθρα</a>
+    <a href="#contact"><span class="n">07</span>Επικοινωνία</a>
   </nav>
   <div class="mob-foot">
     <a href="tel:+306945040465">694 504 0465</a>
-    <a href="mailto:sogouv@gmail.com">sogouv@gmail.com</a>
-    <span><span class="i-el">Δευτέρα – Παρασκευή, κατόπιν ραντεβού</span><span class="i-en">Monday – Friday, by appointment</span></span>
+    <a href="mailto:info@beingpresent.gr">info@beingpresent.gr</a>
+    <span>Δευτέρα – Παρασκευή, κατόπιν ραντεβού</span>
   </div>
 </div>
 
@@ -625,539 +454,404 @@ footer.site address{font-style:normal;display:grid;gap:.5rem}
   <div class="hero-bloom" aria-hidden="true"></div>
   <img class="hero-leaf" src="assets/being-present-logo.webp" alt="" aria-hidden="true" width="430" height="601" fetchpriority="high" decoding="async">
   <div class="wrap">
-    <span class="eyebrow rvx"><span class="i-el">Σύμβουλος Ψυχικής Υγείας · Βούλα &amp; online</span><span class="i-en">Mental Health Counsellor · Voula &amp; online</span></span>
-    <h1 id="h1" class="words">
-      <span class="i-el">Καλώς ήρθες. Συμβουλευτική ψυχικής υγείας στη <em>Βούλα</em>.</span>
-      <span class="i-en">Welcome. Mental health counselling in <em>Voula</em>, Athens.</span>
-    </h1>
+    <span class="eyebrow rv">Σύμβουλος Ψυχικής Υγείας · δια ζώσης &amp; on line</span>
+    <h1 id="h1" class="words">Καλώς ήρθες.</h1>
     <p class="lead rv rv-d2">
-      <span class="i-el">Ένας ήσυχος χώρος για να ακούσεις τον εαυτό σου χωρίς βιασύνη — και να καταλάβεις καλύτερα αυτό που σε απασχολεί. Δια ζώσης στη Βούλα ή online, όπου κι αν βρίσκεσαι.</span>
-      <span class="i-en">A quiet space to listen to yourself without hurry — and to make better sense of what is weighing on you. In person in Voula, or online wherever you are.</span>
+      Η πρόθεσή σου να είσαι εδώ είναι μια σπουδαία αρχή για να αφουγκραστείς τον εαυτό σου,
+      στον ρυθμό που νιώθεις ασφαλής. Μαζί δημιουργούμε τον χώρο για να κατανοήσεις και να
+      συνδεθείς ξανά με όσα έχουν σημασία για εσένα.
     </p>
     <div class="hero-cta rv rv-d3">
       <a class="btn btn-solid" href="#contact">
-        <span class="i-el">Κλείσε μια πρώτη συνάντηση</span><span class="i-en">Book a first meeting</span>
+        Κλείσε μια πρώτη συνάντηση
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
-      <a class="btn btn-ghost" href="#help">
-        <span class="i-el">Δες πώς μπορώ να βοηθήσω</span><span class="i-en">See how I can help</span>
-      </a>
+      <a class="btn btn-ghost" href="#help">Δες πώς μπορώ να βοηθήσω</a>
     </div>
     <div class="hero-meta rv rv-d4">
       <span>
         <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2" stroke-linecap="round"/></svg>
-        <span class="i-el">Δευτέρα – Παρασκευή, κατόπιν ραντεβού</span><span class="i-en">Monday – Friday, by appointment</span>
-      </span>
-      <span>
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg>
-        <span class="i-el">Βούλα, Αττική</span><span class="i-en">Voula, Athens</span>
+        Δευτέρα – Παρασκευή, κατόπιν ραντεβού
       </span>
       <span>
         <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3 9h18"/></svg>
-        <span class="i-el">Συνεδρίες και online, για Ελληνίδες &amp; Έλληνες του εξωτερικού</span><span class="i-en">Online sessions, including for Greeks living abroad</span>
+        Συνεδρίες δια ζώσης και on line, για Ελληνίδες &amp; Έλληνες του εξωτερικού
       </span>
     </div>
-    <div class="scrollcue rv rv-d4" aria-hidden="true">
-      <span class="i-el">Συνέχισε</span><span class="i-en">Scroll</span>
-      <span class="ln"></span>
-    </div>
+    <div class="scrollcue rv rv-d4" aria-hidden="true">Συνέχισε<span class="ln"></span></div>
   </div>
 </section>
 
-<!-- ============================ 02 · BEING PRESENT + PORTRAIT ============================ -->
+<!-- ============================ 02 · Η ΑΦΕΤΗΡΙΑ ============================ -->
 <section class="sec band" id="present" aria-labelledby="h-present">
-  <div class="wrap intro-grid">
-    <figure class="figure zoomable rv-scale" data-full="assets/sofia-gouviotou-symvoulos-psychikis-ygeias.webp" data-par="0.05">
-      <div class="fwrap">
-      <span class="echo" aria-hidden="true"></span>
-      <div class="frame">
-        <img src="assets/sofia-gouviotou-symvoulos-psychikis-ygeias.webp"
-             alt="Η Σοφία Γουβιώτου, Σύμβουλος Ψυχικής Υγείας, στον χώρο συμβουλευτικής της στη Βούλα"
-             width="900" height="1213" loading="lazy" decoding="async">
-        <span class="zoomhint" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M16 16l4.5 4.5M11 8v6M8 11h6" stroke-linecap="round"/></svg></span>
-      </div>
-      </div>
-      <figcaption><span class="i-el">Σοφία Γουβιώτου, Σύμβουλος Ψυχικής Υγείας</span><span class="i-en">Sofia Gouviotou, Mental Health Counsellor</span></figcaption>
-    </figure>
-
-    <div class="rv rv-d1">
-      <span class="eyebrow"><span class="i-el">Η αφετηρία</span><span class="i-en">The starting point</span></span>
-      <h2 id="h-present"><span class="i-el">Τι σημαίνει «Being Present»</span><span class="i-en">What “Being Present” means</span></h2>
-      <p style="margin-top:1.1rem">
-        <span class="i-el">Being Present σημαίνει να είσαι εδώ. Όχι στο χθες που σε βαραίνει, ούτε στο αύριο που σε αγχώνει — αλλά σε αυτό που ζεις τώρα, με τον εαυτό σου παρόντα και όχι σε απόσταση.</span>
-        <span class="i-en">Being present means being here. Not in a yesterday that weighs on you, nor in a tomorrow that worries you — but in what you are living now, with yourself present rather than at a distance.</span>
-      </p>
-      <p>
-        <span class="i-el">Είναι κάτι πιο απλό και πιο δύσκολο απ’ όσο ακούγεται. Οι περισσότεροι άνθρωποι μαθαίνουμε νωρίς να προσπερνάμε αυτό που νιώθουμε: να το εξηγούμε, να το δικαιολογούμε, να το αφήνουμε για μετά. Μέχρι που το «μετά» γίνεται χρόνια.</span>
-        <span class="i-en">It is simpler and harder than it sounds. Most of us learn early to move past what we feel: to explain it away, to justify it, to leave it for later. Until “later” becomes years.</span>
-      </p>
-      <p class="pull">
-        <span class="i-el">Η αλλαγή δεν ξεκινά όταν βρεις την απάντηση. Ξεκινά τη στιγμή που σταματάς και ακούς την ερώτηση.</span>
-        <span class="i-en">Change does not begin when you find the answer. It begins the moment you stop and listen to the question.</span>
-      </p>
-      <p>
-        <span class="i-el">Στη συμβουλευτική δεν χρειάζεται να έρθεις έτοιμος ούτε να ξέρεις από πού να αρχίσεις. Χρειάζεται μόνο να υπάρχει ένας χώρος όπου κανείς δεν βιάζεται να σε διορθώσει. Αυτόν τον χώρο προσπαθώ να κρατήσω ανοιχτό για σένα.</span>
-        <span class="i-en">In counselling you do not need to arrive ready, nor to know where to start. All that is needed is a space where no one is in a hurry to fix you. That is the space I try to keep open for you.</span>
-      </p>
-    </div>
+  <div class="wrap">
+    <span class="eyebrow rv">Η αφετηρία</span>
+    <h2 id="h-present" class="rv">Being Present</h2>
+    <div class="rule rv rv-d1" aria-hidden="true"></div>
+    <p class="lead rv rv-d1">
+      Σημαίνει να είσαι σε επαφή με τον εαυτό σου και όσα βιώνεις στο παρόν, χωρίς κριτική.
+      Να μπορείς να παρατηρείς με επίγνωση όσα αναδύονται μέσα σου, να κατανοείς το παρελθόν σου
+      και να επεξεργάζεσαι φόβους και άγχη για το μέλλον.
+    </p>
+    <p class="big-say rv rv-d2">
+      Στη συμβουλευτική, η παρουσία γίνεται μια κοινή διαδικασία. Η εμπειρία σου δεν αποτελεί
+      αντικείμενο επίκρισης, αλλά ακούγεται με προσοχή και σεβασμό.
+    </p>
+    <p class="lead rv rv-d3">
+      Μέσα από τον διάλογο διευρύνουμε τις επιλογές και τις δυνατότητες που πιθανόν έχουν παραληφθεί
+      και συν-δημιουργούμε τις συνθήκες για να αναδυθεί μια νέα αντίληψη, οπτική και επιλογή.
+    </p>
   </div>
 </section>
 
-<!-- ============================ 03 · HOW I CAN HELP ============================ -->
+<!-- ============================ 03 · ΘΕΜΑΤΑ ============================ -->
 <section class="sec" id="help" aria-labelledby="h-help">
-  <div class="wrap two">
-    <div class="side rv">
-      <span class="eyebrow"><span class="i-el">Θέματα</span><span class="i-en">Themes</span></span>
-      <h2 id="h-help"><span class="i-el">Πώς μπορώ να βοηθήσω</span><span class="i-en">How I can help</span></h2>
-    </div>
-    <div class="rv rv-d1">
-      <p>
-        <span class="i-el">Δεν χρειάζεται να συμβαίνει κάτι «αρκετά σοβαρό» για να ζητήσεις υποστήριξη. Οι άνθρωποι που έρχονται σε μένα συνήθως δεν βρίσκονται σε κρίση — απλώς έχουν κουραστεί να τα κρατούν όλα μόνοι τους.</span>
-        <span class="i-en">Nothing has to be “serious enough” for you to ask for support. The people who come to me are usually not in crisis — they are simply tired of carrying everything on their own.</span>
-      </p>
-      <p>
-        <span class="i-el">Μαζί κοιτάμε αυτό που σε δυσκολεύει, το ονομάζουμε και βρίσκουμε τρόπους να το διαχειριστείς. Δουλεύουμε με τον δικό σου ρυθμό και με τα δικά σου λόγια.</span>
-        <span class="i-en">Together we look at what is difficult, name it, and find ways for you to handle it. We work at your pace and in your own words.</span>
-      </p>
-      <div class="chips" aria-label="Θέματα με τα οποία δουλεύω">
-        <span class="chip"><span class="i-el">Άγχος και ένταση</span><span class="i-en">Anxiety and tension</span></span>
-        <span class="chip"><span class="i-el">Μεταβάσεις και αλλαγές ζωής</span><span class="i-en">Life transitions</span></span>
-        <span class="chip"><span class="i-el">Πένθος και απώλεια</span><span class="i-en">Grief and loss</span></span>
-        <span class="chip"><span class="i-el">Χρόνια και σπάνια νοσήματα</span><span class="i-en">Chronic and rare conditions</span></span>
-        <span class="chip"><span class="i-el">Σχέσεις και όρια</span><span class="i-en">Relationships and boundaries</span></span>
-        <span class="chip"><span class="i-el">Γονεϊκός ρόλος</span><span class="i-en">Parenting</span></span>
-        <span class="chip"><span class="i-el">Αυτοεκτίμηση</span><span class="i-en">Self-esteem</span></span>
-        <span class="chip"><span class="i-el">Επαγγελματική εξουθένωση</span><span class="i-en">Burnout</span></span>
-        <span class="chip"><span class="i-el">Μοναξιά</span><span class="i-en">Loneliness</span></span>
-        <span class="chip"><span class="i-el">Λήψη αποφάσεων</span><span class="i-en">Making decisions</span></span>
-      </div>
+  <div class="wrap">
+    <span class="eyebrow rv">Θέματα</span>
+    <h2 id="h-help" class="rv">Πώς μπορώ να βοηθήσω;</h2>
+    <div class="rule rv rv-d1" aria-hidden="true"></div>
+    <p class="lead rv rv-d1">
+      Η προσωπική σου ιστορία έχει τη δική της διαδρομή! Μέσα σε αυτή διαμορφώθηκαν οι εσωτερικοί
+      σου διάλογοι και ο τρόπος που σκέφτεσαι, αισθάνεσαι, σχετίζεσαι και νοηματοδοτείς όσα σου συμβαίνουν.
+    </p>
+    <p class="lead rv rv-d2">
+      Μαζί διερευνούμε σκέψεις, συναισθήματα και συμπεριφορικά μοτίβα που κάποτε σε βοήθησαν να
+      προστατευτείς, αλλά ίσως πλέον δεν σε εξυπηρετούν. Στόχος μας είναι να κατανοήσεις καλύτερα
+      τον εαυτό σου και να αναπτύξεις πιο λειτουργικούς τρόπους να διαχειρίζεσαι τις προκλήσεις της ζωής.
+    </p>
+
+    <div class="themes rv-scale">
+      <ul>
+        <li>Άγχος &amp; ένταση</li>
+        <li>Μεταβάσεις &amp; αλλαγές ζωής</li>
+        <li>Πένθος &amp; απώλεια</li>
+        <li>Χρόνια &amp; σπάνια νοσήματα</li>
+        <li>Σχέσεις &amp; προσωπικά όρια</li>
+        <li>Γονεϊκός ρόλος</li>
+        <li>Αυτοεκτίμηση</li>
+        <li>Επαγγελματική εξουθένωση</li>
+        <li>Μοναξιά &amp; αίσθηση αποσύνδεσης</li>
+        <li>Λήψη αποφάσεων &amp; προσωπικά διλήμματα</li>
+      </ul>
     </div>
   </div>
 </section>
 
-<!-- ============================ 04 · SERVICES ============================ -->
+<!-- ============================ 04 · ΥΠΗΡΕΣΙΕΣ ============================ -->
 <section class="sec band" id="services" aria-labelledby="h-svc">
   <div class="wrap">
-    <div class="rv" style="max-width:60ch">
-      <span class="eyebrow"><span class="i-el">Υπηρεσίες</span><span class="i-en">Services</span></span>
-      <h2 id="h-svc"><span class="i-el">Συμβουλευτική ενηλίκων και εφήβων, στη Βούλα και online</span><span class="i-en">Counselling for adults and teenagers, in Voula and online</span></h2>
-      <p class="lead" style="margin-top:1.1rem">
-        <span class="i-el">Κάθε συνεργασία ξεκινά με μια πρώτη συνάντηση γνωριμίας, όπου συζητάμε το αίτημά σου και αποφασίζουμε μαζί πώς θα συνεχίσουμε.</span>
-        <span class="i-en">Every collaboration starts with a first meeting, where we discuss what brings you here and decide together how to continue.</span>
-      </p>
+    <span class="eyebrow rv">Υπηρεσίες</span>
+    <h2 id="h-svc" class="rv">Πώς μπορούμε να δουλέψουμε μαζί</h2>
+    <div class="rule rv rv-d1" aria-hidden="true"></div>
+
+    <div class="svc-intro rv rv-d1">
+      <p>Κάθε συνεργασία ξεκινά με μια πρώτη συνάντηση γνωριμίας, όπου συζητάμε τι σε φέρνει στη
+         συμβουλευτική και αποφασίζουμε μαζί πώς θα συνεχίσουμε.</p>
     </div>
 
-    <div class="svc">
-      <article class="svc-item rv">
-        <div class="svc-n">01</div>
-        <div>
-          <h3><span class="i-el">Ατομική Συμβουλευτική Ενηλίκων</span><span class="i-en">Individual Counselling for Adults</span></h3>
-          <p>
-            <span class="i-el">Ατομικές συνεδρίες για ενήλικες που θέλουν να καταλάβουν καλύτερα τι τους συμβαίνει και να βρουν πιο λειτουργικούς τρόπους να το διαχειριστούν. Δουλεύουμε με το άγχος, τη χαμηλή αυτοεκτίμηση, τις δυσκολίες στις σχέσεις, την επαγγελματική εξουθένωση, τη μοναξιά και τις αποφάσεις που φαίνονται αδύνατο να παρθούν. Δεν σου δίνω έτοιμες λύσεις· μαζί ξεδιπλώνουμε την εικόνα ώστε να δεις πιο καθαρά τι θέλεις εσύ. Οι συνεδρίες γίνονται εβδομαδιαία, σε σταθερή μέρα και ώρα, ώστε να υπάρχει συνέχεια και ασφάλεια στη διαδικασία.</span>
-            <span class="i-en">Individual sessions for adults who want to understand what is happening to them and find more workable ways of handling it. We work with anxiety, low self-esteem, difficulties in relationships, burnout, loneliness and decisions that feel impossible to make. I do not hand you ready-made solutions; together we unfold the picture so that you can see more clearly what you want. Sessions are weekly, on a fixed day and time, so that the process has continuity and safety.</span>
-          </p>
-          <span class="svc-tag"><span class="i-el">Δια ζώσης ή online</span><span class="i-en">In person or online</span></span>
-        </div>
+    <div class="svc-grid">
+      <article class="svc rv-scale">
+        <h3>Ατομική Συμβουλευτική Ενηλίκων</h3>
+        <p>Η ατομική συμβουλευτική απευθύνεται σε ενήλικες που επιθυμούν να επεξεργαστούν
+           συναισθηματικές δυσκολίες, αρνητικές σκέψεις που οδηγούν σε επαναλαμβανόμενα μοτίβα
+           συμπεριφοράς και επικοινωνίας, που βρίσκονται αντιμέτωποι με διλήμματα, μοναξιά ή
+           αυξημένες απαιτήσεις.</p>
+        <p>Η διαδικασία μπορεί να υποστηρίξει την αυτογνωσία, την προσωπική ενδυνάμωση, την
+           αυτοαποτελεσματικότητα και την ανάπτυξη πιο λειτουργικών τρόπων αντιμετώπισης των
+           προκλήσεων της καθημερινότητας. Οι συνεδρίες γίνονται εβδομαδιαία, σε σταθερή μέρα και
+           ώρα, ώστε να υπάρχει συνέχεια και ασφάλεια στη διαδικασία.</p>
+        <span class="tag">Δια ζώσης ή online</span>
       </article>
 
-      <article class="svc-item rv">
-        <div class="svc-n">02</div>
-        <div>
-          <h3><span class="i-el">Διαχείριση Μεταβάσεων, Απωλειών &amp; Χρόνιων Νοσημάτων</span><span class="i-en">Transitions, Loss &amp; Chronic Conditions</span></h3>
-          <p>
-            <span class="i-el">Υπάρχουν περίοδοι που η ζωή αλλάζει χωρίς να το επιλέξεις: μια απώλεια, μια διάγνωση, ένας χωρισμός, μια συνταξιοδότηση, μια μετακόμιση. Σε αυτές τις στιγμές το ζητούμενο δεν είναι να «το ξεπεράσεις» γρήγορα, αλλά να βρεις έναν τρόπο να στέκεσαι μέσα σε αυτό. Έχω εκπαιδευτεί ειδικά στη συμβουλευτική για τις σπάνιες παθήσεις και τη διαχείριση της απώλειας, και συνεργάζομαι με συλλόγους ασθενών. Δουλεύω τόσο με το ίδιο το άτομο όσο και με τους ανθρώπους που το φροντίζουν.</span>
-            <span class="i-en">There are times when life changes without your choosing: a loss, a diagnosis, a separation, retirement, a move. In such moments the aim is not to “get over it” quickly, but to find a way of standing inside it. I have trained specifically in counselling for rare conditions and the management of loss, and I work with patient associations. I work both with the person themselves and with those caring for them.</span>
-          </p>
-          <span class="svc-tag"><span class="i-el">Ατομικές συνεδρίες · Υποστήριξη φροντιστών</span><span class="i-en">Individual sessions · Carer support</span></span>
-        </div>
+      <article class="svc rv-scale rv-d1">
+        <h3>Διαχείριση Μεταβάσεων, Απωλειών &amp; Χρόνιων Νοσημάτων</h3>
+        <p>Στη ζωή μας υπάρχουν γεγονότα που ανατρέπουν τις ισορροπίες μας και μας καλούν να
+           προσαρμοστούμε σε μια νέα πραγματικότητα. Μια απώλεια, ένα διαζύγιο, μια σημαντική αλλαγή
+           ή η παρουσία μιας χρόνιας νόσου μπορεί να επιφέρει φόβο, αβεβαιότητα, θλίψη και την ανάγκη
+           να επαναπροσδιορίσουμε τον τρόπο με τον οποίο συνεχίζουμε τη ζωή μας.</p>
+        <p>Η συμβουλευτική προσφέρει έναν ασφαλή χώρο για την επεξεργασία αυτής της εμπειρίας, την
+           αναγνώριση και έκφραση των συναισθημάτων και την αναζήτηση προσωπικών τρόπων
+           νοηματοδότησης της νέας συνθήκης.</p>
+        <p>Η υποστήριξη μπορεί να αφορά όχι μόνο το ίδιο το άτομο, αλλά και τους ανθρώπους που
+           βρίσκονται δίπλα του. Μέλη της οικογένειας και φροντιστές συχνά καλούνται να διαχειριστούν
+           νέες ευθύνες, συναισθήματα και ρόλους, ενώ παράλληλα χρειάζεται να φροντίσουν και τις
+           δικές τους ανάγκες.</p>
+        <span class="tag">Ατομικές συνεδρίες · Υποστήριξη φροντιστών</span>
       </article>
 
-      <article class="svc-item rv">
-        <div class="svc-n">03</div>
-        <div>
-          <h3><span class="i-el">Συμβουλευτική Εφήβων και Γονέων</span><span class="i-en">Counselling for Teenagers and Parents</span></h3>
-          <p>
-            <span class="i-el">Η εφηβεία είναι μια περίοδος όπου τα λόγια συχνά λείπουν και από τις δύο πλευρές. Δουλεύω με εφήβους που δυσκολεύονται με το άγχος, τις σχολικές απαιτήσεις, τις σχέσεις με τους συνομηλίκους ή την εικόνα του εαυτού τους — και ξεχωριστά με γονείς που θέλουν να καταλάβουν τι συμβαίνει και πώς να είναι παρόντες χωρίς να συγκρούονται συνεχώς. Μετά από δεκαέξι χρόνια στη δευτεροβάθμια εκπαίδευση, ξέρω καλά πώς μιλάνε οι έφηβοι, τι τους πιέζει και πώς μοιάζει η προετοιμασία για τις πανελλήνιες από μέσα.</span>
-            <span class="i-en">Adolescence is a period where words are often missing on both sides. I work with teenagers struggling with anxiety, school pressure, friendships or their sense of self — and separately with parents who want to understand what is happening and how to be present without constant conflict. After sixteen years in secondary education, I know how teenagers speak, what presses on them, and what preparing for national exams looks like from the inside.</span>
-          </p>
-          <span class="svc-tag"><span class="i-el">Έφηβοι · Γονεϊκή συμβουλευτική</span><span class="i-en">Teenagers · Parent counselling</span></span>
-        </div>
+      <article class="svc rv-scale">
+        <h3>Συμβουλευτική Εφήβων &amp; Γονέων</h3>
+        <p>Η εφηβεία είναι μια περίοδος σημαντικών αλλαγών, αναζητήσεων και νέων απαιτήσεων τόσο για
+           τον έφηβο όσο και για την οικογένεια.</p>
+        <p>Στις συναντήσεις μας, οι έφηβοι ενδυναμώνονται ώστε να αντιμετωπίσουν το άγχος και τις
+           προκλήσεις της σχολικής ζωής, να διερευνήσουν με μεγαλύτερη σαφήνεια τις εκπαιδευτικές και
+           επαγγελματικές τους επιλογές και να διαχειριστούν δυσκολίες στην επικοινωνία και στις
+           σχέσεις τους. Παράλληλα, δημιουργείται ένας ασφαλής χώρος για να γνωρίσουν καλύτερα τον
+           εαυτό τους και να ενισχύσουν την αυτοεικόνα και την αυτοεκτίμησή τους.</p>
+        <p>Αντίστοιχα, προσφέρεται στήριξη στους γονείς σε ζητήματα που αφορούν όρια, συγκρούσεις,
+           επικοινωνία, συναισθηματική σύνδεση και τον γονεϊκό τους ρόλο. Στόχος είναι να δημιουργηθεί
+           ένας χώρος κατανόησης και επικοινωνίας, όπου μπορούν να αναγνωριστούν οι ανάγκες τόσο του
+           εφήβου όσο και της οικογένειας και να ενισχυθεί η μεταξύ τους σχέση.</p>
+        <span class="tag">Έφηβοι · Συμβουλευτική γονέων</span>
       </article>
 
-      <article class="svc-item rv">
-        <div class="svc-n">04</div>
-        <div>
-          <h3><span class="i-el">Ψυχοεκπαιδευτικές και Βιωματικές Ομάδες</span><span class="i-en">Psychoeducational and Experiential Groups</span></h3>
-          <p>
-            <span class="i-el">Μικρές ομάδες όπου μαθαίνεις πράγματα για τον εαυτό σου μέσα από την παρουσία των άλλων. Οι ψυχοεκπαιδευτικές ομάδες δίνουν γνώση και εργαλεία γύρω από ένα θέμα — άγχος, όρια, επικοινωνία, γονεϊκός ρόλος. Οι βιωματικές ομάδες δουλεύουν πιο πολύ μέσα από την εμπειρία και τη μοιρασιά. Και στις δύο περιπτώσεις οι ομάδες είναι κλειστές και ολιγομελείς, με σαφές συμβόλαιο εμπιστευτικότητας. Οι ημερομηνίες ανακοινώνονται κατά περιόδους — γράψε μου για να μπεις στη λίστα ενδιαφέροντος.</span>
-            <span class="i-en">Small groups where you learn about yourself through the presence of others. Psychoeducational groups offer knowledge and tools around a theme — anxiety, boundaries, communication, parenting. Experiential groups work more through shared experience. In both cases the groups are closed and small, with a clear confidentiality agreement. Dates are announced periodically — write to me to join the interest list.</span>
-          </p>
-          <span class="svc-tag"><span class="i-el">Κλειστές, ολιγομελείς ομάδες</span><span class="i-en">Closed, small groups</span></span>
-        </div>
+      <article class="svc rv-scale rv-d1">
+        <h3>Ψυχοεκπαιδευτικές &amp; Βιωματικές Ομάδες</h3>
+        <p>Οι ψυχοεκπαιδευτικές και βιωματικές ομάδες οργανώνονται μέσα σε ένα συγκεκριμένο και
+           ασφαλές πλαίσιο, με συγκεκριμένη θεματολογία και σαφείς στόχους. Δίνουν στους συμμετέχοντες
+           τη δυνατότητα να ενημερωθούν, να μοιραστούν εμπειρίες και να εξερευνήσουν πλευρές του
+           εαυτού τους μέσα από την αλληλεπίδραση με τους άλλους.</p>
+        <p><em>Ενδεικτικές θεματικές:</em> Όρια &amp; διεκδικητικότητα · Αυτογνωσία &amp; αυτοφροντίδα ·
+           Συναισθηματική έκφραση · Γονεϊκότητα · Μεταβάσεις &amp; αλλαγές ζωής · Σχέση με την τροφή
+           &amp; το σώμα.</p>
+        <p>Οι ομάδες είναι κλειστές και ολιγομελείς. Διαμορφώνονται ανάλογα με τη θεματολογία και τις
+           ανάγκες των συμμετεχόντων και μπορούν να πραγματοποιούνται δια ζώσης ή διαδικτυακά. Η έναρξη
+           κάθε ομάδας πραγματοποιείται εφόσον συμπληρωθεί ο απαραίτητος αριθμός συμμετεχόντων.</p>
+        <span class="tag">Κλειστές, ολιγομελείς ομάδες</span>
       </article>
 
-      <article class="svc-item rv">
-        <div class="svc-n">05</div>
-        <div>
-          <h3><span class="i-el">Διαδικτυακή Συμβουλευτική</span><span class="i-en">Online Counselling</span></h3>
-          <p>
-            <span class="i-el">Όλες οι υπηρεσίες προσφέρονται και διαδικτυακά, με τον ίδιο τρόπο εργασίας και το ίδιο πλαίσιο εμπιστευτικότητας. Είναι μια πραγματική λύση αν μένεις μακριά, αν το ωράριό σου δεν βγαίνει, ή αν βρίσκεσαι στο εξωτερικό και θέλεις να μιλήσεις στη μητρική σου γλώσσα με κάποιον που καταλαβαίνει το πλαίσιο από το οποίο έρχεσαι. Χρειάζεσαι μόνο μια σταθερή σύνδεση και έναν χώρο όπου δεν θα σε διακόψουν. Οι συνεδρίες κλείνονται λαμβάνοντας υπόψη τη διαφορά ώρας.</span>
-            <span class="i-en">All services are also offered online, with the same way of working and the same confidentiality framework. It is a real option if you live far away, if your schedule does not allow travel, or if you are abroad and want to speak in your mother tongue with someone who understands where you are coming from. All you need is a stable connection and a space where you will not be interrupted. Sessions are scheduled taking time differences into account.</span>
-          </p>
-          <span class="svc-tag"><span class="i-el">Για όλη την Ελλάδα &amp; το εξωτερικό</span><span class="i-en">Across Greece and abroad</span></span>
-        </div>
+      <article class="svc rv-scale">
+        <h3>Διαδικτυακή Συμβουλευτική</h3>
+        <p>Όλες οι υπηρεσίες προσφέρονται και διαδικτυακά, με τον ίδιο τρόπο εργασίας και το ίδιο
+           πλαίσιο εμπιστευτικότητας. Είναι μια πραγματική λύση αν οι μετακινήσεις δεν είναι εύκολες
+           για σένα, ή αν βρίσκεσαι στο εξωτερικό και θέλεις να μιλήσεις στη μητρική σου γλώσσα με
+           κάποιον που καταλαβαίνει το πλαίσιο από το οποίο έρχεσαι.</p>
+        <p>Χρειάζεσαι μόνο μια σταθερή σύνδεση και έναν χώρο όπου δεν θα σε διακόψουν. Οι συνεδρίες
+           κλείνονται λαμβάνοντας υπόψη τη διαφορά ώρας.</p>
+        <span class="tag">Για όλη την Ελλάδα &amp; το εξωτερικό</span>
       </article>
     </div>
 
-    <div class="note rv">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01" stroke-linecap="round"/></svg>
-      <p>
-        <span class="i-el">Για φοιτητές, ανέργους και ΑμεΑ ισχύει μειωμένο κόστος συνεδρίας, κατόπιν επίδειξης του αντίστοιχου εγγράφου. Ρώτησέ με ελεύθερα — δεν χρειάζεται να το εξηγήσεις.</span>
-        <span class="i-en">Reduced session fees apply for students, unemployed people and people with disabilities, on presentation of the relevant document. Just ask — you do not need to explain.</span>
-      </p>
-    </div>
-  </div>
-</section>
-
-<!-- ============================ 05 · PHILOSOPHY ============================ -->
-<section class="sec dark" id="philosophy" aria-labelledby="h-phil">
-  <div class="wrap">
-    <div class="two">
-      <div class="side rv">
-        <span class="eyebrow"><span class="i-el">Η φιλοσοφία μου</span><span class="i-en">My philosophy</span></span>
-        <h2 id="h-phil"><span class="i-el">Πώς δουλεύω</span><span class="i-en">How I work</span></h2>
-      </div>
-      <div class="rv rv-d1">
-        <p class="quote-big">
-          <span class="i-el">Δεν είσαι πρόβλημα προς επίλυση. Είσαι άνθρωπος προς συνάντηση.</span>
-          <span class="i-en">You are not a problem to be solved. You are a person to be met.</span>
-        </p>
-      </div>
-    </div>
-
-    <div class="principles">
-      <div class="principle rv">
-        <span class="pn">01</span>
-        <h3><span class="i-el">Χωρίς κριτική</span><span class="i-en">Without judgement</span></h3>
-        <p>
-          <span class="i-el">Ό,τι φέρνεις στη συνεδρία δεν αξιολογείται. Δεν υπάρχει σωστός ή λάθος τρόπος να νιώθεις αυτό που νιώθεις, και δεν χρειάζεται να το παρουσιάσεις πιο τακτοποιημένο απ’ ό,τι είναι.</span>
-          <span class="i-en">Whatever you bring is not evaluated. There is no right or wrong way to feel what you feel, and you do not need to present it tidier than it is.</span>
-        </p>
-      </div>
-      <div class="principle rv rv-d1">
-        <span class="pn">02</span>
-        <h3><span class="i-el">Με τον ρυθμό σου</span><span class="i-en">At your own pace</span></h3>
-        <p>
-          <span class="i-el">Η αλλαγή χρειάζεται χρόνο και δεν είναι ευθεία γραμμή. Θα υπάρξουν βδομάδες που όλα προχωρούν και βδομάδες που φαίνεται να γυρνάμε πίσω. Και τα δύο είναι μέρος της δουλειάς.</span>
-          <span class="i-en">Change takes time and is not a straight line. There will be weeks when everything moves and weeks when it seems we go backwards. Both are part of the work.</span>
-        </p>
-      </div>
-      <div class="principle rv rv-d2">
-        <span class="pn">03</span>
-        <h3><span class="i-el">Με σαφές πλαίσιο</span><span class="i-en">With a clear framework</span></h3>
-        <p>
-          <span class="i-el">Συμφωνούμε από την αρχή τα πρακτικά: διάρκεια, συχνότητα, κόστος, ακυρώσεις και εμπιστευτικότητα. Ένα ξεκάθαρο πλαίσιο δεν περιορίζει τη σχέση· την κάνει ασφαλή.</span>
-          <span class="i-en">We agree the practicalities from the start: duration, frequency, fees, cancellations and confidentiality. A clear framework does not restrict the relationship; it makes it safe.</span>
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================ 06 · ABOUT + SECOND PORTRAIT ============================ -->
-<section class="sec" id="about" aria-labelledby="h-about">
-  <div class="wrap about-grid">
-    <div class="rv">
-      <span class="eyebrow"><span class="i-el">Σχετικά με μένα</span><span class="i-en">About me</span></span>
-      <h2 id="h-about"><span class="i-el">Λίγα λόγια για μένα</span><span class="i-en">A few words about me</span></h2>
-      <p style="margin-top:1.1rem">
-        <span class="i-el">Με λένε Σοφία Γουβιώτου και είμαι Σύμβουλος Ψυχικής Υγείας. Παρέχω ατομικές συνεδρίες συμβουλευτικής σε ενήλικες και εφήβους, στη Βούλα και διαδικτυακά, ενώ συμμετέχω σε διεπιστημονική ομάδα και σε τακτική κλινική εποπτεία.</span>
-        <span class="i-en">My name is Sofia Gouviotou and I am a Mental Health Counsellor. I offer individual counselling sessions to adults and teenagers, in Voula and online, and I take part in an interdisciplinary team and in regular clinical supervision.</span>
-      </p>
-      <p>
-        <span class="i-el">Δεν ήρθα στη συμβουλευτική σε ευθεία γραμμή. Πέρασα δεκαέξι χρόνια στην τάξη ως εκπαιδευτικός, δίπλα σε εφήβους που ετοιμάζονταν για πανελλήνιες και σε γονείς που δεν ήξεραν πώς να τους πλησιάσουν. Πριν από αυτό δούλεψα χρόνια στη διατροφική συμβουλευτική, εκεί όπου το σώμα και το συναίσθημα δεν χωρίζονται εύκολα. Και στους δύο ρόλους έκανα το ίδιο πράγμα: άκουγα ανθρώπους που ήθελαν να αλλάξουν κάτι και δεν ήξεραν από πού να πιαστούν.</span>
-        <span class="i-en">I did not come to counselling in a straight line. I spent sixteen years in the classroom as a teacher, beside teenagers preparing for national exams and parents who did not know how to reach them. Before that I worked for years in nutritional counselling, where body and emotion are not easily separated. In both roles I was doing the same thing: listening to people who wanted to change something and did not know where to start.</span>
-      </p>
-      <p>
-        <span class="i-el">Το 2022 αποφάσισα να το κάνω επίσημα. Ολοκλήρωσα τριετή εκπαίδευση στη Συνθετική Συμβουλευτική Ψυχικής Υγείας, έκανα πρακτική άσκηση σε τρεις φορείς υπό εποπτεία και συνέχισα με εξειδικεύσεις στην παιδοψυχολογία, την ψυχοεκπαίδευση, τις αφηγηματικές και σχεσιακές προσεγγίσεις και τη συμβουλευτική για τις σπάνιες παθήσεις. Σήμερα σπουδάζω παράλληλα Ψυχολογία με Ψυχοθεραπεία και Συμβουλευτική (BSc, University of Central Lancashire).</span>
-        <span class="i-en">In 2022 I decided to make it official. I completed a three-year training in Integrative Mental Health Counselling, did supervised placements at three organisations, and continued with specialisations in child psychology, psychoeducation, narrative and relational approaches, and counselling for rare conditions. I am currently also studying for a BSc in Psychology with Psychotherapy and Counselling (University of Central Lancashire).</span>
-      </p>
-      <p>
-        <span class="i-el">Αυτό που κρατάω από όλη τη διαδρομή είναι απλό: οι άνθρωποι δεν χρειάζονται κάποιον να τους πει τι να κάνουν. Χρειάζονται κάποιον που θα μείνει εκεί όσο το βρίσκουν μόνοι τους.</span>
-        <span class="i-en">What I keep from the whole journey is simple: people do not need someone to tell them what to do. They need someone who will stay there while they work it out for themselves.</span>
-      </p>
-
-      <div class="creds">
-        <h3><span class="i-el">Ιδιότητες &amp; συνεργασίες</span><span class="i-en">Memberships &amp; affiliations</span></h3>
-        <div class="chips" style="margin-top:0">
-          <span class="chip"><span class="i-el">Μέλος, Ελληνική Εταιρεία Συμβουλευτικής</span><span class="i-en">Member, Hellenic Counselling Association</span></span>
-          <span class="chip"><span class="i-el">Εξωτερική συνεργάτις, Κέντρο Ψυχικής Υγείας «Ανθρώπων Χώρος»</span><span class="i-en">Associate, “Anthropon Choros” Mental Health Centre</span></span>
-          <span class="chip"><span class="i-el">Συνεργασία με την ΑΜΚΕ «Καρκινάκι»</span><span class="i-en">Collaboration with the “Karkinaki” NGO</span></span>
-          <span class="chip"><span class="i-el">Μέλος ΔΣ, Σύλλογος ΣΥΠΠΑΔΡΕΜΙΑ</span><span class="i-en">Board member, SYPPADREMIA patients’ association</span></span>
-          <span class="chip"><span class="i-el">Proficiency in English (Cambridge)</span><span class="i-en">Proficiency in English (Cambridge)</span></span>
-        </div>
-
-        <details class="cv">
-          <summary>
-            <span><span class="i-el">Εκπαίδευση και επαγγελματική κατάρτιση — αναλυτικά</span><span class="i-en">Training and professional background — in full</span></span>
-            <span class="pm" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></span>
-          </summary>
-          <div class="cv-body">
-            <h4><span class="i-el">Εκπαίδευση</span><span class="i-en">Education</span></h4>
-            <ul>
-              <li><b>2026 – 2029</b> <span class="i-el">(σε εξέλιξη) — BSc Ψυχολογία με Ψυχοθεραπεία &amp; Συμβουλευτική, University of Central Lancashire (UCLan) σε συνεργασία με το ICPS.</span><span class="i-en">(in progress) — BSc Psychology with Psychotherapy &amp; Counselling, University of Central Lancashire (UCLan) in collaboration with ICPS.</span></li>
-              <li><b>2022 – 2025</b> <span class="i-el">— Εκπαίδευση στη Συνθετική Συμβουλευτική Ψυχικής Υγείας, Κέντρο Εφαρμοσμένης Ψυχοθεραπείας &amp; Συμβουλευτικής.</span><span class="i-en">— Training in Integrative Mental Health Counselling, Centre for Applied Psychotherapy &amp; Counselling.</span></li>
-              <li><b>1989 – 1995</b> <span class="i-el">— Οικονομικό Πανεπιστήμιο Αθηνών, Οργάνωση &amp; Διοίκηση Επιχειρήσεων.</span><span class="i-en">— Athens University of Economics and Business, BSc Business Administration.</span></li>
-              <li><b>1997 – 1999</b> <span class="i-el">— ΙΕΚ ΣΒΙΕ, Ειδικός Εφαρμογών Διαιτητικής.</span><span class="i-en">— SVIE Vocational Institute, Dietetics Applications Specialist.</span></li>
-            </ul>
-
-            <h4><span class="i-el">Εξειδικεύσεις &amp; μετεκπαίδευση</span><span class="i-en">Specialisations &amp; further training</span></h4>
-            <ul>
-              <li><span class="i-el"><b>2025 – 2026</b> — «Γνωσιακή συμβουλευτική και παρεμβάσεις», Εταιρεία Γνωσιακών Συμπεριφοριστικών Σπουδών.</span><span class="i-en"><b>2025 – 2026</b> — “Cognitive counselling and interventions”, Hellenic Association for Cognitive Behavioural Studies.</span></li>
-              <li><span class="i-el"><b>2025</b> — Συμβουλευτική για τις σπάνιες παθήσεις και διαχείριση της απώλειας (Hope Blooms — ΑΜΚΕ Καρκινάκι).</span><span class="i-en"><b>2025</b> — Counselling for rare conditions and management of loss (Hope Blooms — Karkinaki NGO).</span></li>
-              <li><span class="i-el"><b>2024 – 2025</b> — Παιδοψυχολογία &amp; Συμβουλευτική Οικογενειών, Πανεπιστήμιο Αιγαίου.</span><span class="i-en"><b>2024 – 2025</b> — Child Psychology &amp; Family Counselling, University of the Aegean.</span></li>
-              <li><span class="i-el"><b>2024 – 2025</b> — Συμβουλευτική &amp; Ψυχοθεραπεία: αφηγηματικές, διαλογικές και σχεσιακές προσεγγίσεις, ΕΚΠΑ.</span><span class="i-en"><b>2024 – 2025</b> — Counselling &amp; Psychotherapy: narrative, dialogical and relational approaches, University of Athens.</span></li>
-              <li><span class="i-el"><b>2024 – 2025</b> — Ψυχοεκπαίδευση: παρεμβάσεις στο άτομο, την οικογένεια και την ομάδα, ΕΠΙΨΥ.</span><span class="i-en"><b>2024 – 2025</b> — Psychoeducation: interventions for the individual, family and group, EPIPSI.</span></li>
-              <li><span class="i-el">Εξαετής παρακολούθηση σεμιναρίου αυτογνωσίας· συνεχής συμμετοχή σε ημερίδες και προγράμματα (Ινστιτούτο Σχεσιακής &amp; Ομαδικής Ψυχοθεραπείας, ΕΕΑΟΟΨ, Ελληνικό Κέντρο Θεραπείας Εστιασμένης στη Συμπόνια, Εργαστήριο Διερεύνησης Ανθρωπίνων Σχέσεων κ.ά.).</span><span class="i-en">Six years of personal-development seminars; continuous participation in conferences and programmes (Institute of Relational &amp; Group Psychotherapy, Hellenic Association of Analytic Group &amp; Family Psychotherapy, Hellenic Centre for Compassion Focused Therapy, Laboratory for the Exploration of Human Relations, and others).</span></li>
-            </ul>
-
-            <h4><span class="i-el">Επαγγελματική εμπειρία</span><span class="i-en">Professional experience</span></h4>
-            <ul>
-              <li><span class="i-el"><b>Ιανουάριος 2026 – σήμερα</b> — Σύμβουλος Ψυχικής Υγείας. Ιδιωτική πρακτική· εξωτερική συνεργάτις στο Κέντρο Ψυχικής Υγείας «Ανθρώπων Χώρος». Ατομικές συνεδρίες σε ενήλικες, συμμετοχή σε διεπιστημονική ομάδα και κλινική εποπτεία.</span><span class="i-en"><b>January 2026 – present</b> — Mental Health Counsellor. Private practice; associate at the “Anthropon Choros” Mental Health Centre. Individual sessions with adults, participation in an interdisciplinary team and clinical supervision.</span></li>
-              <li><span class="i-el"><b>2024 – 2025</b> — Εποπτευόμενη πρακτική άσκηση στη Συνθετική Συμβουλευτική Ψυχικής Υγείας: Κέντρο Εφαρμοσμένης Ψυχοθεραπείας &amp; Συμβουλευτικής, Ανθρώπων Χώρος, Roots Wellness Center· συνεργασία με την ΑΜΚΕ «Καρκινάκι».</span><span class="i-en"><b>2024 – 2025</b> — Supervised placement in Integrative Mental Health Counselling: Centre for Applied Psychotherapy &amp; Counselling, Anthropon Choros, Roots Wellness Center; collaboration with the Karkinaki NGO.</span></li>
-              <li><span class="i-el"><b>2008 – 2024</b> — Εκπαιδευτικός δευτεροβάθμιας εκπαίδευσης. Διδασκαλία οικονομικών μαθημάτων σε ΓΕΛ &amp; ΕΠΑΛ, προετοιμασία μαθητών Γ’ Λυκείου για τις πανελλήνιες, συμβουλευτική υποστήριξη και διαχείριση άγχους εξετάσεων.</span><span class="i-en"><b>2008 – 2024</b> — Secondary school teacher. Teaching economics subjects, preparing final-year students for national exams, counselling support and exam-anxiety management.</span></li>
-              <li><span class="i-el"><b>1999 – 2007</b> — Σύμβουλος διατροφής σε διαιτολογικά κέντρα. Λήψη ιστορικού, σχεδιασμός προγραμμάτων και υποστηρικτική παρακολούθηση.</span><span class="i-en"><b>1999 – 2007</b> — Nutrition counsellor at dietetics centres. History taking, programme design and supportive follow-up.</span></li>
-              <li><span class="i-el"><b>1995 – 1997</b> — Τμήμα Marketing &amp; Πωλήσεων.</span><span class="i-en"><b>1995 – 1997</b> — Marketing &amp; Sales department.</span></li>
-            </ul>
-
-            <h4><span class="i-el">Εθελοντισμός &amp; αρθρογραφία</span><span class="i-en">Volunteering &amp; writing</span></h4>
-            <ul>
-              <li><span class="i-el">Συντονισμός ομάδας υποστήριξης μελών του συλλόγου ΣΥΠΠΑΔΡΕΜΙΑ· μέλος του Διοικητικού Συμβουλίου.</span><span class="i-en">Facilitating a members’ support group for the SYPPADREMIA association; board member.</span></li>
-              <li><span class="i-el">Εθελοντική διδασκαλία σε κοινωνικά φροντιστήρια (μαθήματα Γ’ Λυκείου).</span><span class="i-en">Volunteer teaching at community tutoring schools (final-year secondary subjects).</span></li>
-              <li><span class="i-el">Αρθρογραφία: ΑΜΚΕ Καρκινάκι, Ανέλιξη Blog.</span><span class="i-en">Writing for: Karkinaki NGO, Anelixi Blog.</span></li>
-            </ul>
-          </div>
-        </details>
-      </div>
-    </div>
-
-    <figure class="figure zoomable rv-scale rv-d1" data-full="assets/sofia-gouviotou-portrait.webp" data-par="0.06" style="position:sticky;top:118px">
-      <div class="fwrap">
-      <span class="echo" aria-hidden="true"></span>
-      <div class="frame">
-        <img src="assets/sofia-gouviotou-portrait.webp"
-             alt="Πορτρέτο της Σοφίας Γουβιώτου, Συμβούλου Ψυχικής Υγείας"
-             width="900" height="1124" loading="lazy" decoding="async">
-        <span class="zoomhint" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M16 16l4.5 4.5M11 8v6M8 11h6" stroke-linecap="round"/></svg></span>
-      </div>
-      </div>
-      <figcaption><span class="i-el">«Χρειάζονται κάποιον που θα μείνει εκεί.»</span><span class="i-en">“They need someone who will stay there.”</span></figcaption>
-    </figure>
-  </div>
-</section>
-
-<!-- ============================ 07 · THE SPACE ============================ -->
-<section class="sec band" aria-labelledby="h-office">
-  <div class="wrap office">
-    <div class="rv">
-      <span class="eyebrow"><span class="i-el">Ο χώρος</span><span class="i-en">The space</span></span>
-      <h2 id="h-office"><span class="i-el">Ένα δωμάτιο χωρίς βιασύνη</span><span class="i-en">A room without hurry</span></h2>
-      <p style="margin-top:1.1rem">
-        <span class="i-el">Οι συνεδρίες γίνονται σε έναν ήσυχο, ζεστό χώρο στη Βούλα — χωρίς αίθουσα αναμονής γεμάτη κόσμο και χωρίς την αίσθηση του ιατρείου. Θα σου δώσω την ακριβή διεύθυνση και οδηγίες πρόσβασης όταν κλείσουμε το πρώτο ραντεβού.</span>
-        <span class="i-en">Sessions take place in a quiet, warm room in Voula — no crowded waiting room, and none of the feeling of a clinic. I will give you the exact address and directions once we arrange your first appointment.</span>
-      </p>
-      <p>
-        <span class="i-el">Αν προτιμάς online, το πλαίσιο είναι ακριβώς το ίδιο: σταθερή μέρα και ώρα, ίδια διάρκεια, ίδια εμπιστευτικότητα.</span>
-        <span class="i-en">If you prefer online, the framework is exactly the same: a fixed day and time, the same duration, the same confidentiality.</span>
-      </p>
-      <a class="btn btn-ghost" href="#contact" style="margin-top:.7rem">
-        <span class="i-el">Κλείσε ραντεβού</span><span class="i-en">Arrange an appointment</span>
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </a>
-    </div>
-    <figure class="figure zoomable rv-scale rv-d1" data-full="assets/grafeio-symvouleftikis-voula.webp" data-par="0.045">
-      <div class="fwrap">
-      <span class="echo" aria-hidden="true"></span>
-      <div class="frame">
-        <img src="assets/grafeio-symvouleftikis-voula.webp"
-             alt="Ο χώρος συμβουλευτικής: γραφείο με ξύλινες βιβλιοθήκες, φυτά και ζεστό φωτισμό"
-             width="1400" height="1050" loading="lazy" decoding="async">
-        <span class="zoomhint" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M16 16l4.5 4.5M11 8v6M8 11h6" stroke-linecap="round"/></svg></span>
-      </div>
-      </div>
-    </figure>
-  </div>
-</section>
-
-<!-- ============================ 08 · FAQ ============================ -->
-<section class="sec" id="faq" aria-labelledby="h-faq">
-  <div class="wrap">
-    <div class="rv" style="max-width:56ch">
-      <span class="eyebrow"><span class="i-el">Συχνές ερωτήσεις</span><span class="i-en">Frequently asked</span></span>
-      <h2 id="h-faq"><span class="i-el">Αυτά που ρωτάνε οι περισσότεροι πριν το πρώτο ραντεβού</span><span class="i-en">What most people ask before a first appointment</span></h2>
-    </div>
-
-    <div class="faq-grid rv rv-d1">
-      <div>
-        <details class="q">
-          <summary><span><span class="i-el">Τι είναι η συμβουλευτική ψυχικής υγείας και σε τι διαφέρει από την ψυχοθεραπεία;</span><span class="i-en">What is mental health counselling and how does it differ from psychotherapy?</span></span><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></span></summary>
-          <div class="a"><p>
-            <span class="i-el">Η συμβουλευτική εστιάζει στο παρόν και σε συγκεκριμένα αιτήματα: μια δυσκολία, μια απόφαση, μια περίοδο αλλαγής. Είναι συνήθως πιο σύντομη και πιο πρακτική από την ψυχοθεραπεία, που δουλεύει σε μεγαλύτερο βάθος και βάθος χρόνου. Στην πράξη τα όρια δεν είναι απόλυτα — στην πρώτη μας συνάντηση θα δούμε μαζί τι ταιριάζει σε αυτό που ζητάς.</span>
-            <span class="i-en">Counselling focuses on the present and on specific concerns: a difficulty, a decision, a period of change. It is usually shorter and more practical than psychotherapy, which works at greater depth and over more time. In practice the boundaries are not absolute — at our first meeting we will look together at what fits what you are asking for.</span>
-          </p></div>
-        </details>
-
-        <details class="q">
-          <summary><span><span class="i-el">Πώς κλείνω την πρώτη μας συνάντηση;</span><span class="i-en">How do I arrange a first meeting?</span></span><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></span></summary>
-          <div class="a"><p>
-            <span class="i-el">Στείλε μου email ή πάρε με τηλέφωνο. Θα επικοινωνήσω μαζί σου για να συζητήσουμε σύντομα το αίτημά σου και να βρούμε μέρα και ώρα. Αν δεν απαντήσω αμέσως, είμαι σε συνεδρία — θα σε πάρω πίσω.</span>
-            <span class="i-en">Send me an email or call me. I will get back to you so that we can briefly discuss what you are looking for and find a day and time. If I do not answer straight away I am in session — I will call you back.</span>
-          </p></div>
-        </details>
-
-        <details class="q">
-          <summary><span><span class="i-el">Πόσο διαρκεί μια συνεδρία και κάθε πότε γίνεται;</span><span class="i-en">How long is a session and how often?</span></span><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></span></summary>
-          <div class="a"><p>
-            <span class="i-el">Η ατομική συνεδρία διαρκεί περίπου 50 λεπτά και γίνεται συνήθως μία φορά την εβδομάδα, σε σταθερή μέρα και ώρα. Η σταθερότητα βοηθάει: δεν χρειάζεται κάθε φορά να ξαναβρίσκουμε το νήμα.</span>
-            <span class="i-en">An individual session lasts about 50 minutes and usually takes place once a week, on a fixed day and time. That steadiness helps: we do not have to find the thread again each time.</span>
-          </p></div>
-        </details>
-
-        <details class="q">
-          <summary><span><span class="i-el">Πόσο καιρό κρατάει η συμβουλευτική;</span><span class="i-en">How long does counselling last?</span></span><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></span></summary>
-          <div class="a"><p>
-            <span class="i-el">Εξαρτάται εξ ολοκλήρου από εσένα και από το αίτημα. Κάποιοι άνθρωποι χρειάζονται λίγες συνεδρίες γύρω από ένα συγκεκριμένο θέμα, άλλοι μένουν περισσότερο. Επανεξετάζουμε την πορεία μας ανά τακτά διαστήματα και αποφασίζεις εσύ πότε είναι καλή στιγμή να ολοκληρώσουμε.</span>
-            <span class="i-en">That depends entirely on you and on what you bring. Some people need a few sessions around one specific issue; others stay longer. We review how things are going at regular intervals, and you decide when it is a good moment to finish.</span>
-          </p></div>
-        </details>
-
-        <details class="q">
-          <summary><span><span class="i-el">Πόσο κοστίζει και υπάρχει μειωμένη τιμή;</span><span class="i-en">What does it cost, and is there a reduced fee?</span></span><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></span></summary>
-          <div class="a"><p>
-            <span class="i-el">Το κόστος της συνεδρίας συζητείται και συμφωνείται από την πρώτη μας επικοινωνία, ώστε να ξέρεις ακριβώς τι ισχύει πριν ξεκινήσουμε. Για φοιτητές, ανέργους και ΑμεΑ ισχύει μειωμένο κόστος, κατόπιν επίδειξης του αντίστοιχου εγγράφου.</span>
-            <span class="i-en">The session fee is discussed and agreed at our first contact, so that you know exactly where you stand before we begin. Reduced fees apply for students, unemployed people and people with disabilities, on presentation of the relevant document.</span>
-          </p></div>
-        </details>
-      </div>
-
-      <div>
-        <details class="q">
-          <summary><span><span class="i-el">Είναι εμπιστευτικά όσα λέμε;</span><span class="i-en">Is what we talk about confidential?</span></span><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></span></summary>
-          <div class="a"><p>
-            <span class="i-el">Ναι. Ό,τι ειπωθεί στη συνεδρία παραμένει μεταξύ μας και δεσμεύομαι από τον κώδικα δεοντολογίας του επαγγέλματος. Οι μόνες εξαιρέσεις είναι αυτές που ορίζει ο νόμος — κυρίως όταν υπάρχει σοβαρός και άμεσος κίνδυνος για τη ζωή σου ή τη ζωή κάποιου άλλου. Θα σου τις εξηγήσω αναλυτικά στην πρώτη συνάντηση.</span>
-            <span class="i-en">Yes. Whatever is said in session stays between us, and I am bound by the professional code of ethics. The only exceptions are those defined by law — mainly where there is a serious and immediate risk to your life or someone else’s. I will explain them fully at our first meeting.</span>
-          </p></div>
-        </details>
-
-        <details class="q">
-          <summary><span><span class="i-el">Οι συνεδρίες γίνονται και online;</span><span class="i-en">Are sessions also held online?</span></span><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></span></summary>
-          <div class="a"><p>
-            <span class="i-el">Ναι, όλες οι υπηρεσίες προσφέρονται και διαδικτυακά με το ίδιο πλαίσιο. Χρειάζεσαι μια σταθερή σύνδεση και έναν χώρο όπου δεν θα σε διακόψουν. Πολλοί άνθρωποι επιλέγουν συνδυασμό — δια ζώσης όποτε γίνεται, online όταν δεν βγαίνει.</span>
-            <span class="i-en">Yes, all services are also offered online within the same framework. You need a stable connection and a space where you will not be interrupted. Many people choose a combination — in person when possible, online when it is not.</span>
-          </p></div>
-        </details>
-
-        <details class="q">
-          <summary><span><span class="i-el">Ζω στο εξωτερικό. Μπορούμε να συνεργαστούμε;</span><span class="i-en">I live abroad. Can we work together?</span></span><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></span></summary>
-          <div class="a"><p>
-            <span class="i-el">Απολύτως. Δουλεύω διαδικτυακά με Ελληνίδες και Έλληνες που ζουν εκτός Ελλάδας και θέλουν να μιλήσουν στη μητρική τους γλώσσα, με κάποιον που καταλαβαίνει το πλαίσιο από το οποίο έρχονται. Κλείνουμε τις συνεδρίες λαμβάνοντας υπόψη τη διαφορά ώρας.</span>
-            <span class="i-en">Absolutely. I work online with Greeks living outside Greece who want to speak in their mother tongue with someone who understands the context they come from. We schedule sessions taking the time difference into account.</span>
-          </p></div>
-        </details>
-
-        <details class="q">
-          <summary><span><span class="i-el">Δουλεύεις με εφήβους — και τι ρόλο έχω εγώ ως γονιός;</span><span class="i-en">Do you work with teenagers — and what is my role as a parent?</span></span><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></span></summary>
-          <div class="a"><p>
-            <span class="i-el">Ναι. Με τους εφήβους η πρώτη επαφή γίνεται συνήθως μέσω του γονέα, αλλά ο χώρος της συνεδρίας ανήκει στον έφηβο και η εμπιστευτικότητα τηρείται. Παράλληλα προσφέρω ξεχωριστές συναντήσεις γονεϊκής συμβουλευτικής, ώστε να έχεις κι εσύ έναν χώρο να σκεφτείς τι χρειάζεται το παιδί σου και τι χρειάζεσαι εσύ.</span>
-            <span class="i-en">Yes. With teenagers the first contact usually comes through the parent, but the session space belongs to the young person and confidentiality is respected. Alongside this I offer separate parent-counselling meetings, so that you also have a space to think about what your child needs and what you need.</span>
-          </p></div>
-        </details>
-
-        <details class="q">
-          <summary><span><span class="i-el">Τι γίνεται αν τελικά χρειάζομαι κάτι διαφορετικό;</span><span class="i-en">What if it turns out I need something different?</span></span><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></span></summary>
-          <div class="a"><p>
-            <span class="i-el">Θα σου το πω ευθέως. Αν αυτό που χρειάζεσαι είναι εκτός του δικού μου πλαισίου — για παράδειγμα ψυχιατρική εκτίμηση ή μια πιο εξειδικευμένη μορφή θεραπείας — θα σε παραπέμψω σε συνάδελφο κατάλληλο για την περίπτωσή σου. Συμμετέχω σε διεπιστημονική ομάδα ακριβώς για να μπορώ να το κάνω σωστά.</span>
-            <span class="i-en">I will tell you straight. If what you need falls outside my framework — for example a psychiatric assessment or a more specialised form of therapy — I will refer you to a colleague suited to your situation. I take part in an interdisciplinary team precisely so that I can do this properly.</span>
-          </p></div>
-        </details>
-      </div>
-    </div>
-
-    <div class="crisis rv">
-      <p style="margin:0">
-        <span class="i-el"><strong>Αν βρίσκεσαι σε επείγουσα κατάσταση:</strong> η συμβουλευτική δεν αντικαθιστά την άμεση βοήθεια. Κάλεσε το <a href="tel:112">112</a> ή τη 24ωρη Γραμμή Ψυχοκοινωνικής Υποστήριξης <a href="tel:10306">10306</a>. Για σκέψεις αυτοκτονίας λειτουργεί 24 ώρες η Γραμμή Παρέμβασης <a href="tel:1018">1018</a> (ΚΛΙΜΑΚΑ).</span>
-        <span class="i-en"><strong>If you are in an emergency:</strong> counselling is not a substitute for immediate help. Call <a href="tel:112">112</a> or the 24-hour Psychosocial Support Line <a href="tel:10306">10306</a>. For suicidal thoughts, the 24-hour Suicide Intervention Line <a href="tel:1018">1018</a> (KLIMAKA) is available.</span>
-      </p>
-    </div>
-  </div>
-</section>
-
-<!-- ============================ 09 · CONTACT ============================ -->
-<section class="sec band" id="contact" aria-labelledby="h-contact">
-  <div class="wrap">
-    <div class="contact-head rv">
-      <span class="eyebrow"><span class="i-el">Επικοινωνία</span><span class="i-en">Contact</span></span>
-      <h2 id="h-contact"><span class="i-el">Κάθε αλλαγή ξεκινά με μια απλή πρόθεση</span><span class="i-en">Every change begins with a simple intention</span></h2>
-      <p>
-        <span class="i-el">Αν αισθάνεσαι ότι χρειάζεσαι υποστήριξη για να κατανοήσεις και να διαχειριστείς καλύτερα αυτό που σε απασχολεί, γράψε μου ή πάρε με τηλέφωνο. Θα συζητήσουμε το αίτημά σου και θα προγραμματίσουμε μια πρώτη συνάντηση.</span>
-        <span class="i-en">If you feel you need support to understand and better handle what is on your mind, write to me or give me a call. We will talk through what you are looking for and arrange a first meeting.</span>
-      </p>
-      <p>
-        <span class="i-el">Οι συνεδρίες συμβουλευτικής πραγματοποιούνται δια ζώσης ή online, ανάλογα με τις ανάγκες και την προτίμησή σου.</span>
-        <span class="i-en">Counselling sessions take place in person or online, depending on your needs and preference.</span>
-      </p>
-      <p class="final">
-        <span class="i-el">Το πρώτο βήμα μπορεί να είναι απλώς μια συζήτηση.</span>
-        <span class="i-en">The first step can simply be a conversation.</span>
-      </p>
-    </div>
-
-    <div class="cdl rv rv-d1">
-      <div class="row">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 5.5c0 8 6 14 14 14l2-3.2-4-2.2-1.8 1.8a13 13 0 0 1-6.6-6.6L9.9 7.5 7.7 3.5 4.5 5.5Z" stroke-linejoin="round"/></svg>
-        <div>
-          <span class="k"><span class="i-el">Τηλέφωνο</span><span class="i-en">Telephone</span></span>
-          <a href="tel:+306945040465">694 504 0465</a>
-        </div>
-      </div>
-      <div class="row">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m3.6 7 8.4 6 8.4-6" stroke-linejoin="round"/></svg>
-        <div>
-          <span class="k">Email</span>
-          <a href="mailto:sogouv@gmail.com">sogouv@gmail.com</a>
-        </div>
-      </div>
-      <div class="row">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2" stroke-linecap="round"/></svg>
-        <div>
-          <span class="k"><span class="i-el">Ωράριο</span><span class="i-en">Hours</span></span>
-          <span class="i-el">Δευτέρα – Παρασκευή, κατόπιν ραντεβού</span><span class="i-en">Monday – Friday, by appointment</span>
-        </div>
-      </div>
-      <div class="row">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg>
-        <div>
-          <span class="k"><span class="i-el">Περιοχή</span><span class="i-en">Area</span></span>
-          <span class="i-el">Βούλα, Αττική — και διαδικτυακά</span><span class="i-en">Voula, Athens — and online</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="contact-cta rv rv-d2">
-      <a class="btn btn-solid" href="tel:+306945040465">
-        <span class="i-el">Κάλεσέ με</span><span class="i-en">Call me</span>
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 5.5c0 8 6 14 14 14l2-3.2-4-2.2-1.8 1.8a13 13 0 0 1-6.6-6.6L9.9 7.5 7.7 3.5 4.5 5.5Z" stroke-linejoin="round"/></svg>
-      </a>
-      <a class="btn" href="mailto:sogouv@gmail.com">
-        <span class="i-el">Στείλε μου email</span><span class="i-en">Send me an email</span>
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </a>
-    </div>
-
-    <p class="contact-note rv rv-d2">
-      <span class="i-el">Απαντώ συνήθως εντός 1–2 εργάσιμων ημερών. Ό,τι μου γράφεις αντιμετωπίζεται με απόλυτη εμπιστευτικότητα.</span>
-      <span class="i-en">I usually reply within 1–2 working days. Anything you write to me is treated in strict confidence.</span>
+    <p class="svc-note rv rv-d1">
+      Για φοιτητές, ανέργους και ΑμεΑ ισχύει μειωμένο κόστος συνεδρίας, κατόπιν επίδειξης του
+      αντίστοιχου εγγράφου.
     </p>
+  </div>
+</section>
+
+<!-- ============================ watercolour band ============================ -->
+<section class="scape" aria-hidden="true">
+  <picture>
+    <source media="(max-width:760px)" srcset="assets/topio-sm.webp">
+    <img src="assets/topio.webp" alt="" width="1409" height="1116" loading="lazy" decoding="async">
+  </picture>
+</section>
+
+<!-- ============================ 05 · ΦΙΛΟΣΟΦΙΑ + ΠΩΣ ΔΟΥΛΕΥΩ ============================ -->
+<section class="sec" id="philosophy" aria-labelledby="h-phil">
+  <div class="wrap">
+    <span class="eyebrow rv">Η φιλοσοφία μου</span>
+    <h2 id="h-phil" class="rv" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap">Η φιλοσοφία μου</h2>
+    <p class="quote rv rv-d1">
+      Πιστεύω βαθιά στη δύναμη της συμβουλευτικής σχέσης και στην έμφυτη ικανότητά σου για εξέλιξη.
+      Γι’ αυτό στις συναντήσεις μας επιδιώκω να ακούγεται καθαρά η δική σου αυθεντική φωνή.
+    </p>
+
+    <h3 class="rv" style="margin-top:clamp(2.8rem,6vw,4.4rem);font-size:clamp(1.5rem,1.2rem + 1.2vw,2.1rem)">Πώς δουλεύω</h3>
+    <div class="steps">
+      <article class="step rv-scale">
+        <span class="n">01</span>
+        <h3>Με αφετηρία εσένα</h3>
+        <p>Οι ανάγκες, οι επιθυμίες και οι προτεραιότητές σου συνδιαμορφώνουν την πορεία της
+           διαδρομής σου. Δεν αναζητούμε έτοιμες λύσεις ή προκαθορισμένες απαντήσεις. Δημιουργούμε
+           τον χώρο για να διερευνήσουμε πώς θέλεις να υπάρχεις και να σχετίζεσαι.</p>
+      </article>
+      <article class="step rv-scale rv-d1">
+        <span class="n">02</span>
+        <h3>Στον ρυθμό σου</h3>
+        <p>Η εξέλιξη δεν είναι γραμμική. Μπορεί να παρατηρείς αλλαγή και ανάπτυξη και άλλες φορές
+           να νιώθεις αμφιβολία και στασιμότητα. Κάθε στάδιο σε βοηθά στην αναζήτησή σου.</p>
+      </article>
+      <article class="step rv-scale rv-d2">
+        <span class="n">03</span>
+        <h3>Με ευελιξία</h3>
+        <p>Αξιοποιώ θεωρητικές αρχές και στοιχεία από διαφορετικές προσεγγίσεις. Η προσέγγιση
+           προσαρμόζεται στη μοναδικότητά σου, στη συγκεκριμένη συνθήκη που φέρνεις και στον τρόπο
+           με τον οποίο εσύ επιθυμείς να δουλέψουμε.</p>
+      </article>
+      <article class="step rv-scale rv-d3">
+        <span class="n">04</span>
+        <h3>Με σαφές πλαίσιο</h3>
+        <p>Η εμπιστοσύνη και ασφάλεια στη συμβουλευτική σχέση αποτελεί συνεργατική διαδικασία.
+           Τα σαφή όρια, η ενημερωμένη συναίνεση, ο σεβασμός στην αυτονομία σου και η εχεμύθεια
+           αποτελούν βασικές προϋποθέσεις της εργασίας μας.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ 06 · ΣΧΕΤΙΚΑ ΜΕ ΜΕΝΑ ============================ -->
+<section class="sec band" id="about" aria-labelledby="h-about">
+  <div class="wrap about-grid">
+    <figure class="figure rv-scale">
+      <picture>
+        <source media="(max-width:760px)" srcset="assets/sofia-gouviotou-sm.webp">
+        <img src="assets/sofia-gouviotou.webp" alt="Σοφία Γουβιώτου, Σύμβουλος Ψυχικής Υγείας"
+             width="1000" height="1363" loading="lazy" decoding="async">
+      </picture>
+    </figure>
+
+    <div>
+      <span class="eyebrow rv">Σχετικά με μένα</span>
+      <h2 id="h-about" class="rv">Η δική μου διαδρομή είναι γεμάτη ανθρώπινες ιστορίες.</h2>
+      <div class="rule rv rv-d1" aria-hidden="true"></div>
+      <p class="rv rv-d1">
+        Η κατανόησή μου για τις ανθρώπινες σχέσεις και τα συστήματα μέσα στα οποία αναπτυσσόμαστε,
+        διαμορφώθηκε μέσα σε πολύπλευρους εκπαιδευτικούς και επαγγελματικούς κύκλους που είχαν πάντα
+        στο επίκεντρο τον άνθρωπο.
+      </p>
+      <p class="rv rv-d1">
+        Έχω εργαστεί στον χώρο των πωλήσεων και του Marketing, στη δευτεροβάθμια εκπαίδευση ως
+        εκπαιδευτικός και ως σύμβουλος διατροφής. Κάθε χώρος εμπλούτισε την εμπειρία μου στην
+        ανθρώπινη επικοινωνία, τη λήψη αποφάσεων, τον τρόπο που αντιλαμβανόμαστε και ανταποκρινόμαστε
+        σε ό,τι μας συμβαίνει. Μ’ έφερε πιο κοντά στην κατανόηση του τρόπου που σχετιζόμαστε με τον
+        εαυτό μας και το σώμα μας μέσα από διατροφικές επιλογές που κάνουμε. Και μου επέτρεψε να δω με
+        μεγαλύτερη σαφήνεια την αλληλένδετη σχέση που έχουμε με τα πλαίσια που μεγαλώνουμε και
+        βρισκόμαστε στη ζωή μας και πώς εν τέλει αυτά επηρεάζουν ζητήματα ανάπτυξης, ταυτότητας,
+        συναισθηματικής απορρύθμισης, αυτοπεποίθησης και αυτοεικόνας.
+      </p>
+      <p class="rv rv-d2">
+        Φαινομενικά, οι κόσμοι αυτοί μοιάζουν άσχετοι μεταξύ τους. Αποτελούν, όμως, κομμάτια μιας
+        προσωπικής αναζήτησης και επιδίωξης. Να κατανοήσω τον άνθρωπο και όσα δίνουν νόημα στην
+        ύπαρξή του. Μέσα από αυτή την αναζήτηση έφτασα στο σήμερα.
+      </p>
+
+      <span class="eyebrow rv rv-d2" style="margin-top:1.6rem">Σήμερα</span>
+      <p class="rv rv-d2">
+        Εργάζομαι ως Σύμβουλος Ψυχικής Υγείας, ιδιωτικά και ως εξωτερική συνεργάτης σε Κέντρα Ψυχικής
+        Υγείας. Πιστεύοντας στην ανάγκη για συνεχή εξέλιξη και επιστημονική εγκυρότητα, συμμετέχω σε
+        διεπιστημονική ομάδα και επενδύω σταθερά στην εποπτεία και την προσωπική θεραπεία. Παράλληλα
+        συνεχίζω τις σπουδές μου στην Ψυχολογία.
+      </p>
+      <p class="rv rv-d2">
+        Η βασική μου εκπαίδευση στη συμβουλευτική εμπλουτίστηκε μέσα από τη διαδικασία της
+        παρατήρησης ομάδων αυτογνωσίας και ενσυνειδητότητας (mindfulness), μέσω της βιωματικής μου
+        εξάσκησης στον ρόλο της συντονίστριας ομάδων και με ένα ευρύ φάσμα περιστατικών, υπό την
+        εποπτεία και καθοδήγηση έμπειρων συντονιστών.
+      </p>
+      <p class="rv rv-d3">
+        Πλέον αναγνωρίζω ότι οι διαφορετικοί σταθμοί της ακαδημαϊκής και επαγγελματικής μου ζωής
+        έθεσαν τη βάση πάνω στην οποία συναντώ κάθε άνθρωπο στη συμβουλευτική. Με ενδιαφέρον για την
+        ιστορία του, σεβασμό στη μοναδικότητά του και εμπιστοσύνη στην ικανότητά του να ανακαλύψει
+        τον δρόμο που του ταιριάζει.
+      </p>
+
+      <details class="cv rv rv-d3">
+        <summary>
+          Εκπαίδευση &amp; επαγγελματική κατάρτιση
+          <svg class="ch" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <div class="cv-body">
+          <h4>Σπουδές</h4>
+          <p>Βρίσκομαι σε εξέλιξη σπουδών στο BSc Ψυχολογίας με Ψυχοθεραπεία και Συμβουλευτική στο
+             University of Central Lancashire (UCLan), σε συνεργασία με το ICPS Κολλέγιο
+             Ανθρωπιστικών Επιστημών.</p>
+          <p>Έχω εκπαιδευτεί στο τριετές πρόγραμμα «Συμβουλευτική Ψυχικής Υγείας – Συνθετικό Μοντέλο»
+             στο Κέντρο Εφαρμοσμένης Ψυχοθεραπείας και Συμβουλευτικής.</p>
+          <p>Διαθέτω πτυχίο στην Οργάνωση και Διοίκηση Επιχειρήσεων, Οικονομικό Πανεπιστήμιο Αθηνών,
+             και Δίπλωμα ως Ειδικός Εφαρμογών Διαιτητικής, ΙΕΚ ΣΒΙΕ.</p>
+
+          <h4>Εξειδικεύσεις &amp; μετεκπαίδευση</h4>
+          <ul>
+            <li>«Γνωσιακή Συμβουλευτική και Παρεμβάσεις», Εταιρεία Γνωσιακών Συμπεριφοριστικών Σπουδών</li>
+            <li>«Συμβουλευτική για τις σπάνιες παθήσεις και τη διαχείριση της απώλειας» (Hope Blooms / ΑΜΚΕ «Καρκινάκι»)</li>
+            <li>«Συμβουλευτική και Ψυχοθεραπεία: Αφηγηματικές, Διαλογικές και Σχεσιακές προσεγγίσεις στη μετανεωτερικότητα», Εθνικό και Καποδιστριακό Πανεπιστήμιο Αθηνών (ΕΚΠΑ)</li>
+            <li>«Παιδοψυχολογία και Συμβουλευτική Οικογενειών», Πανεπιστήμιο Αιγαίου</li>
+            <li>«Ψυχοεκπαίδευση: παρεμβάσεις στο άτομο, την οικογένεια, την ομάδα», Ερευνητικό Πανεπιστημιακό Ινστιτούτο Ψυχικής Υγείας (ΕΠΙΨΥ)</li>
+            <li>«Ομάδα – Οικογένεια – Ζευγάρι», Ελληνική Εταιρεία Ομαδικής και Οικογενειακής Ψυχοθεραπείας</li>
+            <li>«Εκπαίδευση του Συμπονετικού Νου», Ελληνικό Κέντρο Θεραπείας Εστιασμένης στη Συμπόνοια</li>
+            <li>«Η τέχνη της επικοινωνίας στις Προσωπικές και Επαγγελματικές Σχέσεις», Ανοιχτό Λαϊκό Πανεπιστήμιο</li>
+            <li>«Ομαδική Παρέμβαση Δεξιοτήτων Σύναψης Συντροφικών Σχέσεων, σύμφωνα με το Γνωσιακό Συμπεριφοριστικό Μοντέλο», Εταιρεία Γνωσιακών Συμπεριφοριστικών Σπουδών</li>
+            <li>«Η εγγραμματοσύνη Ψυχικής Υγείας», Πανελλήνια Επιστημονική Ένωση Εγγραμματοσύνης σε Θέματα Υγείας</li>
+            <li>«Δουλεύοντας με αυτό που δεν αλλάζει: Η θεραπεία στο χρόνιο νόσημα», Εργαστήριο Διερεύνησης Ανθρωπίνων Σχέσεων</li>
+            <li>«Ψυχολογία: Το κλειδί για ευεξία και επιτυχία», New York College</li>
+          </ul>
+
+          <h4>Ιδιότητες</h4>
+          <ul>
+            <li>Μέλος της Ελληνικής Εταιρείας Συμβουλευτικής</li>
+            <li>Μέλος του ΔΣ του συλλόγου ΣΥΠΠΑΔΡΕΜΙΑ</li>
+          </ul>
+
+          <h4>Εθελοντισμός &amp; αρθρογραφία</h4>
+          <ul>
+            <li>Συντονισμός ομάδας υποστήριξης μελών του συλλόγου ΣΥΠΠΑΔΡΕΜΙΑ</li>
+            <li>Αρθρογραφία: ΑΜΚΕ Καρκινάκι, Ανέλιξη Blog</li>
+          </ul>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ 07 · ΑΡΘΡΑ ============================ -->
+<section class="sec" id="articles" aria-labelledby="h-art">
+  <div class="wrap">
+    <span class="eyebrow rv">Άρθρα</span>
+    <h2 id="h-art" class="rv">Σκέψεις &amp; κείμενα</h2>
+    <div class="rule rv rv-d1" aria-hidden="true"></div>
+    <p class="lead rv rv-d1">
+      Κείμενα για όσα συναντώ στη συμβουλευτική — γραμμένα απλά, για να τα διαβάσεις με την ησυχία σου.
+    </p>
+    <div class="art-grid" id="artGrid"></div>
+    <div class="art-empty" id="artEmpty" hidden>Σύντομα θα βρεις εδώ τα πρώτα κείμενα.</div>
+  </div>
+</section>
+
+<div class="reader" id="reader" role="dialog" aria-modal="true" aria-labelledby="readerTitle">
+  <div class="reader-card">
+    <button class="reader-close" id="readerClose" aria-label="Κλείσιμο">&times;</button>
+    <div class="d" id="readerDate"></div>
+    <h2 id="readerTitle"></h2>
+    <div class="reader-body" id="readerBody"></div>
+  </div>
+</div>
+
+<!-- ============================ 08 · ΕΠΙΚΟΙΝΩΝΙΑ ============================ -->
+<section class="sec band" id="contact" aria-labelledby="h-contact">
+  <div class="wrap contact-grid">
+    <div>
+      <span class="eyebrow rv">Επικοινωνία</span>
+      <h2 id="h-contact" class="rv">Ας μιλήσουμε</h2>
+      <div class="rule rv rv-d1" aria-hidden="true"></div>
+      <p class="lead rv rv-d1">
+        Αν αισθάνεσαι ότι θέλεις να μοιραστείς αυτό που σε απασχολεί ή αν απλώς θέλεις να μάθεις πώς
+        λειτουργεί η διαδικασία, στείλε μου μήνυμα στο email ή πάρε με τηλέφωνο. Μπορούμε να
+        κανονίσουμε μια συνάντηση για να δούμε πώς μπορώ να βοηθήσω.
+      </p>
+      <div class="contact-cta rv rv-d2">
+        <a class="btn btn-solid" href="tel:+306945040465">
+          Κάλεσέ με
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 3.5h3l1.5 4-2 1.5a12.5 12.5 0 0 0 6 6l1.5-2 4 1.5v3a2 2 0 0 1-2.2 2A17.5 17.5 0 0 1 4.5 5.7 2 2 0 0 1 6.5 3.5Z" stroke-linejoin="round"/></svg>
+        </a>
+        <a class="btn btn-ghost" href="mailto:info@beingpresent.gr">Στείλε μου email</a>
+      </div>
+      <div class="sos rv rv-d3">
+        Αν βρίσκεσαι σε επείγουσα κατάσταση, η συμβουλευτική δεν αντικαθιστά την άμεση βοήθεια.
+        Κάλεσε το <a href="tel:112">112</a> ή την 24ωρη Γραμμή Ψυχοκοινωνικής Υποστήριξης
+        <a href="tel:10306">10306</a>. Για σκέψεις αυτοκτονίας λειτουργεί 24 ώρες η Γραμμή
+        Παρέμβασης <a href="tel:1018">1018</a> (ΚΛΙΜΑΚΑ).
+      </div>
+    </div>
+
+    <div class="ctiles">
+      <a class="ctile rv-scale" href="tel:+306945040465">
+        <span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 3.5h3l1.5 4-2 1.5a12.5 12.5 0 0 0 6 6l1.5-2 4 1.5v3a2 2 0 0 1-2.2 2A17.5 17.5 0 0 1 4.5 5.7 2 2 0 0 1 6.5 3.5Z" stroke-linejoin="round"/></svg></span>
+        <span class="t"><b>Τηλέφωνο</b><span>694 504 0465</span></span>
+      </a>
+      <a class="ctile rv-scale rv-d1" href="mailto:info@beingpresent.gr">
+        <span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m3.6 6.5 8.4 6 8.4-6" stroke-linecap="round"/></svg></span>
+        <span class="t"><b>Email</b><span>info@beingpresent.gr</span></span>
+      </a>
+      <div class="ctile rv-scale rv-d2">
+        <span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2" stroke-linecap="round"/></svg></span>
+        <span class="t"><b>Ωράριο</b><span>Δευτέρα – Παρασκευή, κατόπιν ραντεβού</span></span>
+      </div>
+      <div class="ctile rv-scale rv-d3">
+        <span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10" stroke-linecap="round"/></svg></span>
+        <span class="t"><b>Συνεδρίες</b><span>Δια ζώσης και on line</span></span>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1166,316 +860,210 @@ footer.site address{font-style:normal;display:grid;gap:.5rem}
 <!-- ============================ FOOTER ============================ -->
 <footer class="site">
   <div class="wrap">
-    <div class="fgrid">
-      <div>
-        <img class="flogo" src="assets/being-present-logo.webp" alt="" width="430" height="601" loading="lazy" decoding="async">
-        <div class="fname">Being Present</div>
-        <div class="frole"><span class="i-el">Σοφία Γουβιώτου · Σύμβουλος Ψυχικής Υγείας</span><span class="i-en">Sofia Gouviotou · Mental Health Counsellor</span></div>
-        <p style="max-width:36ch;margin:0">
-          <span class="i-el">Συμβουλευτική ενηλίκων και εφήβων στη Βούλα και διαδικτυακά.</span>
-          <span class="i-en">Counselling for adults and teenagers in Voula and online.</span>
-        </p>
-      </div>
-
-      <div>
-        <h4><span class="i-el">Πλοήγηση</span><span class="i-en">Navigation</span></h4>
-        <ul>
-          <li><a href="#present"><span class="i-el">Being Present</span><span class="i-en">Being Present</span></a></li>
-          <li><a href="#help"><span class="i-el">Πώς μπορώ να βοηθήσω</span><span class="i-en">How I can help</span></a></li>
-          <li><a href="#services"><span class="i-el">Υπηρεσίες</span><span class="i-en">Services</span></a></li>
-          <li><a href="#philosophy"><span class="i-el">Η φιλοσοφία μου</span><span class="i-en">My philosophy</span></a></li>
-          <li><a href="#about"><span class="i-el">Σχετικά με μένα</span><span class="i-en">About me</span></a></li>
-          <li><a href="#faq"><span class="i-el">Συχνές ερωτήσεις</span><span class="i-en">FAQ</span></a></li>
-        </ul>
-      </div>
-
-      <div>
-        <h4><span class="i-el">Στοιχεία επικοινωνίας</span><span class="i-en">Contact details</span></h4>
-        <address>
-          <span>Σοφία Γουβιώτου</span>
-          <a href="tel:+306945040465">694 504 0465</a>
-          <a href="mailto:sogouv@gmail.com">sogouv@gmail.com</a>
-          <span><span class="i-el">Βούλα, Αττική</span><span class="i-en">Voula, Athens, Greece</span></span>
-          <span><span class="i-el">Δευτέρα – Παρασκευή, κατόπιν ραντεβού</span><span class="i-en">Monday – Friday, by appointment</span></span>
-        </address>
-      </div>
+    <div class="foot-top">
+      <a class="foot-lock" href="#top" style="text-decoration:none">
+        <img src="assets/being-present-logo.webp" alt="" width="430" height="601" loading="lazy" decoding="async">
+        <b>Being Present</b>
+      </a>
+      <nav class="foot-nav" aria-label="Πλοήγηση υποσέλιδου">
+        <a href="#present">Being Present</a>
+        <a href="#help">Πώς μπορώ να βοηθήσω</a>
+        <a href="#services">Υπηρεσίες</a>
+        <a href="#philosophy">Φιλοσοφία</a>
+        <a href="#about">Σχετικά με μένα</a>
+        <a href="#articles">Άρθρα</a>
+        <a href="#contact">Επικοινωνία</a>
+      </nav>
     </div>
-
-    <div class="fbar">
-      <span>© <span id="year">2026</span> Σοφία Γουβιώτου — Being Present. <span class="i-el">Με την επιφύλαξη παντός δικαιώματος.</span><span class="i-en">All rights reserved.</span></span>
-      <span>Designed by <a href="https://advonmedia.com" target="_blank" rel="noopener">Advon Media</a></span>
+    <div class="foot-bot">
+      <span>© <span id="yr">2026</span> Σοφία Γουβιώτου · Σύμβουλος Ψυχικής Υγείας</span>
+      <span>Κατασκευή ιστοσελίδας <a href="https://advonmedia.com" target="_blank" rel="noopener">Advon Media</a></span>
     </div>
   </div>
 </footer>
 
-<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Μεγέθυνση φωτογραφίας">
-  <button class="lb-close" id="lbClose" aria-label="Κλείσιμο">&times;</button>
-  <img id="lbImg" src="" alt="">
-</div>
-
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "ProfessionalService",
-      "@id": "#practice",
-      "name": "Being Present — Σοφία Γουβιώτου, Σύμβουλος Ψυχικής Υγείας",
-      "description": "Συμβουλευτική ψυχικής υγείας για ενήλικες και εφήβους στη Βούλα Αττικής και διαδικτυακά. Ατομική συμβουλευτική, διαχείριση μεταβάσεων και απωλειών, συμβουλευτική εφήβων και γονέων, ψυχοεκπαιδευτικές ομάδες.",
-      "image": "assets/sofia-gouviotou-symvoulos-psychikis-ygeias.jpg",
-      "telephone": "+306945040465",
-      "email": "sogouv@gmail.com",
-      "priceRange": "€€",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Βούλα",
-        "addressRegion": "Αττική",
-        "addressCountry": "GR"
-      },
-      "areaServed": [
-        {"@type":"Place","name":"Βούλα"},
-        {"@type":"Place","name":"Βουλιαγμένη"},
-        {"@type":"Place","name":"Βάρη"},
-        {"@type":"Place","name":"Γλυφάδα"},
-        {"@type":"Place","name":"Ελληνικό"},
-        {"@type":"Place","name":"Άλιμος"},
-        {"@type":"Place","name":"Νότια Προάστια Αθηνών"},
-        {"@type":"Country","name":"Ελλάδα"}
-      ],
-      "availableLanguage": ["el","en"],
-      "openingHoursSpecification": [{
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
-        "opens": "09:00",
-        "closes": "21:00",
-        "description": "Κατόπιν ραντεβού"
-      }],
-      "founder": {"@id": "#sofia"},
-      "employee": {"@id": "#sofia"},
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Υπηρεσίες συμβουλευτικής",
-        "itemListElement": [
-          {"@type":"Offer","itemOffered":{"@type":"Service","name":"Ατομική Συμβουλευτική Ενηλίκων"}},
-          {"@type":"Offer","itemOffered":{"@type":"Service","name":"Διαχείριση Μεταβάσεων, Απωλειών & Χρόνιων Νοσημάτων"}},
-          {"@type":"Offer","itemOffered":{"@type":"Service","name":"Συμβουλευτική Εφήβων και Γονέων"}},
-          {"@type":"Offer","itemOffered":{"@type":"Service","name":"Ψυχοεκπαιδευτικές και Βιωματικές Ομάδες"}},
-          {"@type":"Offer","itemOffered":{"@type":"Service","name":"Διαδικτυακή Συμβουλευτική"}}
-        ]
-      }
-    },
-    {
-      "@type": "Person",
-      "@id": "#sofia",
-      "name": "Σοφία Γουβιώτου",
-      "alternateName": "Sofia Gouviotou",
-      "jobTitle": "Σύμβουλος Ψυχικής Υγείας",
-      "image": "assets/sofia-gouviotou-symvoulos-psychikis-ygeias.jpg",
-      "telephone": "+306945040465",
-      "email": "sogouv@gmail.com",
-      "knowsLanguage": ["el","en"],
-      "alumniOf": [
-        {"@type":"EducationalOrganization","name":"Οικονομικό Πανεπιστήμιο Αθηνών"},
-        {"@type":"EducationalOrganization","name":"Κέντρο Εφαρμοσμένης Ψυχοθεραπείας και Συμβουλευτικής"},
-        {"@type":"EducationalOrganization","name":"University of Central Lancashire"}
-      ],
-      "memberOf": [
-        {"@type":"Organization","name":"Ελληνική Εταιρεία Συμβουλευτικής"},
-        {"@type":"Organization","name":"Σύλλογος Πασχόντων από Δρεπανοκυτταρική και Μικροδρεπανοκυτταρική Αναιμία (ΣΥΠΠΑΔΡΕΜΙΑ)"}
-      ],
-      "worksFor": {"@id": "#practice"}
-    },
-    {
-      "@type": "FAQPage",
-      "@id": "#faq",
-      "mainEntity": [
-        {"@type":"Question","name":"Τι είναι η συμβουλευτική ψυχικής υγείας και σε τι διαφέρει από την ψυχοθεραπεία;","acceptedAnswer":{"@type":"Answer","text":"Η συμβουλευτική εστιάζει στο παρόν και σε συγκεκριμένα αιτήματα: μια δυσκολία, μια απόφαση, μια περίοδο αλλαγής. Είναι συνήθως πιο σύντομη και πιο πρακτική από την ψυχοθεραπεία, που δουλεύει σε μεγαλύτερο βάθος και βάθος χρόνου. Στην πράξη τα όρια δεν είναι απόλυτα — στην πρώτη μας συνάντηση θα δούμε μαζί τι ταιριάζει σε αυτό που ζητάς."}},
-        {"@type":"Question","name":"Πώς κλείνω την πρώτη μας συνάντηση;","acceptedAnswer":{"@type":"Answer","text":"Στείλε μου email ή πάρε με τηλέφωνο. Θα επικοινωνήσω μαζί σου για να συζητήσουμε σύντομα το αίτημά σου και να βρούμε μέρα και ώρα. Αν δεν απαντήσω αμέσως, είμαι σε συνεδρία — θα σε πάρω πίσω."}},
-        {"@type":"Question","name":"Πόσο διαρκεί μια συνεδρία και κάθε πότε γίνεται;","acceptedAnswer":{"@type":"Answer","text":"Η ατομική συνεδρία διαρκεί περίπου 50 λεπτά και γίνεται συνήθως μία φορά την εβδομάδα, σε σταθερή μέρα και ώρα. Η σταθερότητα βοηθάει: δεν χρειάζεται κάθε φορά να ξαναβρίσκουμε το νήμα."}},
-        {"@type":"Question","name":"Πόσο καιρό κρατάει η συμβουλευτική;","acceptedAnswer":{"@type":"Answer","text":"Εξαρτάται εξ ολοκλήρου από εσένα και από το αίτημα. Κάποιοι άνθρωποι χρειάζονται λίγες συνεδρίες γύρω από ένα συγκεκριμένο θέμα, άλλοι μένουν περισσότερο. Επανεξετάζουμε την πορεία μας ανά τακτά διαστήματα και αποφασίζεις εσύ πότε είναι καλή στιγμή να ολοκληρώσουμε."}},
-        {"@type":"Question","name":"Πόσο κοστίζει και υπάρχει μειωμένη τιμή;","acceptedAnswer":{"@type":"Answer","text":"Το κόστος της συνεδρίας συζητείται και συμφωνείται από την πρώτη μας επικοινωνία, ώστε να ξέρεις ακριβώς τι ισχύει πριν ξεκινήσουμε. Για φοιτητές, ανέργους και ΑμεΑ ισχύει μειωμένο κόστος, κατόπιν επίδειξης του αντίστοιχου εγγράφου."}},
-        {"@type":"Question","name":"Είναι εμπιστευτικά όσα λέμε;","acceptedAnswer":{"@type":"Answer","text":"Ναι. Ό,τι ειπωθεί στη συνεδρία παραμένει μεταξύ μας και δεσμεύομαι από τον κώδικα δεοντολογίας του επαγγέλματος. Οι μόνες εξαιρέσεις είναι αυτές που ορίζει ο νόμος — κυρίως όταν υπάρχει σοβαρός και άμεσος κίνδυνος για τη ζωή σου ή τη ζωή κάποιου άλλου. Θα σου τις εξηγήσω αναλυτικά στην πρώτη συνάντηση."}},
-        {"@type":"Question","name":"Οι συνεδρίες γίνονται και online;","acceptedAnswer":{"@type":"Answer","text":"Ναι, όλες οι υπηρεσίες προσφέρονται και διαδικτυακά με το ίδιο πλαίσιο. Χρειάζεσαι μια σταθερή σύνδεση και έναν χώρο όπου δεν θα σε διακόψουν. Πολλοί άνθρωποι επιλέγουν συνδυασμό — δια ζώσης όποτε γίνεται, online όταν δεν βγαίνει."}},
-        {"@type":"Question","name":"Ζω στο εξωτερικό. Μπορούμε να συνεργαστούμε;","acceptedAnswer":{"@type":"Answer","text":"Απολύτως. Δουλεύω διαδικτυακά με Ελληνίδες και Έλληνες που ζουν εκτός Ελλάδας και θέλουν να μιλήσουν στη μητρική τους γλώσσα, με κάποιον που καταλαβαίνει το πλαίσιο από το οποίο έρχονται. Κλείνουμε τις συνεδρίες λαμβάνοντας υπόψη τη διαφορά ώρας."}},
-        {"@type":"Question","name":"Δουλεύεις με εφήβους — και τι ρόλο έχω εγώ ως γονιός;","acceptedAnswer":{"@type":"Answer","text":"Ναι. Με τους εφήβους η πρώτη επαφή γίνεται συνήθως μέσω του γονέα, αλλά ο χώρος της συνεδρίας ανήκει στον έφηβο και η εμπιστευτικότητα τηρείται. Παράλληλα προσφέρω ξεχωριστές συναντήσεις γονεϊκής συμβουλευτικής, ώστε να έχεις κι εσύ έναν χώρο να σκεφτείς τι χρειάζεται το παιδί σου και τι χρειάζεσαι εσύ."}},
-        {"@type":"Question","name":"Τι γίνεται αν τελικά χρειάζομαι κάτι διαφορετικό;","acceptedAnswer":{"@type":"Answer","text":"Θα σου το πω ευθέως. Αν αυτό που χρειάζεσαι είναι εκτός του δικού μου πλαισίου — για παράδειγμα ψυχιατρική εκτίμηση ή μια πιο εξειδικευμένη μορφή θεραπείας — θα σε παραπέμψω σε συνάδελφο κατάλληλο για την περίπτωσή σου. Συμμετέχω σε διεπιστημονική ομάδα ακριβώς για να μπορώ να το κάνω σωστά."}}
-      ]
-    }
-  ]
+  "@context":"https://schema.org",
+  "@type":"ProfessionalService",
+  "name":"Being Present — Σοφία Γουβιώτου",
+  "description":"Συμβουλευτική ψυχικής υγείας για ενήλικες και εφήβους, δια ζώσης και online.",
+  "telephone":"+306945040465",
+  "email":"info@beingpresent.gr",
+  "areaServed":"GR",
+  "availableLanguage":"el",
+  "openingHours":"Mo-Fr",
+  "founder":{
+    "@type":"Person",
+    "name":"Σοφία Γουβιώτου",
+    "jobTitle":"Σύμβουλος Ψυχικής Υγείας"
+  }
 }
 </script>
 
 <script>
 (function(){
-  var d=document, root=d.documentElement;
-  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  'use strict';
+  var $ = function(s,c){ return (c||document).querySelector(s); };
+  var $$ = function(s,c){ return Array.prototype.slice.call((c||document).querySelectorAll(s)); };
 
-  var y=d.getElementById('year'); if(y) y.textContent=new Date().getFullYear();
-
-  /* ---------- smooth anchor scroll that respects the sticky header ---------- */
-  d.addEventListener('click', function(e){
-    var a = e.target.closest('a[href^="#"]');
-    if(!a) return;
-    var id = a.getAttribute('href');
-    if(id.length < 2) return;
-    var t = d.querySelector(id);
-    if(!t) return;
-    e.preventDefault();
-    var top = t.getBoundingClientRect().top + window.scrollY - 84;
-    window.scrollTo({top: top, behavior: reduce ? 'auto' : 'smooth'});
-    history.replaceState(null,'',id);
-  });
-
-  /* ---------- language ---------- */
-  var STORE='bp-lang';
-  function setLang(l){
-    root.setAttribute('lang', l);
-    d.querySelectorAll('[data-el][data-en]').forEach(function(el){ el.textContent = el.getAttribute('data-'+l); });
-    d.querySelectorAll('.lang button').forEach(function(b){ b.setAttribute('aria-pressed', String(b.dataset.lang===l)); });
-    splitWords();
-    try{ localStorage.setItem(STORE,l); }catch(e){}
-  }
-  d.querySelectorAll('.lang button').forEach(function(b){
-    b.addEventListener('click', function(){ setLang(b.dataset.lang); });
-  });
-
-  /* ---------- hero word stagger ---------- */
-  function splitWords(){
-    d.querySelectorAll('.words').forEach(function(h){
-      var vis = h.querySelector(root.getAttribute('lang')==='en' ? '.i-en' : '.i-el');
-      if(!vis || vis.dataset.split) return;
-      var frag = d.createDocumentFragment(), i = 0;
-      Array.prototype.slice.call(vis.childNodes).forEach(function(n){
-        if(n.nodeType === 3){
-          n.textContent.split(/(\s+)/).forEach(function(w){
-            if(!w) return;
-            if(/^\s+$/.test(w)){ frag.appendChild(d.createTextNode(w)); return; }
-            var s = d.createElement('span');
-            s.textContent = w;
-            s.style.transitionDelay = (0.05 + (i++) * 0.045) + 's';
-            frag.appendChild(s);
-          });
-        } else {
-          var c = n.cloneNode(true);
-          if(c.style){ c.style.display='inline-block'; c.style.transitionDelay = (0.05 + (i++) * 0.045) + 's'; }
-          frag.appendChild(c);
-        }
-      });
-      vis.textContent = '';
-      vis.appendChild(frag);
-      vis.dataset.split = '1';
-      h.classList.add('in');
-    });
-  }
-
-  var saved=null; try{ saved=localStorage.getItem(STORE); }catch(e){}
-  if(saved==='en') setLang('en'); else splitWords();
+  /* ---------- year ---------- */
+  var yr = $('#yr'); if(yr) yr.textContent = new Date().getFullYear();
 
   /* ---------- sticky header + scroll progress ---------- */
-  var hdr=d.querySelector('header.site'), bar=d.getElementById('progress');
-  var ticking=false;
+  var header = $('header.site'), prog = $('#progress'), ticking = false;
   function onScroll(){
-    if(ticking) return; ticking=true;
-    requestAnimationFrame(function(){
-      var sy = window.scrollY;
-      hdr.classList.toggle('stuck', sy>10);
-      var max = d.documentElement.scrollHeight - window.innerHeight;
-      if(bar) bar.style.transform = 'scaleX(' + (max>0 ? Math.min(1, sy/max) : 0) + ')';
-      parallax();
-      rvSweep();
-      ticking=false;
-    });
+    var y = window.pageYOffset || document.documentElement.scrollTop;
+    header.classList.toggle('stuck', y > 8);
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    if(prog) prog.style.transform = 'scaleX(' + (h > 0 ? Math.min(1, y/h) : 0) + ')';
+    ticking = false;
   }
-  window.addEventListener('scroll', onScroll, {passive:true});
-  window.addEventListener('resize', onScroll, {passive:true});
+  window.addEventListener('scroll', function(){ if(!ticking){ ticking = true; requestAnimationFrame(onScroll); } }, {passive:true});
+  onScroll();
 
-  /* ---------- gentle image parallax ---------- */
-  var pars = Array.prototype.slice.call(d.querySelectorAll('[data-par]'));
-  function parallax(){
-    if(reduce || window.innerWidth < 900) return;
-    var vh = window.innerHeight;
-    pars.forEach(function(el){
-      var r = el.getBoundingClientRect();
-      if(r.bottom < -200 || r.top > vh + 200) return;
-      var img = el.querySelector('.frame img');
-      if(!img) return;
-      var mid = r.top + r.height/2 - vh/2;
-      img.style.transform = 'translate3d(0,' + (-mid * parseFloat(el.dataset.par)).toFixed(2) + 'px,0) scale(1.06)';
-    });
-  }
+  /* ---------- hero word stagger ---------- */
+  $$('.words').forEach(function(el){
+    var html = el.innerHTML.split(' ').map(function(w){ return '<span>' + w + '</span>'; }).join(' ');
+    el.innerHTML = html;
+    $$('span', el).forEach(function(s,i){ s.style.transitionDelay = (0.05 + i*0.07) + 's'; });
+    requestAnimationFrame(function(){ el.classList.add('in'); });
+  });
 
-  /* ---------- mobile nav ---------- */
-  var mob=d.getElementById('mobnav'), burger=d.getElementById('burger'), mobClose=d.getElementById('mobClose');
-  function openMob(){
-    mob.classList.add('open'); burger.setAttribute('aria-expanded','true'); d.body.style.overflow='hidden';
-    mob.querySelectorAll('nav a').forEach(function(a,i){ a.style.animationDelay = (0.06 + i*0.05) + 's'; });
-    mobClose.focus();
-  }
-  function closeMob(){ mob.classList.remove('open'); burger.setAttribute('aria-expanded','false'); d.body.style.overflow=''; }
-  burger.addEventListener('click', openMob);
-  mobClose.addEventListener('click', closeMob);
-  mob.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', closeMob); });
-  d.addEventListener('keydown', function(e){ if(e.key==='Escape' && mob.classList.contains('open')) closeMob(); });
-
-  /* ---------- scroll reveal (IntersectionObserver + fail-safe sweep) ---------- */
-  var rv=d.querySelectorAll('.rv, .rv-scale, .principle, .eyebrow');
-  function rvShowAll(){ rv.forEach(function(el){ el.classList.add('in'); }); }
-  function rvSweep(){
-    var vh = window.innerHeight || root.clientHeight || 0;
-    rv.forEach(function(el){
-      if(el.classList.contains('in')) return;
-      var r = el.getBoundingClientRect();
-      if(r.top < vh * 0.94 && r.bottom > 0) el.classList.add('in');
-    });
-  }
-  if(reduce || !('IntersectionObserver' in window)){ rvShowAll(); }
-  else{
-    var io=new IntersectionObserver(function(en){ en.forEach(function(e){
-      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }); },
-      {threshold:0, rootMargin:'0px 0px -6% 0px'});
-    rv.forEach(function(el){ io.observe(el); });
-    rvSweep();
-    requestAnimationFrame(rvSweep);
-    window.addEventListener('load', function(){ rvSweep(); parallax(); });
+  /* ---------- reveal on scroll (nothing ever stays blank) ---------- */
+  var targets = $$('.rv, .rv-scale');
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, {rootMargin:'-6% 0px -6% 0px', threshold:0.01});
+    targets.forEach(function(t){ io.observe(t); });
+    setTimeout(function(){ targets.forEach(function(t){
+      if(t.getBoundingClientRect().top < window.innerHeight) t.classList.add('in');
+    }); }, 400);
+  } else {
+    targets.forEach(function(t){ t.classList.add('in'); });
   }
 
-  /* ---------- active nav link ---------- */
-  var navLinks = Array.prototype.slice.call(d.querySelectorAll('nav.main a[href^="#"]'));
-  var secs = navLinks.map(function(a){ return d.querySelector(a.getAttribute('href')); }).filter(Boolean);
-  if('IntersectionObserver' in window && secs.length){
-    var sio = new IntersectionObserver(function(en){
-      en.forEach(function(e){
+  /* ---------- mobile menu ---------- */
+  var burger = $('#burger'), mob = $('#mobnav');
+  function setMenu(open){
+    mob.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    document.body.style.overflow = open ? 'hidden' : '';
+  }
+  if(burger){
+    burger.addEventListener('click', function(){ setMenu(!mob.classList.contains('open')); });
+    $('#mobClose').addEventListener('click', function(){ setMenu(false); });
+    $$('a', mob).forEach(function(a){ a.addEventListener('click', function(){ setMenu(false); }); });
+  }
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape'){ setMenu(false); closeReader(); }
+  });
+
+  /* ---------- active section in the nav ---------- */
+  var links = $$('nav.main a'), secs = links.map(function(a){ return $(a.getAttribute('href')); });
+  if('IntersectionObserver' in window){
+    var so = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
         if(!e.isIntersecting) return;
-        navLinks.forEach(function(a){ a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id); });
+        var i = secs.indexOf(e.target);
+        links.forEach(function(l,j){ l.classList.toggle('active', i === j); });
       });
     }, {rootMargin:'-45% 0px -50% 0px'});
-    secs.forEach(function(s){ sio.observe(s); });
+    secs.forEach(function(s){ if(s) so.observe(s); });
   }
 
-  /* ---------- lightbox ---------- */
-  var lb=d.getElementById('lb'), lbImg=d.getElementById('lbImg'), lbClose=d.getElementById('lbClose'), lastFocus=null;
-  function lbOpen(src, alt){
-    lastFocus=d.activeElement;
-    lbImg.src=src; lbImg.alt=alt||'';
-    lb.classList.add('open'); d.body.style.overflow='hidden'; lbClose.focus();
+  /* ============================================================
+     ΑΡΘΡΑ — the list she publishes herself from admin.html.
+     Live copy first (/api/articles), the file in the repo as fallback.
+     Anything with a future date stays hidden until that day arrives.
+     ============================================================ */
+  var grid = $('#artGrid'), empty = $('#artEmpty'), reader = $('#reader');
+  var MONTHS = ['Ιανουαρίου','Φεβρουαρίου','Μαρτίου','Απριλίου','Μαΐου','Ιουνίου','Ιουλίου','Αυγούστου','Σεπτεμβρίου','Οκτωβρίου','Νοεμβρίου','Δεκεμβρίου'];
+  function fmtDate(iso){
+    if(!iso) return '';
+    var p = String(iso).split('-');
+    if(p.length < 3) return iso;
+    return parseInt(p[2],10) + ' ' + MONTHS[parseInt(p[1],10)-1] + ' ' + p[0];
   }
-  function lbHide(){ lb.classList.remove('open'); d.body.style.overflow=''; lbImg.src=''; if(lastFocus) lastFocus.focus(); }
-  d.querySelectorAll('.zoomable').forEach(function(f){
-    f.setAttribute('tabindex','0');
-    f.setAttribute('role','button');
-    var im=f.querySelector('img');
-    f.setAttribute('aria-label', (im && im.alt ? im.alt + ' — ' : '') + 'μεγέθυνση');
-    var go=function(){ lbOpen(f.dataset.full || (im && im.src), im ? im.alt : ''); };
-    f.addEventListener('click', go);
-    f.addEventListener('keydown', function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); go(); } });
-  });
-  lbClose.addEventListener('click', lbHide);
-  lb.addEventListener('click', function(e){ if(e.target===lb) lbHide(); });
-  d.addEventListener('keydown', function(e){ if(e.key==='Escape' && lb.classList.contains('open')) lbHide(); });
+  function esc(s){
+    return String(s == null ? '' : s)
+      .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+  /* plain text → paragraphs; a line on its own that ends without a full stop and is short
+     is treated as a small heading, so she can write naturally without any markup */
+  function toHtml(text){
+    return String(text || '').replace(/\r/g,'').split(/\n{2,}/).map(function(block){
+      var t = block.trim();
+      if(!t) return '';
+      if(t.length < 70 && !/[.!;:·]$/.test(t) && t.split('\n').length === 1) return '<h3>' + esc(t) + '</h3>';
+      return '<p>' + esc(t).replace(/\n/g,'<br>') + '</p>';
+    }).join('');
+  }
+  var LIST = [];
+  function visible(a){
+    if(a.draft) return false;
+    if(!a.date) return true;
+    return a.date <= new Date().toISOString().slice(0,10);
+  }
+  function render(items){
+    LIST = (items || []).filter(visible).sort(function(a,b){ return (b.date||'') < (a.date||'') ? -1 : 1; });
+    if(!LIST.length){ grid.innerHTML = ''; empty.hidden = false; return; }
+    empty.hidden = true;
+    grid.innerHTML = LIST.map(function(a,i){
+      return '<button class="art rv-scale" type="button" data-i="' + i + '">'
+        + (a.date ? '<span class="d">' + esc(fmtDate(a.date)) + '</span>' : '')
+        + '<h3>' + esc(a.title || 'Χωρίς τίτλο') + '</h3>'
+        + (a.summary ? '<p>' + esc(a.summary) + '</p>' : '')
+        + '<span class="more">Διάβασε το άρθρο'
+        + '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+        + '</span></button>';
+    }).join('');
+    $$('.art', grid).forEach(function(b){
+      b.classList.add('in');
+      b.addEventListener('click', function(){ openReader(LIST[+b.dataset.i]); });
+    });
+  }
+  function openReader(a){
+    if(!a) return;
+    $('#readerDate').textContent = fmtDate(a.date);
+    $('#readerTitle').textContent = a.title || '';
+    $('#readerBody').innerHTML = toHtml(a.body);
+    reader.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    reader.scrollTop = 0;
+    if(a.slug) history.replaceState(null, '', '#arthro-' + a.slug);
+  }
+  function closeReader(){
+    if(!reader.classList.contains('open')) return;
+    reader.classList.remove('open');
+    document.body.style.overflow = '';
+    history.replaceState(null, '', '#articles');
+  }
+  $('#readerClose').addEventListener('click', closeReader);
+  reader.addEventListener('click', function(e){ if(e.target === reader) closeReader(); });
 
-
-  onScroll();
+  function loadJSON(url){
+    return fetch(url, {cache:'no-store'}).then(function(r){
+      if(!r.ok) throw new Error(r.status);
+      return r.json();
+    });
+  }
+  function boot(list){
+    render(Array.isArray(list) ? list : (list && list.articles) || []);
+    var h = location.hash || '';
+    if(h.indexOf('#arthro-') === 0){
+      var slug = h.slice(8);
+      var found = LIST.filter(function(a){ return a.slug === slug; })[0];
+      if(found) openReader(found);
+    }
+  }
+  loadJSON('/api/articles')
+    .catch(function(){ return loadJSON('articles.json?t=' + Date.now()); })
+    .then(boot)
+    .catch(function(){ boot([]); });
 })();
 </script>
+
 </body>
 </html>

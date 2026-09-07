@@ -1,0 +1,23 @@
+[build]
+  publish = "."
+  command = ""
+
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+
+[[headers]]
+  for = "/articles.json"
+  [headers.values]
+    Cache-Control = "no-store"
+
+[[headers]]
+  for = "/admin.html"
+  [headers.values]
+    Cache-Control = "no-store"
+    X-Robots-Tag = "noindex, nofollow"
+
+[[headers]]
+  for = "/odigos.html"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"

@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Άρθρα · Being Present</title>
+<link rel="icon" type="image/png" sizes="96x96" href="assets/favicon-96.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F4ECDD; --paper-2:#EFE6D5; --ecru:#F8F2E6; --white:#FFFDF9;
+  --ink:#22392B; --ink-2:#3E5847; --ink-3:#6B7F71;
+  --green:#2C4D3A; --green-deep:#1D3427;
+  --terra:#9A4423; --terra-2:#B75C34; --terra-soft:#E3CDBD;
+  --line:rgba(34,57,43,.16); --line-2:rgba(34,57,43,.09);
+  --ok:#2F7D52; --ok-soft:#E4F3EA; --err:#A8332B; --err-soft:#F8E7E5; --warn:#8A6A16; --warn-soft:#FBF1D8;
+  --serif:"Cormorant Garamond",Georgia,serif; --sans:"Inter",system-ui,-apple-system,sans-serif;
+  --r:16px;
+  --sh:0 1px 2px rgba(22,38,28,.05), 0 10px 26px -14px rgba(22,38,28,.30);
+  --sh-2:0 3px 6px rgba(22,38,28,.06), 0 26px 50px -22px rgba(22,38,28,.34);
+}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-weight:300;
+  font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.15;margin:0}
+h1{font-size:2rem}h2{font-size:1.5rem}h3{font-size:1.2rem}
+a{color:var(--terra)}
+:focus-visible{outline:2px solid var(--terra);outline-offset:2px;border-radius:5px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 clamp(1rem,4vw,2.5rem)}
+
+/* header */
+header{background:rgba(244,236,221,.9);backdrop-filter:blur(12px);position:sticky;top:0;z-index:20;
+  border-bottom:1px solid var(--line-2)}
+header .bar{display:flex;align-items:center;gap:1rem;min-height:70px}
+.lock{display:flex;align-items:center;gap:.65rem;text-decoration:none;color:inherit}
+.lock img{width:26px}
+.lock b{font-family:var(--serif);font-size:1.15rem;font-weight:500}
+.lock i{font-style:normal;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-3);display:block}
+.hact{margin-left:auto;display:flex;gap:.5rem;align-items:center;flex-wrap:wrap}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;font:inherit;font-size:.9rem;font-weight:500;
+  padding:.7rem 1.25rem;border-radius:999px;border:1px solid transparent;cursor:pointer;text-decoration:none;
+  transition:background .2s,color .2s,border-color .2s,transform .2s,box-shadow .2s}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.btn-solid{background:var(--terra);color:#FDF7EE;box-shadow:0 14px 26px -16px rgba(154,68,35,.7)}
+.btn-solid:not(:disabled):hover{background:var(--terra-2);transform:translateY(-1px)}
+.btn-ghost{background:transparent;color:var(--green);border-color:var(--line)}
+.btn-ghost:not(:disabled):hover{background:rgba(44,77,58,.06);border-color:rgba(44,77,58,.3)}
+.btn-quiet{background:transparent;color:var(--ink-3);border-color:transparent;padding:.6rem .8rem}
+.btn-quiet:hover{color:var(--ink);background:rgba(34,57,43,.05)}
+.btn-danger{background:transparent;color:var(--err);border-color:rgba(168,51,43,.3)}
+.btn-danger:hover{background:var(--err-soft)}
+.btn-sm{padding:.45rem .9rem;font-size:.82rem}
+
+/* panels */
+main{padding:clamp(1.5rem,4vw,3rem) 0 5rem}
+.panel{background:var(--ecru);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--sh);
+  padding:clamp(1.3rem,3vw,2.2rem)}
+.hidden{display:none !important}
+
+/* login */
+.login{max-width:430px;margin:clamp(2rem,10vh,6rem) auto}
+.login h1{margin-bottom:.4rem}
+.login p{color:var(--ink-2);margin:0 0 1.6rem}
+
+/* fields */
+.f{display:block;margin-bottom:1.2rem}
+.f > span{display:block;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;font-weight:500;
+  color:var(--ink-3);margin-bottom:.45rem}
+.f > span .hint{text-transform:none;letter-spacing:0;font-weight:300;color:var(--ink-3);opacity:.85}
+input[type=text],input[type=password],input[type=date],textarea{
+  width:100%;font:inherit;font-size:1rem;color:var(--ink);background:var(--white);
+  border:1px solid var(--line);border-radius:12px;padding:.8rem 1rem;transition:border-color .2s,box-shadow .2s}
+input:focus,textarea:focus{outline:none;border-color:var(--terra);box-shadow:0 0 0 4px rgba(154,68,35,.10)}
+textarea{resize:vertical;line-height:1.75}
+textarea#body{min-height:min(56vh,560px);font-size:1.02rem}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}
+.check{display:flex;align-items:flex-start;gap:.7rem;cursor:pointer;font-size:.95rem;color:var(--ink-2)}
+.check input{margin-top:.35rem;width:16px;height:16px;accent-color:var(--terra);flex:0 0 auto}
+
+/* messages */
+.msg{border-radius:12px;padding:.85rem 1.1rem;font-size:.92rem;margin:1rem 0 0;display:none}
+.msg.show{display:block}
+.msg.ok{background:var(--ok-soft);color:var(--ok)}
+.msg.err{background:var(--err-soft);color:var(--err)}
+.msg.warn{background:var(--warn-soft);color:var(--warn)}
+
+/* list */
+.list-head{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:1.4rem}
+.list-head h2{margin-right:auto}
+.items{display:grid;gap:.8rem}
+.item{display:flex;align-items:center;gap:1rem;background:var(--white);border:1px solid var(--line);
+  border-radius:14px;padding:1rem 1.2rem;transition:border-color .2s,box-shadow .2s,transform .2s}
+.item:hover{border-color:var(--terra-soft);box-shadow:var(--sh);transform:translateY(-1px)}
+.item .m{flex:1;min-width:0}
+.item .m b{display:block;font-family:var(--serif);font-size:1.25rem;font-weight:500;color:var(--green-deep);
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.item .m small{display:block;color:var(--ink-3);font-size:.82rem;margin-top:.15rem}
+.pill{font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;font-weight:500;padding:.3rem .7rem;
+  border-radius:999px;white-space:nowrap}
+.pill.live{background:var(--ok-soft);color:var(--ok)}
+.pill.draft{background:rgba(34,57,43,.07);color:var(--ink-3)}
+.pill.sched{background:var(--warn-soft);color:var(--warn)}
+.item .acts{display:flex;gap:.35rem;flex-wrap:wrap}
+.blank{text-align:center;padding:3rem 1rem;color:var(--ink-3);border:1px dashed var(--line);border-radius:var(--r)}
+
+/* preview */
+.prev{background:var(--paper-2);border:1px solid var(--line);border-radius:var(--r);padding:1.4rem 1.6rem;margin-top:1.2rem}
+.prev .lbl{font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:var(--terra);margin-bottom:.8rem}
+.prev h3{font-size:1.6rem;color:var(--green-deep);margin-bottom:.5rem}
+.prev .d{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--terra);margin-bottom:.5rem}
+.prev-body{font-size:.98rem;color:var(--ink-2)}
+.prev-body h3{font-size:1.15rem;margin:1.2rem 0 .4rem}
+.prev-body p{margin:0 0 .9em}
+
+.bar-sticky{position:sticky;bottom:0;background:linear-gradient(to top,var(--paper) 62%,rgba(244,236,221,0));
+  padding:1.4rem 0 1rem;margin-top:1.4rem;display:flex;gap:.6rem;flex-wrap:wrap;align-items:center;z-index:10}
+.bar-sticky .sp{margin-left:auto;font-size:.82rem;color:var(--ink-3)}
+
+footer.mini{text-align:center;color:var(--ink-3);font-size:.8rem;padding:2rem 0 3rem}
+@media (max-width:700px){ .row{grid-template-columns:1fr} }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="lock" href="index.html">
+      <img src="assets/being-present-logo.webp" alt="">
+      <span><b>Being Present</b><i>Πίνακας άρθρων</i></span>
+    </a>
+    <div class="hact" id="hact" hidden>
+      <a class="btn btn-quiet btn-sm" href="odigos.html" target="_blank" rel="noopener">Οδηγίες</a>
+      <a class="btn btn-quiet btn-sm" href="index.html" target="_blank" rel="noopener">Δες τη σελίδα</a>
+      <button class="btn btn-quiet btn-sm" id="logout" type="button">Έξοδος</button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ 1 · ΕΙΣΟΔΟΣ ============ -->
+<section class="wrap login" id="scLogin">
+  <div class="panel">
+    <h1>Καλώς ήρθες, Σοφία</h1>
+    <p>Γράψε τον κωδικό σου για να δεις και να αλλάξεις τα άρθρα σου.</p>
+    <label class="f"><span>Κωδικός</span>
+      <input type="password" id="pass" autocomplete="current-password" placeholder="••••••••">
+    </label>
+    <button class="btn btn-solid" id="login" type="button" style="width:100%">Είσοδος</button>
+    <div class="msg" id="loginMsg"></div>
+  </div>
+</section>
+
+<!-- ============ 2 · ΛΙΣΤΑ ============ -->
+<section class="wrap hidden" id="scList">
+  <div class="list-head">
+    <h2>Τα άρθρα σου</h2>
+    <button class="btn btn-ghost" id="newArt" type="button">＋ Νέο άρθρο</button>
+    <button class="btn btn-solid" id="publish" type="button">Δημοσίευση στη σελίδα</button>
+  </div>
+  <div class="msg" id="listMsg"></div>
+  <div class="items" id="items"></div>
+  <div class="blank hidden" id="blank">
+    Δεν υπάρχει ακόμη κανένα άρθρο.<br>Πάτησε «Νέο άρθρο» για να γράψεις το πρώτο σου.
+  </div>
+  <p style="color:var(--ink-3);font-size:.86rem;margin-top:1.6rem">
+    Οι αλλαγές σου φυλάσσονται σε αυτόν τον υπολογιστή καθώς γράφεις. Εμφανίζονται στη σελίδα
+    μόνο όταν πατήσεις <b>«Δημοσίευση στη σελίδα»</b>.
+  </p>
+</section>
+
+<!-- ============ 3 · ΣΥΝΤΑΞΗ ============ -->
+<section class="wrap hidden" id="scEdit">
+  <div class="list-head">
+    <h2 id="editTitle">Νέο άρθρο</h2>
+    <button class="btn btn-quiet" id="back" type="button">← Πίσω στη λίστα</button>
+  </div>
+
+  <div class="panel">
+    <label class="f"><span>Τίτλος</span>
+      <input type="text" id="title" placeholder="π.χ. Όταν το άγχος μιλάει πρώτο">
+    </label>
+
+    <div class="row">
+      <label class="f"><span>Ημερομηνία δημοσίευσης <span class="hint">— βάλε μελλοντική ημερομηνία και θα εμφανιστεί μόνο του εκείνη τη μέρα</span></span>
+        <input type="date" id="date">
+      </label>
+      <div class="f"><span>Κατάσταση</span>
+        <label class="check"><input type="checkbox" id="draft">
+          <span>Πρόχειρο — μένει κρυφό από τους επισκέπτες μέχρι να το ξετσεκάρεις</span>
+        </label>
+      </div>
+    </div>
+
+    <label class="f"><span>Μικρή περίληψη <span class="hint">— οι 1–2 γραμμές που φαίνονται στην καρτέλα</span></span>
+      <textarea id="summary" rows="2" placeholder="Δυο γραμμές για το τι θα διαβάσει κανείς."></textarea>
+    </label>
+
+    <label class="f"><span>Το κείμενο</span>
+      <textarea id="body" placeholder="Γράψε ελεύθερα.&#10;&#10;Άφησε μια κενή γραμμή ανάμεσα στις παραγράφους.&#10;&#10;Μια κοντή γραμμή μόνη της, χωρίς τελεία, γίνεται μικρός τίτλος."></textarea>
+    </label>
+    <p style="color:var(--ink-3);font-size:.84rem;margin:-.6rem 0 0" id="count"></p>
+
+    <div class="prev">
+      <div class="lbl">Προεπισκόπηση</div>
+      <div class="d" id="pvDate"></div>
+      <h3 id="pvTitle">—</h3>
+      <div class="prev-body" id="pvBody"></div>
+    </div>
+  </div>
+
+  <div class="bar-sticky">
+    <button class="btn btn-solid" id="save" type="button">Αποθήκευση</button>
+    <button class="btn btn-danger" id="del" type="button">Διαγραφή</button>
+    <span class="sp" id="saveNote"></span>
+  </div>
+  <div class="msg" id="editMsg"></div>
+</section>
+
+</main>
+
+<footer class="mini">Being Present · πίνακας άρθρων — <a href="odigos.html">οδηγίες σε μία σελίδα</a></footer>
+
+<script>
+(function(){
+  'use strict';
+  var $ = function(id){ return document.getElementById(id); };
+  var LS = { pass:'bp.admin.pass', draft:'bp.admin.articles' };
+  var PASS = '', SERVER = false, LIST = [], EDIT = null;
+
+  /* ---------- tiny helpers ---------- */
+  function store(k, v){
+    try{ if(v === undefined) return localStorage.getItem(k);
+         if(v === null) localStorage.removeItem(k); else localStorage.setItem(k, v); }catch(e){}
+    return null;
+  }
+  function msg(el, kind, text){
+    el.className = 'msg show ' + kind; el.textContent = text;
+    if(kind === 'ok') setTimeout(function(){ el.className = 'msg'; }, 5000);
+  }
+  function hide(el){ el.className = 'msg'; }
+  function today(){ return new Date().toISOString().slice(0,10); }
+  function uid(){ return Math.random().toString(36).slice(2,10); }
+  function esc(s){ return String(s == null ? '' : s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+  var MONTHS = ['Ιανουαρίου','Φεβρουαρίου','Μαρτίου','Απριλίου','Μαΐου','Ιουνίου','Ιουλίου','Αυγούστου','Σεπτεμβρίου','Οκτωβρίου','Νοεμβρίου','Δεκεμβρίου'];
+  function fmtDate(iso){
+    if(!iso) return ''; var p = String(iso).split('-'); if(p.length < 3) return iso;
+    return parseInt(p[2],10) + ' ' + MONTHS[parseInt(p[1],10)-1] + ' ' + p[0];
+  }
+  function slugify(s){
+    return String(s||'').toLowerCase().trim()
+      .replace(/[ά]/g,'α').replace(/[έ]/g,'ε').replace(/[ή]/g,'η').replace(/[ίϊΐ]/g,'ι')
+      .replace(/[ό]/g,'ο').replace(/[ύϋΰ]/g,'υ').replace(/[ώ]/g,'ω')
+      .replace(/[^a-zα-ω0-9]+/g,'-').replace(/^-+|-+$/g,'').slice(0,60) || uid();
+  }
+  /* same rules as the website, so the preview is honest */
+  function toHtml(text){
+    return String(text||'').replace(/\r/g,'').split(/\n{2,}/).map(function(b){
+      var t = b.trim(); if(!t) return '';
+      if(t.length < 70 && !/[.!;:·]$/.test(t) && t.split('\n').length === 1) return '<h3>' + esc(t) + '</h3>';
+      return '<p>' + esc(t).replace(/\n/g,'<br>') + '</p>';
+    }).join('');
+  }
+  function show(which){
+    ['scLogin','scList','scEdit'].forEach(function(id){ $(id).classList.toggle('hidden', id !== which); });
+    $('hact').hidden = (which === 'scLogin');
+    window.scrollTo(0,0);
+  }
+
+  /* ---------- login ---------- */
+  function doLogin(){
+    var p = $('pass').value.trim();
+    if(!p){ msg($('loginMsg'),'err','Γράψε τον κωδικό σου.'); return; }
+    $('login').disabled = true;
+    fetch('/api/publish', {method:'POST', headers:{'content-type':'application/json'},
+      body: JSON.stringify({action:'login', pass:p})})
+      .then(function(r){ return r.json().catch(function(){ return {}; }).then(function(j){ return {status:r.status, j:j}; }); })
+      .then(function(res){
+        $('login').disabled = false;
+        if(res.status === 401){ msg($('loginMsg'),'err','Ο κωδικός δεν είναι σωστός. Δοκίμασε ξανά.'); return; }
+        if(!res.j || !res.j.ok){ throw new Error('no server'); }
+        PASS = p; SERVER = true; store(LS.pass, p); hide($('loginMsg')); load();
+      })
+      .catch(function(){
+        /* the panel was opened outside Netlify — still usable for writing */
+        $('login').disabled = false;
+        PASS = p; SERVER = false; store(LS.pass, p);
+        msg($('loginMsg'),'warn','Δουλεύεις εκτός σύνδεσης — μπορείς να γράψεις, αλλά η δημοσίευση χρειάζεται τη διεύθυνση της σελίδας σου.');
+        load();
+      });
+  }
+  $('login').addEventListener('click', doLogin);
+  $('pass').addEventListener('keydown', function(e){ if(e.key === 'Enter') doLogin(); });
+  $('logout').addEventListener('click', function(){
+    store(LS.pass, null); PASS = ''; $('pass').value = ''; show('scLogin');
+  });
+
+  /* ---------- load the articles ---------- */
+  function getJSON(u){ return fetch(u, {cache:'no-store'}).then(function(r){ if(!r.ok) throw 0; return r.json(); }); }
+  function load(){
+    var local = store(LS.draft);
+    if(local){
+      try{ LIST = JSON.parse(local) || []; renderList(); show('scList');
+           msg($('listMsg'),'warn','Έχεις αλλαγές που δεν έχουν δημοσιευθεί ακόμη. Πάτησε «Δημοσίευση στη σελίδα» όταν είσαι έτοιμη.');
+           return; }catch(e){}
+    }
+    getJSON('/api/articles')
+      .catch(function(){ return getJSON('articles.json?t=' + Date.now()); })
+      .then(function(j){ LIST = Array.isArray(j) ? j : ((j && j.articles) || []); })
+      .catch(function(){ LIST = []; })
+      .then(function(){ renderList(); show('scList'); });
+  }
+  function saveLocal(){ store(LS.draft, JSON.stringify(LIST)); }
+
+  /* ---------- list ---------- */
+  function statePill(a){
+    if(a.draft) return '<span class="pill draft">Πρόχειρο</span>';
+    if(a.date && a.date > today()) return '<span class="pill sched">Θα βγει ' + esc(fmtDate(a.date)) + '</span>';
+    return '<span class="pill live">Δημοσιευμένο</span>';
+  }
+  function renderList(){
+    LIST.sort(function(a,b){ return (b.date||'') < (a.date||'') ? -1 : 1; });
+    $('blank').classList.toggle('hidden', LIST.length > 0);
+    $('items').innerHTML = LIST.map(function(a,i){
+      return '<div class="item">'
+        + '<div class="m"><b>' + esc(a.title || 'Χωρίς τίτλο') + '</b>'
+        + '<small>' + esc(fmtDate(a.date) || 'χωρίς ημερομηνία') + (a.summary ? ' · ' + esc(a.summary.slice(0,70)) + (a.summary.length > 70 ? '…' : '') : '') + '</small></div>'
+        + statePill(a)
+        + '<div class="acts"><button class="btn btn-ghost btn-sm" data-edit="' + i + '" type="button">Άνοιγμα</button></div>'
+        + '</div>';
+    }).join('');
+    Array.prototype.forEach.call($('items').querySelectorAll('[data-edit]'), function(b){
+      b.addEventListener('click', function(){ openEdit(+b.dataset.edit); });
+    });
+  }
+  $('newArt').addEventListener('click', function(){ openEdit(-1); });
+
+  /* ---------- editor ---------- */
+  function openEdit(i){
+    EDIT = i;
+    var a = i >= 0 ? LIST[i] : {id:uid(), title:'', date:today(), summary:'', body:'', draft:false};
+    $('editTitle').textContent = i >= 0 ? 'Επεξεργασία άρθρου' : 'Νέο άρθρο';
+    $('title').value = a.title || '';
+    $('date').value = a.date || today();
+    $('summary').value = a.summary || '';
+    $('body').value = a.body || '';
+    $('draft').checked = !!a.draft;
+    $('del').style.display = i >= 0 ? '' : 'none';
+    $('saveNote').textContent = '';
+    hide($('editMsg'));
+    preview(); show('scEdit'); $('title').focus();
+  }
+  function preview(){
+    $('pvDate').textContent = fmtDate($('date').value);
+    $('pvTitle').textContent = $('title').value || '—';
+    $('pvBody').innerHTML = toHtml($('body').value);
+    var words = ($('body').value.trim().match(/\S+/g) || []).length;
+    $('count').textContent = words ? words + ' λέξεις · περίπου ' + Math.max(1, Math.round(words/200)) + ' λεπτά διάβασμα' : '';
+  }
+  ['title','date','summary','body'].forEach(function(id){ $(id).addEventListener('input', preview); });
+
+  $('save').addEventListener('click', function(){
+    var t = $('title').value.trim();
+    if(!t){ msg($('editMsg'),'err','Βάλε έναν τίτλο πρώτα.'); $('title').focus(); return; }
+    var a = {
+      id: (EDIT >= 0 && LIST[EDIT].id) || uid(),
+      slug: slugify(t),
+      title: t,
+      date: $('date').value || today(),
+      summary: $('summary').value.trim(),
+      body: $('body').value,
+      draft: $('draft').checked
+    };
+    if(EDIT >= 0) LIST[EDIT] = a; else LIST.unshift(a);
+    saveLocal(); renderList(); show('scList');
+    msg($('listMsg'),'ok','Αποθηκεύτηκε. Πάτησε «Δημοσίευση στη σελίδα» για να το δουν οι επισκέπτες.');
+  });
+
+  $('del').addEventListener('click', function(){
+    if(EDIT < 0) return;
+    if(!confirm('Να διαγραφεί οριστικά το άρθρο «' + (LIST[EDIT].title || 'χωρίς τίτλο') + '»;')) return;
+    LIST.splice(EDIT,1); saveLocal(); renderList(); show('scList');
+    msg($('listMsg'),'ok','Το άρθρο διαγράφηκε. Πάτησε «Δημοσίευση στη σελίδα» για να φύγει και από τη σελίδα.');
+  });
+  $('back').addEventListener('click', function(){ renderList(); show('scList'); });
+
+  /* ---------- publish ---------- */
+  $('publish').addEventListener('click', function(){
+    if(!SERVER){
+      msg($('listMsg'),'err','Η δημοσίευση γίνεται από τη διεύθυνση της σελίδας σου (beingpresent.gr/admin.html). Άνοιξε τον πίνακα από εκεί και πάτησε ξανά.');
+      return;
+    }
+    var b = $('publish'); b.disabled = true; b.textContent = 'Δημοσίευση…';
+    fetch('/api/publish', {method:'POST', headers:{'content-type':'application/json'},
+      body: JSON.stringify({action:'publish', pass:PASS, articles:LIST})})
+      .then(function(r){ return r.json().catch(function(){ return {}; }); })
+      .then(function(j){
+        b.disabled = false; b.textContent = 'Δημοσίευση στη σελίδα';
+        if(j && j.ok){
+          store(LS.draft, null);
+          msg($('listMsg'),'ok','Έτοιμο! Τα άρθρα σου είναι online. Άνοιξε τη σελίδα για να τα δεις.');
+        } else if(j && j.error === 'pass'){
+          msg($('listMsg'),'err','Ο κωδικός δεν έγινε δεκτός. Κάνε έξοδο και ξαναμπές.');
+        } else {
+          msg($('listMsg'),'err','Δεν έγινε η δημοσίευση. Δοκίμασε ξανά σε λίγο — τίποτα δεν χάθηκε.');
+        }
+      })
+      .catch(function(){
+        b.disabled = false; b.textContent = 'Δημοσίευση στη σελίδα';
+        msg($('listMsg'),'err','Δεν υπήρξε σύνδεση. Έλεγξε το ίντερνετ και δοκίμασε ξανά — τίποτα δεν χάθηκε.');
+      });
+  });
+
+  /* ---------- start ---------- */
+  var saved = store(LS.pass);
+  if(saved){ $('pass').value = saved; doLogin(); } else { show('scLogin'); }
+})();
+</script>
+</body>
+</html>
